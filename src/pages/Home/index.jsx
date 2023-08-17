@@ -1,26 +1,24 @@
-import Button from '@/components/Button/index.jsx';
-import React from 'react';
-import learnArrow from '@/assets/arrowforward.jsx';
-import arrowforward from '@/assets/arrow-forward.jsx';
+import Button from '@/components/Button';
+import RegisterArrow from '@/assets/arrowforward.svg';
+import LearnMore from '@/assets/learnmore.svg';
 
 export default function Home() {
-  let register = true;
   return (
-    <div className='w-full flex gap-2 md:gap-4'>
-      <Button register={register}>
-        Register
+    <div className='w-full flex items-center justify-center pt-3 gap-2 md:gap-4'>
+      <Button register={true} inputClasses='w-[153px] md:hover:w-[170px]'>
+        Register Now
         <img
-          src={registerArrow}
+          src={RegisterArrow}
           className='ml-2 md:opacity-0 md:group-hover:opacity-100'
-          alt='Register arrow'
+          alt='Register Now'
         />
       </Button>
-      <Button>
+      <Button inputClasses='w-[153px] md:hover:w-[170px]'>
         Learn more
         <img
-          src={learnArrow}
+          src={LearnMore}
           className='ml-2 md:opacity-0 md:group-hover:opacity-100'
-          alt='Learn more arrow'
+          alt='Learn More'
         />
       </Button>
     </div>
