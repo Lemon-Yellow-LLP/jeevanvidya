@@ -23,20 +23,20 @@ export default function Navbar() {
         <div className='flex items-center justify-between'>
           <div>
             <img src={Logo} alt='JVMLogo' />
-          </div>
-          <div
-            onClick={() => setIsOpened((prev) => !prev)}
-            className='lg:hidden flex justify-center items-center px-3 py-2 gap-4 rounded-[112px] border-2 border-[#1221353d]'
-          >
-            <img src={hamburger} className='cursor-pointer' id='menu-btn' alt='Hamburger Menu' />
-            <img src={profile} alt='profile icon' />
+            <div
+              onClick={() => setIsOpened((prev) => !prev)}
+              className='lg:hidden flex justify-center items-center px-3 py-2 gap-4 rounded-[112px] border-2 border-[#1221353d]'
+            >
+              <img src={hamburger} className='cursor-pointer' id='menu-btn' alt='Hamburger Menu' />
+              <img src={profile} alt='profile icon' />
+            </div>
           </div>
           {isOpen && (
             <div
               className='mt-3 w-full lg:flex lg:items-center transition-all duration-[2000ms] z-auto'
               id='menu'
             >
-              <ul className='flex flex-col md:flex md:justify-between gap-2'>
+              <ul className='flex flex-col md:flex-row gap-2'>
                 {navLinks.map((item) => {
                   return (
                     <li key={item.name}>
