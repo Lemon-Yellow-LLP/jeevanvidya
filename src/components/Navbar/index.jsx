@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <header className='fixed top-0 w-full'>
       <nav className='bg-dark-white shadow-secondary px-4 py-3 md:px-8 lg:px-20 lg:py-[11px]'>
-        <div className='flex items-center justify-between'>
+        <div className='flex flex-col md:flex-row items-center justify-between'>
           <div>
             <img src={Logo} alt='JVMLogo' />
             <div
@@ -36,7 +36,7 @@ export default function Navbar() {
               className='mt-3 w-full lg:flex lg:items-center transition-all duration-[2000ms] z-auto'
               id='menu'
             >
-              <ul className='flex flex-col md:flex-row gap-2'>
+              <ul className='flex flex-col gap-2'>
                 {navLinks.map((item) => {
                   return (
                     <li key={item.name}>
@@ -55,10 +55,10 @@ export default function Navbar() {
             </div>
           )}
           <div
-            className='mt-3 w-full lg:flex lg:items-center transition-all duration-[2000ms] z-auto'
+            className='mt-3 lg:flex lg:items-center transition-all duration-[2000ms] z-auto'
             id='menu'
           >
-            <ul className='flex flex-col md:flex md:justify-between gap-2'>
+            <ul className='flex flex-col md:flex-row md:justify-between gap-2'>
               {navLinks.map((item) => {
                 return (
                   <li key={item.name}>
