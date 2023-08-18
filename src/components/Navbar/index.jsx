@@ -1,6 +1,8 @@
 import Logo from '@/assets/logo.svg';
 import hamburger from '@/assets/hamburger.svg';
 import profile from '@/assets/profile.svg';
+import arrow from '@/assets/arrow.svg';
+import herosectionLogo from '@/assets/100yrlogo.png';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -17,11 +19,12 @@ export default function Navbar() {
   ];
 
   const [isOpen, setIsOpened] = useState(false);
+
   return (
     <header className='fixed top-0 w-full'>
       <nav className='bg-dark-white shadow-secondary px-4 py-3 md:px-8 lg:px-20 lg:py-[11px]'>
-        <div className='flex flex-col md:flex-row items-center justify-between'>
-          <div>
+        <div className='flex flex-col lg:flex-row items-center justify-between'>
+          <div className='flex w-full justify-between'>
             <img src={Logo} alt='JVMLogo' />
             <div
               onClick={() => setIsOpened((prev) => !prev)}
@@ -31,6 +34,7 @@ export default function Navbar() {
               <img src={profile} alt='profile icon' />
             </div>
           </div>
+          {/* Mobile Navbar */}
           {isOpen && (
             <div
               className='mt-3 w-full lg:flex lg:items-center transition-all duration-[2000ms] z-auto'
@@ -54,8 +58,9 @@ export default function Navbar() {
               </div>
             </div>
           )}
+          {/* Desktop Navbar */}
           <div
-            className='mt-3 lg:flex lg:items-center transition-all duration-[2000ms] z-auto'
+            className='hidden mt-3 lg:flex lg:items-center transition-all duration-[2000ms] z-auto'
             id='menu'
           >
             <ul className='flex flex-col md:flex-row md:justify-between gap-2'>
@@ -78,7 +83,31 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <section id='hero-gradient'></section>
+      <section id='herosection' className='hidden lg:block w-full'>
+        <div className='relative overflow-hidden'>
+          <div className='gradient-walker'></div>
+          <div className='flex justify-between items-center w-full bg-gradient-to-r from-blue-500 via-blue-400 to-blue-500 py-[6px] px-4 md:px-20'>
+            <div className='flex items-center gap-6'>
+              <img src={herosectionLogo} alt='' />
+              <div className='flex flex-col'>
+                <span className='text-gold text-lg font-semibold'>100 years of eminence</span>
+                <span className='text-white text-sm font-normal'>
+                  Remembering, honouring, and celebrating Satguru Shri Wamanrao Pai on his 100th
+                  birth anniversary this year.
+                </span>
+              </div>
+            </div>
+            <div className='relative ml-auto'>
+              <div className='w-10 h-10 border-dashed border-[3px] rounded-full flex justify-center items-center rotateanimate'></div>
+              <img
+                src={arrow}
+                className='w-3 h-3 absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4'
+                alt=''
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </header>
   );
 }

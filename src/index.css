@@ -34,3 +34,19 @@ body {
     left: 100%;
   }
 }
+
+/* arrow animation with rotating circle */
+.rotateanimate {
+  animation-name: rotate;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

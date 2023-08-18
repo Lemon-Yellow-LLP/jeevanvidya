@@ -8,10 +8,9 @@ export default {
           red: '#E33439',
           black: '#373435',
         },
-        'natural-black': '#212121',
+        'gold': '#FFD63E',
         secondary: { green: '#147257', blue: '#065381' },
         'dark-white': '#F5F5F5',
-        stroke: '#D9D9D9',
       },
     },
     boxShadow: {
@@ -23,4 +22,3 @@ export default {
   },
   plugins: [],
 };
-  
