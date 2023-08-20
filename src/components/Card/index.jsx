@@ -23,7 +23,6 @@ const Card = ({ btnTitle, cardDesc, cardTitle, children }) => {
       </div>
     </div>
   );
-  0;
 };
 
 export default Card;
