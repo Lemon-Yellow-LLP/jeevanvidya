@@ -2,6 +2,7 @@ import HeroBanner from '@/components/HeroBanner';
 import DnyanpeethBanner from '@/assets/Dnyanpeeth-banner.png';
 import MediaCard from '@/components/MediaCard';
 import TestImage from '@/assets/Dnyanpeeth-banner.png';
+import Flower from '@/assets/section-flower.png';
 
 const feedbackData = [
   {
@@ -31,7 +32,9 @@ const Dnyanpeeth = () => {
       />
 
       <div className='p-20'>
-        <img src='' alt='' />
+        <div className='flex justify-center w-full'>
+          <img src={Flower} alt='' />
+        </div>
         <h2 className='text-center text-[32px] font-semibold'>Feedbacks & Videos</h2>
         <p className='text-center mt-4 font-normal opacity-80'>
           We take immense pride in the accolades and acknowledgments we have received for our
