@@ -11,17 +11,16 @@ export default function Home() {
 
   const handleClick = (e) => {
     setActive(e);
-    // console.log(e);
   };
 
   return (
     <>
-      {types.map((type, index) => (
+      {/* {types.map((type, index) => (
         <TabButton label={type} activeTab={active} onChange={handleClick} key={index}></TabButton>
-      ))}
+      ))} */}
 
-      <SectionTitleDescription {...sectionData} />
-      <Loader />
+      {/* <SectionTitleDescription {...sectionData} /> */}
+      {/* <Loader /> */}
     </>
   );
 }
