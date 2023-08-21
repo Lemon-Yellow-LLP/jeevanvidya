@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <>
-       {/* {types.map((type, index) => (
+      {/* {types.map((type, index) => (
         <TabButton label={type} activeTab={active} onChange={handleClick} key={index}></TabButton>
       ))} */}
 
