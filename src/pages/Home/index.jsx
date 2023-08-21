@@ -1,26 +1,20 @@
-import Button from '@/components/Button';
-import RegisterArrow from '@/assets/arrowforward.svg';
-import LearnMore from '@/assets/learnmore.svg';
+import TabButton from '@/components/TabButton';
+import { useState } from 'react';
 
+const types = ['Written Testimonial', 'Video Testimonials', 'test'];
 export default function Home() {
+  const [active, setActive] = useState(types[0]);
+
+  const handleClick = (e) => {
+    setActive(e);
+    // console.log(e);
+  };
+
   return (
-    <div className='w-full flex items-center justify-center pt-3 gap-2 md:gap-4'>
-      <Button register={true} inputClasses='w-[153px] md:hover:w-[170px]'>
-        Register Now
-        <img
-          src={RegisterArrow}
-          className='ml-2 md:opacity-0 md:group-hover:opacity-100'
-          alt='Register Now'
-        />
-      </Button>
-      <Button inputClasses='w-[153px] md:hover:w-[170px]'>
-        Learn more
-        <img
-          src={LearnMore}
-          className='ml-2 md:opacity-0 md:group-hover:opacity-100'
-          alt='Learn More'
-        />
-      </Button>
-    </div>
+    <>
+      {types.map((type, index) => (
+        <TabButton label={type} activeTab={active} onChange={handleClick} key={index}></TabButton>
+      ))}
+    </>
   );
 }
