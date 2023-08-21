@@ -21,7 +21,7 @@ export default function Navbar() {
   const [isOpen, setIsOpened] = useState(false);
 
   return (
-    <header className='fixed top-0 w-full'>
+    <header className='sticky top-0 w-full'>
       <nav className='bg-dark-white shadow-secondary px-4 py-3 md:px-8 lg:px-20 lg:py-[11px]'>
         <div className='flex flex-col lg:flex-row items-center justify-between'>
           <div className='flex w-full justify-between'>
@@ -86,7 +86,7 @@ export default function Navbar() {
       <section id='herosection' className='hidden lg:block w-full'>
         <div className='relative overflow-hidden'>
           <div className='gradient-walker'></div>
-          <div className='flex justify-between items-center w-full bg-gradient-to-r from-blue-500 via-blue-400 to-blue-500 py-[6px] px-4 md:px-20'>
+          <div className='hero-gradient flex justify-between items-center w-full py-[6px] px-4 md:px-20'>
             <div className='flex items-center gap-6'>
               <img src={herosectionLogo} alt='' />
               <div className='flex flex-col'>

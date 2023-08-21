@@ -36,6 +36,14 @@ body {
   }
 }
 
+/* hero-strip color */
+.hero-gradient {
+  background: var(
+    --gradient-gradient-1,
+    linear-gradient(135deg, #0352a3 0%, #0084cb 100%, #0084cb 100%)
+  );
+}
+
 /* arrow animation with rotating circle */
 .rotateanimate {
   animation-name: rotate;
@@ -68,6 +76,17 @@ body {
     rgba(0, 132, 203, 0.87) 38.37%,
     rgba(0, 132, 203, 0) 56.33%
   );
+}
+@media only screen and (max-width: 1024px) {
+  .banner::before {
+    background: linear-gradient(
+      360deg,
+      #0352a3 0%,
+      #0084cb 44.36%,
+      rgba(0, 132, 203, 0.8659) 50.34%,
+      rgba(0, 132, 203, 0) 64.74%
+    );
+  }
 }
 .active-tab {
   border-radius: 64px;

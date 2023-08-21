@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from '@/pages/Home';
 import Navbar from '@/components/Navbar';
 import MediaPress from '@/pages/MediaPress';
-import Download from '@/components/Download';
+import Download from './components/Download';
 import pdfImage from '@/assets/pdf_file_icon.svg';
 
 const fileData = [
@@ -22,14 +22,16 @@ const fileData = [
     file: pdfImage,
   },
 ];
+import About from './pages/About';
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
+        <Route path='/' element={<Home />} />
         <Route
-          path='/'
+          path='/mediaPress'
           element={
             <div className='blue-gradient flex flex-col pt-[164px]'>
               {/* <MediaPress /> */}
@@ -49,6 +51,7 @@ function App() {
             </div>
           }
         />
+        <Route path='/about' element={<About />} />
       </Routes>
     </BrowserRouter>
   );
