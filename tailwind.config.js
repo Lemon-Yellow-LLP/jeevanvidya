@@ -11,6 +11,10 @@ export default {
         'gold': '#FFD63E',
         secondary: { green: '#147257', blue: '#065381' },
         'dark-white': '#F5F5F5',
+        foreground : {
+          1 : "#122135",
+          2: "rgba(18, 33, 53, 0.6)"
+        }
       },
     },
     boxShadow: {

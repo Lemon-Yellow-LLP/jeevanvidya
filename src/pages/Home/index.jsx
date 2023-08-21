@@ -1,7 +1,10 @@
+import SectionTitleDescription from '@/components/SectionTitleDescription';
 import TabButton from '@/components/TabButton';
 import { useState } from 'react';
+import { sectionData } from './data';
 
 const types = ['Written Testimonial', 'Video Testimonials', 'test'];
+
 export default function Home() {
   const [active, setActive] = useState(types[0]);
 
@@ -15,6 +18,8 @@ export default function Home() {
       {types.map((type, index) => (
         <TabButton label={type} activeTab={active} onChange={handleClick} key={index}></TabButton>
       ))}
+
+      <SectionTitleDescription {...sectionData} />
     </>
   );
 }
