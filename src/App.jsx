@@ -10,7 +10,8 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path='/' element={<MediaPress />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/mediaPress' element={<MediaPress />} />
         <Route path='/about' element={<About />} />
       </Routes>
     </BrowserRouter>
