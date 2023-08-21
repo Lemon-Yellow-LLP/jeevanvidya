@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,4 +7,71 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
-    
+/* gradient walker css and animation */
+.gradient-walker {
+  position: absolute;
+  overflow: hidden;
+  width: 90px;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: move 1.8s linear 0s infinite;
+  animation-fill-mode: forwards;
+  background:
+    linear-gradient(to bottom right, rgba(254, 254, 254, 0.4) 0%, rgba(255, 255, 255, 0) 47%) bottom
+      right / 50% 50% no-repeat,
+    linear-gradient(to bottom left, rgba(255, 255, 255, 0.4) 2%, rgba(255, 255, 255, 0) 47%) bottom
+      left / 50% 50% no-repeat,
+    linear-gradient(to top left, rgba(255, 255, 255, 0.4) 2%, rgba(255, 255, 255, 0) 47%) top left /
+      50% 50% no-repeat,
+    linear-gradient(to top right, rgba(255, 255, 255, 0.4) 6%, rgba(255, 255, 255, 0) 47%) top right /
+      50% 50% no-repeat;
+}
+@keyframes move {
+  from {
+    left: -30%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+/* arrow animation with rotating circle */
+.rotateanimate {
+  animation-name: rotate;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* banner gradient */
+.banner::before {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 2;
+  background: linear-gradient(
+    90deg,
+    #0352a3 0%,
+    #0084cb 23.71%,
+    rgba(0, 132, 203, 0.87) 38.37%,
+    rgba(0, 132, 203, 0) 56.33%
+  );
+}
+.active-tab {
+  border-radius: 64px;
+  border: 1.5px solid rgba(0, 132, 203, 0.48);
+  background: rgba(0, 132, 203, 0.16);
+  backdrop-filter: blur(12px);
+}
