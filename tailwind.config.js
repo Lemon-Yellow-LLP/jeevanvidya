@@ -11,6 +11,10 @@ export default {
         'gold': '#FFD63E',
         secondary: { green: '#147257', blue: '#065381' },
         'dark-white': '#F5F5F5',
+        foreground : {
+          1 : "#122135",
+          2: "rgba(18, 33, 53, 0.6)"
+        }
       },
     },
     boxShadow: {
@@ -19,6 +23,16 @@ export default {
       modal: '0px 8px 11px -4px #0000000D',
       calendar: '0px 4px 14px 0px #0000001A',
     },
+    letterSpacing: {
+      tightest: '-.075em',
+      tighter: '-.05em',
+      tight: '-.025em',
+      normal: '0',
+      wide: '.025em',
+      wider: '.05em',
+      widest: '.1em',
+      widest: '.25em',
+    }
   },
   plugins: [],
 };
