@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Card = ({ btnTitle, cardDesc, cardTitle, children }) => {
+const MediaCard = ({ btnTitle, cardDesc, cardTitle, children }) => {
   return (
     <div className='w-[410px] flex flex-col items-start transform transition duration-500 hover:scale-105 hover:bg-white hover:shadow-lg rounded-xl'>
       {children}
@@ -25,4 +25,4 @@ const Card = ({ btnTitle, cardDesc, cardTitle, children }) => {
   );
 };
 
-export default Card;
+export default MediaCard;
