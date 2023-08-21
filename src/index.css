@@ -77,7 +77,7 @@ body {
     rgba(0, 132, 203, 0) 56.33%
   );
 }
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 767px) {
   .banner::before {
     background: linear-gradient(
       360deg,
