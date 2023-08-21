@@ -4,6 +4,7 @@ import Home from '@/pages/Home';
 import Navbar from '@/components/Navbar';
 import MediaPress from '@/pages/MediaPress';
 import About from './pages/About';
+import UniversalPrayer from './pages/UniversalPrayer';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/mediaPress' element={<MediaPress />} />
         <Route path='/about' element={<About />} />
+        <Route path='/universalPrayer' element={<UniversalPrayer />} />
       </Routes>
     </BrowserRouter>
   );
