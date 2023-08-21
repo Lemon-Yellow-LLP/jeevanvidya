@@ -10,12 +10,12 @@ const Card = ({ btnTitle, cardDesc, cardTitle, children }) => {
         {btnTitle && (
           <a
             href=''
-            class='group w-[147px] flex items-center rounded-lg px-6 py-2 md:py-4 whitespace-nowrap bg-white text-[#F09444] border-2 border-[#F09444] cursor-pointer outline-none overflow-hidden transition-all duration-500 md:hover:w-[160px]'
+            className='group w-[147px] flex items-center rounded-lg px-6 py-2 md:py-4 whitespace-nowrap bg-white text-[#F09444] border-2 border-[#F09444] cursor-pointer outline-none overflow-hidden transition-all duration-500 md:hover:w-[160px]'
           >
-            <span class='text-sm font-normal md:text-base md:font-semibold'>{btnTitle}</span>
+            <span className='text-sm font-normal md:text-base md:font-semibold'>{btnTitle}</span>
             <img
               src='../static/images/learnmore.svg'
-              class='ml-2 md:opacity-0 md:group-hover:opacity-100'
+              className='ml-2 md:opacity-0 md:group-hover:opacity-100'
               alt=''
             />
           </a>
