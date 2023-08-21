@@ -1,8 +1,7 @@
 import SectionTitleDescription from '@/components/SectionTitleDescription';
 import TabButton from '@/components/TabButton';
+import { sectionData } from '@/data/Home';
 import { useState } from 'react';
-import { sectionData } from './data';
-import Loader from '@/components/Loader';
 
 const types = ['Written Testimonial', 'Video Testimonials', 'test'];
 
