@@ -1,5 +1,5 @@
 import ImageDetailContainer from '@/components/ImageDetailContainer';
-import { AboutData } from './data';
+import { AboutData } from '@/data/About';
 import React from 'react';
 
 export default function About() {
