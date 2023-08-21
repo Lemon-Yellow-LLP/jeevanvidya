@@ -6,7 +6,7 @@ export default {
       colors: {
         primary: {
           red: '#E33439',
-          black: '#373435',
+          black: '#122135',
         },
         'gold': '#FFD63E',
         secondary: { green: '#147257', blue: '#065381' },
