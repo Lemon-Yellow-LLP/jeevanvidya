@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -49,4 +50,28 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* banner gradient */
+.banner::before {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 2;
+  background: linear-gradient(
+    90deg,
+    #0352a3 0%,
+    #0084cb 23.71%,
+    rgba(0, 132, 203, 0.87) 38.37%,
+    rgba(0, 132, 203, 0) 56.33%
+  );
+}
+.active-tab {
+  border-radius: 64px;
+  border: 1.5px solid rgba(0, 132, 203, 0.48);
+  background: rgba(0, 132, 203, 0.16);
+  backdrop-filter: blur(12px);
 }
