@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import BackArrow from '@/assets/backarrow.png';
 
-const Banner = ({ bannerTitle, bannerDesc, children, inputClasses, ...props }) => {
+const HeroBanner = ({ bannerTitle, bannerDesc, children, inputClasses, ...props }) => {
   return (
     <div className='relative banner'>
       {children}
@@ -21,7 +21,7 @@ const Banner = ({ bannerTitle, bannerDesc, children, inputClasses, ...props }) =
   );
 };
 
-export default Banner;
+export default HeroBanner;
 
 Banner.prototype = {
   bannerTitle: PropTypes.string,
