@@ -7,6 +7,7 @@ export default {
         primary: {
           red: '#E33439',
           black: '#373435',
+          1: '#0084CB',
         },
         gold: '#FFD63E',
         secondary: { green: '#147257', blue: '#065381' },
@@ -17,6 +18,9 @@ export default {
         },
         dialog: {
           1: 'rgba(255, 255, 255, 0.80)',
+        },
+        gradient: {
+          2: 'linear-gradient(180deg, #E2EAF4 0%, rgba(226, 234, 244, 0.00) 100%)',
         },
       },
       boxShadow: {
