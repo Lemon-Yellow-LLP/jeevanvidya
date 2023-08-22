@@ -1,9 +1,8 @@
 import { cn } from '@/lib/utils';
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 const Button = ({ variant, className, children, ...props }) => {
-  console.log(props);
   return (
     <Link
       className={cn(
@@ -21,4 +20,4 @@ const Button = ({ variant, className, children, ...props }) => {
   );
 };
 
-export default Button;
+export default memo(Button);
