@@ -1,6 +1,6 @@
-import React, { memo } from 'react';
+import React from 'react';
 
-const Card = ({ btnTitle, cardDesc, cardTitle, children }) => {
+const MediaCard = ({ btnTitle, cardDesc, cardTitle, children }) => {
   return (
     <div className='w-[410px] flex flex-col items-start transform transition duration-500 hover:scale-105 hover:bg-white hover:shadow-lg rounded-xl'>
       {children}
@@ -10,12 +10,12 @@ const Card = ({ btnTitle, cardDesc, cardTitle, children }) => {
         {btnTitle && (
           <a
             href=''
-            className='group w-[147px] flex items-center rounded-lg px-6 py-2 md:py-4 whitespace-nowrap bg-white text-[#F09444] border-2 border-[#F09444] cursor-pointer outline-none overflow-hidden transition-all duration-500 md:hover:w-[160px]'
+            class='group w-[147px] flex items-center rounded-lg px-6 py-2 md:py-4 whitespace-nowrap bg-white text-[#F09444] border-2 border-[#F09444] cursor-pointer outline-none overflow-hidden transition-all duration-500 md:hover:w-[160px]'
           >
-            <span className='text-sm font-normal md:text-base md:font-semibold'>{btnTitle}</span>
+            <span class='text-sm font-normal md:text-base md:font-semibold'>{btnTitle}</span>
             <img
               src='../static/images/learnmore.svg'
-              className='ml-2 md:opacity-0 md:group-hover:opacity-100'
+              class='ml-2 md:opacity-0 md:group-hover:opacity-100'
               alt=''
             />
           </a>
@@ -25,4 +25,4 @@ const Card = ({ btnTitle, cardDesc, cardTitle, children }) => {
   );
 };
 
-export default memo(Card);
+export default MediaCard;

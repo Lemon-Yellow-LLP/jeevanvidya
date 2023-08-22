@@ -3,14 +3,17 @@ import Home from '@/pages/Home';
 import Navbar from '@/components/Navbar';
 import MediaPress from '@/pages/MediaPress';
 import TestPage from './pages/TestPage';
+import About from './pages/About';
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
-        <Route path='/' element={<MediaPress />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/mediaPress' element={<MediaPress />} />
         <Route path='/test' element={<TestPage />} />
+        <Route path='/about' element={<About />} />
       </Routes>
     </BrowserRouter>
   );
