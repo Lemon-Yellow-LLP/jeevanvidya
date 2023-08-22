@@ -32,7 +32,7 @@ export default function MediaPress() {
             <span className='text-base'>
               Lorem ipsum dolor sit amet, sectre adipiscing elit.Cras molestie blandit...
             </span>
-            <Button register={true} inputClasses='w-[153px] md:hover:w-[170px]'>
+            <Button register={true} inputclassNamees='w-[153px] md:hover:w-[170px]'>
               Register Now
               <img
                 src={RegisterArrow}
