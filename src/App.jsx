@@ -7,6 +7,7 @@ import About from './pages/About';
 import Dnyanpeeth from '@/pages/Dnyanpeeth';
 import pdfImage from '@/assets/pdf_file_icon.svg';
 import TestPage from './pages/TestPage';
+import Testimonial from '@/pages/Testimonial';
 
 const fileData = [
   {
@@ -54,6 +55,7 @@ function App() {
         ></Route>
         <Route path='/about' element={<About />} />
         <Route path='/dnyanpeeth' element={<Dnyanpeeth />} />
+        <Route path='/testimonial' element={<Testimonial />} />
         <Route path='*' element={<div>Page not found</div>} />
       </Routes>
     </BrowserRouter>
