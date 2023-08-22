@@ -8,7 +8,7 @@ import About from './pages/About';
 function App() {
   return (
     <BrowserRouter>
-      {/* <Navbar /> */}
+      <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/mediaPress' element={<MediaPress />} />
