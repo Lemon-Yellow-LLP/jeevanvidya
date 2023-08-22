@@ -31,33 +31,29 @@ export default function TestPage() {
     phoneNumberVerified: '',
   });
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     let newData = values;
     newData[e.target.name] = e.target.value;
     setValues({ ...newData });
-  };
+  }, []);
 
-  const handleChangeImage = (e) => {
+  const handleChangeImage = useCallback((e) => {
     const file = e.target.files[0];
     let newData = values;
     newData.image = file;
-    setValues(newData);
+    setValues({ ...newData });
     // setSelectedFileName(file.name);
-  };
+  }, []);
 
-  const setPhoneNumberVerified = (e) => {
+  const verifyOTP = useCallback((e) => {
     console.log(e);
-  };
+  }, []);
 
-  const verifyOTP = (e) => {
-    console.log(e);
-  };
-
-  const handleCheckbox = (e) => {
+  const handleCheckbox = useCallback((e) => {
     let newData = values;
     newData[e.target.name] = e.target.checked;
     setValues({ ...newData });
-  };
+  }, []);
 
   console.log(values);
 
@@ -180,6 +176,7 @@ export default function TestPage() {
           // disabled={true}
           // touched={true}
         />
+
         <OtpInputField
           label='Enter OTP'
           required

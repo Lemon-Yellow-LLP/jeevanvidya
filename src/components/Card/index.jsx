@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 const Card = ({ btnTitle, cardDesc, cardTitle, children }) => {
   return (
@@ -25,4 +25,4 @@ const Card = ({ btnTitle, cardDesc, cardTitle, children }) => {
   );
 };
 
-export default Card;
+export default memo(Card);

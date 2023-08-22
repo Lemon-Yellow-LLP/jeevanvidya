@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 function CaptchaWithInput({
   name,
@@ -54,4 +54,4 @@ function CaptchaWithInput({
   );
 }
 
-export default CaptchaWithInput;
+export default memo(CaptchaWithInput);

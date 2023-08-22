@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+import { memo } from 'react';
 
 const RadioButton = ({ name, value, onChange }) => {
   return (
@@ -12,4 +12,4 @@ const RadioButton = ({ name, value, onChange }) => {
   );
 };
 
-export default RadioButton;
+export default memo(RadioButton);
