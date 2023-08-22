@@ -34,7 +34,7 @@ export const universalPrayerData = {
     ],
   },
   popularSingersPrayers: {
-    title: '',
+    title: 'Prayers by popular singers',
     videos: [
       {
         thumbnail: videoThumbnail,
@@ -44,22 +44,63 @@ export const universalPrayerData = {
       },
       {
         thumbnail: videoThumbnail,
-        title: 'Video Title 1',
+        title: 'Video Title 2',
         description:
           'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
       },
       {
         thumbnail: videoThumbnail,
-        title: 'Video Title 1',
+        title: 'Video Title 3',
         description:
           'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
       },
       {
         thumbnail: videoThumbnail,
-        title: 'Video Title 1',
+        title: 'Video Title 4',
         description:
           'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
       },
     ],
   },
+
+  content: {
+    text: `
+    The ‘Universal Prayer’ includes all important needs of a human being. It includes material progress (health, wealth, wisdom) and spiritual progress (devotion to God). Hence it is comprehensive and compact.
+When I ask for ‘everyone’, I expand my consciousness and gradually coincide it with the Infinite Cosmic Life Force. This helps to achieve enlightenment.
+The Universal Prayer simultaneously invokes the unmanifest Cosmic Life Force and the manifest Universe. Hence the person worships both aspects of the Cosmic Life Force. Very few prayers achieve this goal.
+The ancient scriptures have references about asking for the ‘good of all’. Unfortunately, this knowledge was forgotten and not explained. 
+Modern quantum mechanics has proved that both thought and matter are two different forms of energy; and that one can be converted into another.
+    `,
+    image: satguruImage,
+    description: `From time immemorial, human beings are advised to meditate on the ‘Name of God’ to solve all their problems. However it is quite difficult, or almost impossible, due to a variety of reasons. The ‘Universal Prayer’ solves this problem and yet achieves the results, as the practitioner can understand and visualise what he says. Since the ‘Universal Prayer’ asks for the ‘good of all’ and since ‘all’ can be seen and understood, the practitioner is anchored to the ‘Universal Prayer’.
+    Advanced practitioners can gradually expand the circle of ‘all’ in the ‘Universal Prayer’ and include all human beings, animals, birds, trees, and non-living things such as earth, water, fire, air, sky, etc. As he does this, he gets a favourable response from each of these elements.
+    James Allen, a famous philosopher, said ‘as you change your thoughts towards things and people, the things and people will change towards you’. In the ‘Universal Prayer’, the practitioner sends out positive vibrations towards one and all and hence gets back a favourable response from the entire universe.`,
+  },
+  methods: {
+    title: 'Method to say the ‘Universal Prayer’',
+    sectionImage: sectionImage,
+    mainImage: satguruImage,
+    content: [
+      'Maximum flexibility is available to say the ‘Universal Prayer’',
+      'It can be said by any one, at any time, at any place, in any language and addressed to any Deity.]ble to say the ‘Universal Prayer’',
+      'Even if the practitioner has not taken initiation from Satguru, he can say this prayer.',
+      'For better and faster results, it should be said 108 times, before retiring to bed, as the sub-conscious mind is highly receptive at that time.',
+      'Similarly, if it is said in a group and in the presence of an enlightened master, it produces faster results.',
+      'Saying the prayer by understanding it and the underlying cosmic laws, produces faster results.',
+    ],
+  },
+  benefits: [
+    {
+      text: 'The main benefit is that the practitioner achieves a rare peace of mind, which is based on knowledge of cosmic laws.',
+    },
+    {
+      text: 'He achieves all-round progress in his life, which includes better health, wealth, inter-personal relationships and a genuine respect for the entire mankind/Universe.',
+    },
+    {
+      text: 'He can achieve enlightenment/eternal bliss.',
+    },
+    {
+      text: 'He easily gives up his vices, addictions, false beliefs, blind faith and empty rituals. This helps him to save his time and money.',
+    },
+  ],
 };
