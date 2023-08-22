@@ -106,3 +106,7 @@ body {
   border-width: 2px !important;
   outline: #0084cb29 !important;
 }
+
+.swiper-wrapper {
+  display: flex;
+}
