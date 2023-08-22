@@ -6,9 +6,11 @@ export default function Courses() {
   const steps = ['Basic Details', 'Address Details', 'Other Details', 'Success'];
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  const [progress, setProgress] = useState(0.25);
 
   const goToNextStep = useCallback(() => {
     setActiveStepIndex((prev) => prev + 1);
+    setProgress((prev) => prev + 0.25);
   });
 
   useEffect(() => {
@@ -23,7 +25,7 @@ export default function Courses() {
     <div className='md:w-1/2 mx-auto'>
       <div className='container flex flex-col gap-14'>
         {innerWidth < 768 ? (
-          <Stepper steps={steps} activeStep={activeStepIndex} />
+          <Stepper steps={steps} activeStep={activeStepIndex} progress={progress} />
         ) : (
           <DesktopStepper steps={steps} activeStep={activeStepIndex} />
         )}
