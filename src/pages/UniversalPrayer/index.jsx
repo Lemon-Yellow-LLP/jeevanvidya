@@ -104,6 +104,24 @@ export default function UniversalPrayer() {
           </div>
         </div>
       </div>
+      <div className='p-4 lg:p-[80px] space-y-[32px]'>
+        <div className='flex flex-col justify-center items-start gap-4'>
+          <img src={universalPrayerData.benefits.image} alt='section-image' />
+          <h3 className='text-center text-3xl not-italic font-semibold text-foreground-1'>
+            {universalPrayerData.benefits.title}
+          </h3>
+        </div>
+        <div className='flex gap-6 p-6 w-[302px] h-[326px]'>
+          {universalPrayerData.benefits.cards.map((b, i) => (
+            <div
+              key={i}
+              className='flex flex-col p-6 items-center justify-start bg-[#F5F5F5] rounded-2xl'
+            >
+              <p className='whitespace-pre-wrap truncate'>{b.text} </p>
+            </div>
+          ))}
+        </div>
+      </div>
       <Footer />
     </div>
   );

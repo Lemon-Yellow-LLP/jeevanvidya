@@ -89,18 +89,22 @@ Modern quantum mechanics has proved that both thought and matter are two differe
       'Saying the prayer by understanding it and the underlying cosmic laws, produces faster results.',
     ],
   },
-  benefits: [
-    {
-      text: 'The main benefit is that the practitioner achieves a rare peace of mind, which is based on knowledge of cosmic laws.',
-    },
-    {
-      text: 'He achieves all-round progress in his life, which includes better health, wealth, inter-personal relationships and a genuine respect for the entire mankind/Universe.',
-    },
-    {
-      text: 'He can achieve enlightenment/eternal bliss.',
-    },
-    {
-      text: 'He easily gives up his vices, addictions, false beliefs, blind faith and empty rituals. This helps him to save his time and money.',
-    },
-  ],
+  benefits: {
+    image: sectionImage,
+    title: 'Benefits of Universal Prayer',
+    cards: [
+      {
+        text: 'The main benefit is that the practitioner achieves a rare peace of mind, which is based on knowledge of cosmic laws.',
+      },
+      {
+        text: 'He achieves all-round progress in his life, which includes better health, wealth, inter-personal relationships and a genuine respect for the entire mankind/Universe.',
+      },
+      {
+        text: 'He can achieve enlightenment/eternal bliss.',
+      },
+      {
+        text: 'He easily gives up his vices, addictions, false beliefs, blind faith and empty rituals. This helps him to save his time and money.',
+      },
+    ],
+  },
 };
