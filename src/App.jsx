@@ -1,4 +1,3 @@
-import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from '@/pages/Home';
 import Navbar from '@/components/Navbar';
@@ -22,12 +21,13 @@ const fileData = [
     file: pdfImage,
   },
 ];
+import TestPage from './pages/TestPage';
 import About from './pages/About';
 
 function App() {
   return (
     <BrowserRouter>
-      {/* <Navbar /> */}
+      <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route
@@ -51,6 +51,7 @@ function App() {
             </div>
           }
         />
+        <Route path='/test' element={<TestPage />} />
         <Route path='/about' element={<About />} />
       </Routes>
     </BrowserRouter>
