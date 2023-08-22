@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import BackArrow from '@/assets/backarrow.png';
@@ -33,7 +33,7 @@ const HeroBanner = ({
   );
 };
 
-export default HeroBanner;
+export default memo(HeroBanner);
 
 HeroBanner.prototype = {
   bannerTitle: PropTypes.string,

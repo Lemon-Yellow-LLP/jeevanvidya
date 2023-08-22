@@ -10,7 +10,7 @@ export default {
           1: '#0084CB',
         },
         gold: '#FFD63E',
-        secondary: { green: '#147257', blue: '#065381' },
+        secondary: { green: '#147257', blue: '#065381', 1: '#F09444' },
         'dark-white': '#F5F5F5',
         foreground: {
           1: '#122135',

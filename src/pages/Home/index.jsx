@@ -12,14 +12,5 @@ export default function Home() {
     setActive(e);
   };
 
-  return (
-    <>
-      {types.map((type, index) => (
-        <TabButton label={type} activeTab={active} onChange={handleClick} key={index}></TabButton>
-      ))}
-
-      {/* <SectionTitleDescription {...sectionData} /> */}
-      {/* <Loader /> */}
-    </>
-  );
+  return <div>Home</div>;
 }

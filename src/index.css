@@ -101,3 +101,18 @@ body {
   -moz-user-drag: none;
   -ms-user-drag: none;
 }
+.otpInput {
+  height: 48px !important;
+  width: 48px !important;
+  border-radius: 8px !important;
+}
+
+.otpInput:focus {
+  border-color: #0084cb29 !important;
+  border-width: 2px !important;
+  outline: #0084cb29 !important;
+}
+
+.swiper-wrapper {
+  display: flex;
+}
