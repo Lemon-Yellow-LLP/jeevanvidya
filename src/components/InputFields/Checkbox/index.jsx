@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+import { memo } from 'react';
 
 const Checkbox = ({ name, value, onChange }) => {
   return (
@@ -12,4 +12,4 @@ const Checkbox = ({ name, value, onChange }) => {
   );
 };
 
-export default Checkbox;
+export default memo(Checkbox);

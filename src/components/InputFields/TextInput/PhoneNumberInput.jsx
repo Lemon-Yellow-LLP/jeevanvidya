@@ -1,4 +1,5 @@
 import WarningIcon from '@/assets/WarningIcon.jsx';
+import { memo } from 'react';
 
 const PhoneNumberInput = ({
   label,
@@ -64,4 +65,4 @@ const PhoneNumberInput = ({
   );
 };
 
-export default PhoneNumberInput;
+export default memo(PhoneNumberInput);

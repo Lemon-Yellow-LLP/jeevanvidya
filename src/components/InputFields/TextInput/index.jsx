@@ -1,4 +1,5 @@
 import WarningIcon from '@/assets/WarningIcon.jsx';
+import { memo } from 'react';
 
 const TextInput = ({
   label,
@@ -62,4 +63,4 @@ const TextInput = ({
   );
 };
 
-export default TextInput;
+export default memo(TextInput);

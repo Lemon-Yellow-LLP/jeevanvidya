@@ -7,7 +7,6 @@ import phoneimg from '@/assets/phone.svg';
 import socialmedia from '@/assets/socialmedia.svg';
 
 export default function Footer() {
-  console.log(data);
   return (
     <footer className='mt-20 bg-[#172539]'>
       <div className='w-full px-4 md:px-20 pt-10 pb-5'>

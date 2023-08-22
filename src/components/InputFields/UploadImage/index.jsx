@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-export default function UploadImage({
+function UploadImage({
   label,
   name,
   error,
@@ -67,3 +67,5 @@ export default function UploadImage({
     </div>
   );
 }
+
+export default memo(UploadImage);

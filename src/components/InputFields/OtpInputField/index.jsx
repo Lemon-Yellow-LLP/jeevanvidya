@@ -1,10 +1,5 @@
-import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
+import { useState, useMemo, memo } from 'react';
 import OtpInput from 'react-otp-input';
-// import otpVerified from '../../assets/icons/otp-verified.svg';
-// import otpNotVerified from '../../assets/icons/otp-not-verified.svg';
-
-let currentOtpIndex = 0;
-const DISALLOW_CHAR = ['-', '_', '.', '+', 'ArrowUp', 'ArrowDown', 'Unidentified', 'e', 'E'];
 
 const OtpInputField = ({ label, required, verified, hasSentOTPOnce = true, error }) => {
   const [otp, setOtp] = useState('');
@@ -57,4 +52,4 @@ const OtpInputField = ({ label, required, verified, hasSentOTPOnce = true, error
   );
 };
 
-export default OtpInputField;
+export default memo(OtpInputField);

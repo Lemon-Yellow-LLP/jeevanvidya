@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 const Button = ({ register, children, inputClasses, ...props }) => {
-  console.log(props);
   return (
     <Link
       className={`group flex items-center rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibol ${inputClasses} ${
@@ -14,4 +13,4 @@ const Button = ({ register, children, inputClasses, ...props }) => {
   );
 };
 
-export default Button;
+export default memo(Button);
