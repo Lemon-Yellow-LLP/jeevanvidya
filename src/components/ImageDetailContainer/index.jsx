@@ -2,14 +2,13 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import FlowerImage from './flower.png';
 import Button from '../Button';
-
 export default function ImageDetailContainer({
   image,
   title,
   description,
   imagePosition,
   className,
-  ...props
+  btnTitle,
 }) {
   return (
     <div
@@ -19,7 +18,7 @@ export default function ImageDetailContainer({
         className,
       )}
     >
-      <div className='flex-shrink-0 max-w-[328px] max-h-[246px] sm:h-auto  md:w-auto lg:max-w-[628px] lg:max-h-[471px] overflow-hidden rounded-2xl'>
+      <div className='flex-shrink-0 max-w-[328px] max-h-[246px] sm:h-fit  md:w-auto lg:max-w-[628px] lg:max-h-[471px] overflow-hidden rounded-2xl'>
         <img className='object-contain' src={image} alt='aboutImage' />
       </div>
       <div className='flex flex-col items-start max-w-[518px] gap-4'>
