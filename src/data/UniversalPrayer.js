@@ -1,6 +1,7 @@
 import universalPrayerImage from '@/assets/universal-prayer.png';
 import sectionImage from '@/assets/section-flower.png';
 import satguruImage from '@/assets/satguru-image.png';
+import videoThumbnail from '@/assets/thumbnail.png';
 
 export const universalPrayerData = {
   banner: {
@@ -30,6 +31,35 @@ export const universalPrayerData = {
       'You understand the sheer magnitude of interrelation with every aspect and element of your surrounding. This helps you to stay humble and improve your relations with people and materials.',
       'A ripple effect of gratitude flows from you to the world at large, influencing peace and tolerance',
       'When your mind is filled with the thoughts of betterment of others, your body lets go of all the stress and worry caused by competition and negative thoughts. The outflow of positive energies creates an inflow of good health - mental and physical both.',
+    ],
+  },
+  popularSingersPrayers: {
+    title: '',
+    videos: [
+      {
+        thumbnail: videoThumbnail,
+        title: 'Video Title 1',
+        description:
+          'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      },
+      {
+        thumbnail: videoThumbnail,
+        title: 'Video Title 1',
+        description:
+          'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      },
+      {
+        thumbnail: videoThumbnail,
+        title: 'Video Title 1',
+        description:
+          'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      },
+      {
+        thumbnail: videoThumbnail,
+        title: 'Video Title 1',
+        description:
+          'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      },
     ],
   },
 };

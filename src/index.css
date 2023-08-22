@@ -94,3 +94,10 @@ body {
   background: rgba(0, 132, 203, 0.16);
   backdrop-filter: blur(12px);
 }
+
+.bg-image {
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-drag: none;
+}

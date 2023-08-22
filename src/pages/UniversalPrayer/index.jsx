@@ -5,6 +5,7 @@ import { universalPrayerData } from '@/data/UniversalPrayer';
 import TabButton from '@/components/TabButton';
 import PatternImage from '@/assets/pattern.svg';
 import ImageDetailContainer from '@/components/ImageDetailContainer';
+import MediaCard from '@/components/MediaCard';
 
 const types = ['Written Testimonial', 'Video Testimonials', 'test'];
 
@@ -16,8 +17,12 @@ export default function UniversalPrayer() {
   };
   return (
     <div>
-      <Navbar />
-      <HeroBanner {...universalPrayerData.banner} imageClassName='h-auto lg:h-[450px]' />
+      <HeroBanner
+        imageClassName='h-auto lg:h-[450px]'
+        bannerTitle={universalPrayerData.banner.title}
+        bannerDesc={universalPrayerData.banner.description}
+        bannerImg={universalPrayerData.banner.image}
+      />
       <div className='relative'>
         <div className='absolute top-0 right-0 opacity-[0.1]'>
           <img src={PatternImage} alt='pattern' />
@@ -39,7 +44,7 @@ export default function UniversalPrayer() {
           <div className='mb-4 pointer-events-none select-none'>
             <img
               src={universalPrayerData.prayer.image}
-              className='pointer-events-none select-none'
+              className='pointer-events-none select-none '
               alt='section-image'
             />
           </div>
@@ -63,6 +68,29 @@ export default function UniversalPrayer() {
           imagePosition={'right'}
         />
       </div>
+      <PopularSingersPrayers />
+    </div>
+  );
+}
+
+export function PopularSingersPrayers() {
+  return (
+    <section>
+      {universalPrayerData.popularSingersPrayers.videos?.map((v, i) => (
+        <MediaCard key={i} cardDesc={v.description} cardTitle={v.title}>
+          <img src={v.thumbnail} alt={v.title} />
+        </MediaCard>
+      ))}
+    </section>
+  );
+}
+
+export function PopularSingersPrayersItem({ title, thumbnail, description }) {
+  return (
+    <div className='h-40 rounded-lg flex flex-col'>
+      <img className='object-contain' src={thumbnail} alt={title} />
+      <h3 className='text-lg font-semibold leading-7 text-left'>{title}</h3>
+      <p className='text-sm font-normal leading-6 text-left'>{description}</p>
     </div>
   );
 }
