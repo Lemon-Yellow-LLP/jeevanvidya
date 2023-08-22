@@ -1,12 +1,12 @@
 import React from 'react';
 
-const MediaCard = ({ btnTitle, cardDesc, cardTitle, children }) => {
+const MediaCard = ({ btnTitle, cardImg, cardDesc, cardTitle, children }) => {
   return (
-    <div className='w-[410px] flex flex-col items-start transform transition duration-500 hover:scale-105 hover:bg-white hover:shadow-lg rounded-xl'>
-      {children}
+    <div className='w-full md:w-[410px] flex flex-col items-start transform transition duration-500 hover:scale-105 hover:bg-white hover:shadow-lg rounded-xl'>
+      <img src={cardImg} className='w-full rounded-lg' alt='Card' />
       <div className='p-4 flex flex-col items-start gap-2'>
-        <h3 className='text-[22px] font-semibold text-[#122135]'>{cardTitle}</h3>
-        <p className='text-base'>{cardDesc}</p>
+        <h3 className='text-lg md:text-[22px] font-semibold text-[#122135]'>{cardTitle}</h3>
+        <p className='text-sm md:text-base'>{cardDesc}</p>
         {btnTitle && (
           <a
             href=''
