@@ -27,9 +27,11 @@ export default function ImageDetailContainer({
         </div>
         <h2 className='text-3xl not-italic font-semibold'>{title}</h2>
         <p className='text-base not-italic font-normal leading-7'>{description}</p>
-        <Button variant='filled' inputClasses='max-w-fit'>
-          Learn More
-        </Button>
+        {btnTitle ? (
+          <Button variant='filled' inputClasses='max-w-fit'>
+            Learn More
+          </Button>
+        ) : null}
       </div>
     </div>
   );

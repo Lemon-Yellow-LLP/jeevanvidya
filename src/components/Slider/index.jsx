@@ -31,7 +31,7 @@ import { cn } from '@/lib/utils';
         ))}
  * ```
  */
-export default function Slider({ children, className, slidesPerView, spaceBetween }) {
+export default function Slider({ data, children, className, slidesPerView, spaceBetween }) {
   return (
     <div className={cn('flex flex-col p-8', className)}>
       <Swiper
@@ -40,16 +40,17 @@ export default function Slider({ children, className, slidesPerView, spaceBetwee
         navigation={true}
         modules={[Navigation]}
       >
-        {dummyData.map((item, index) => (
+        {/* {data.map((item, index) => (
           <SwiperSlide key={index}>
             <div className='inline-block w-[400px]'>
               <img src={item.image} />
               <h3>{item.title}</h3>
               <p className='w-full truncate whitespace-pre-wrap'>{item.description}</p>
             </div>
+            
           </SwiperSlide>
-        ))}
-
+        ))} */}
+        {children}
         <div className='w-full flex justify-center items-center gap-6'>
           <SliderPrevButton />
           <SlideNextButton />
