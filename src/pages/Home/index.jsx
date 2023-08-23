@@ -1,3 +1,4 @@
+import CourseCard from '@/components/CourseCard';
 import SectionTitleDescription from '@/components/SectionTitleDescription';
 import TabButton from '@/components/TabButton';
 import { sectionData } from '@/data/Home';
@@ -12,5 +13,9 @@ export default function Home() {
     setActive(e);
   };
 
-  return <div>Home</div>;
+  return (
+    <div>
+      <CourseCard />
+    </div>
+  );
 }
