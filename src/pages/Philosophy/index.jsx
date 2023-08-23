@@ -37,39 +37,51 @@ const SliderData = [
 const TabData = [
   {
     label: 'Stress Management',
+    active: 'Stress Management',
   },
   {
+    active: 'Mind management',
     label: 'Mind management',
   },
   {
+    active: 'Relationship Management',
     label: 'Relationship Management',
   },
   {
+    active: 'Spiritual Wisdom',
     label: 'Spiritual Wisdom',
   },
   {
+    active: 'Youth Empowement',
     label: 'Youth Empowement',
   },
   {
-    label: 'Inner Peace, Happiness ',
+    active: 'Inner Peace, Happiness',
+    label: 'Inner Peace, Happiness',
   },
   {
+    active: 'Harmonious Thinking',
     label: 'Harmonious Thinking',
   },
   {
-    label: 'Inner Peace, Happiness ',
+    active: 'Inner Peace, Happiness',
+    label: 'Inner Peace, Happiness',
   },
   {
+    active: 'Concept of God',
     label: 'Concept of God',
   },
   {
+    active: 'Relationship Management',
     label: 'Relationship Management',
   },
   {
+    active: 'Thought Revolution',
     label: 'Thought Revolution',
   },
   {
-    label: 'Human Body -Divine Computer ',
+    active: 'Human Body -Divine Computer',
+    label: 'Human Body -Divine Computer',
   },
 ];
 
@@ -98,7 +110,7 @@ const Philosophy = () => {
         />
         <div className='flex gap-4 flex-wrap'>
           {TabData?.map((item, index) => (
-            <TabButton label={item.label} />
+            <TabButton label={item.label} activeTab={item.active} />
           ))}
         </div>
       </div>
