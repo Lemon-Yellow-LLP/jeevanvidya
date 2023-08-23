@@ -20,7 +20,7 @@ export default function SectionTitleDescription({
         className,
       )}
     >
-      <img src={image} alt='sectionImage' />
+      <img src={image} className='w-fit' alt='sectionImage' />
       <h1 className='text-3xl font-semibold text-foreground-1'>{title}</h1>
       <p className='text-base font-normal leading-7 text-foreground-2'>{description}</p>
     </div>
