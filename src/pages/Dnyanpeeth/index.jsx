@@ -4,9 +4,8 @@ import MediaCard from '@/components/MediaCard';
 import TestImage from '@/assets/Dnyanpeeth-banner.png';
 import Flower from '@/assets/section-flower.png';
 import Pagination from '@/components/Pagination';
-import PageOne from './PageOne';
-import PageTwo from './PageTwo';
-import PageThree from './PageThree';
+import TestCardImage from '@/assets/Dnyanpeeth-banner.png';
+import { useState } from 'react';
 
 const feedbackData = [
   {
@@ -26,9 +25,82 @@ const feedbackData = [
   },
 ];
 
-const pages = [<PageOne />, <PageTwo />, <PageThree />];
+const pages = [
+  [
+    {
+      title: 'VideoOne',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      img: TestCardImage,
+    },
+    {
+      title: 'VideoTwo',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      img: TestCardImage,
+    },
+    {
+      title: 'VideoThree',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      img: TestCardImage,
+    },
+    {
+      title: 'VideoFour',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      img: TestCardImage,
+    },
+    {
+      title: 'VideoFive',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      img: TestCardImage,
+    },
+    {
+      title: 'VideoSix',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      img: TestCardImage,
+    },
+  ],
+  [
+    {
+      title: 'VideoSeven',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      img: TestCardImage,
+    },
+    {
+      title: 'VideoEight',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      img: TestCardImage,
+    },
+    {
+      title: 'VideoNine',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      img: TestCardImage,
+    },
+  ],
+  [
+    {
+      title: 'VideoTen',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      img: TestCardImage,
+    },
+    {
+      title: 'VideoEleven',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      img: TestCardImage,
+    },
+    {
+      title: 'VideoTwelve',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      img: TestCardImage,
+    },
+  ],
+];
 
 const Dnyanpeeth = () => {
+  const [pageData, setPageData] = useState(pages[0]);
+
+  const onChange = (value) => {
+    setPageData(pages[value]);
+  };
+
   return (
     <div>
       <HeroBanner
@@ -59,7 +131,7 @@ const Dnyanpeeth = () => {
       </div>
 
       <div className='p-20'>
-        <Pagination pages={pages} />
+        <Pagination pages={pages} pageData={pageData} callback={onChange} />
       </div>
     </div>
   );
