@@ -5,6 +5,7 @@ import MediaPress from '@/pages/MediaPress';
 import Download from './components/Download';
 import About from './pages/About';
 import Dnyanpeeth from '@/pages/Dnyanpeeth';
+import Philosophy from '@/pages/Philosophy';
 import pdfImage from '@/assets/pdf_file_icon.svg';
 import TestPage from './pages/TestPage';
 import Testimonial from '@/pages/Testimonial';
@@ -55,7 +56,7 @@ function App() {
         ></Route>
         <Route path='/about' element={<About />} />
         <Route path='/dnyanpeeth' element={<Dnyanpeeth />} />
-        <Route path='/testimonial' element={<Testimonial />} />
+        <Route path='/philosophy' element={<Philosophy />} />
         <Route path='*' element={<div>Page not found</div>} />
       </Routes>
     </BrowserRouter>
