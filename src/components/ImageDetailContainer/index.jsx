@@ -26,8 +26,8 @@ export default function ImageDetailContainer({
         <div className=''>
           <img src={FlowerImage} alt='flowerImage' />
         </div>
-        <h2 className='text-3xl not-italic font-semibold'>{title}</h2>
-        <p className='text-base not-italic font-normal leading-7'>{description}</p>
+        <h2 className='text-xl md:text-3xl not-italic font-semibold'>{title}</h2>
+        <p className='text-sm md:text-base not-italic font-normal leading-7'>{description}</p>
         {btnTitle ? (
           <Button variant='filled' inputClasses='max-w-fit'>
             {btnTitle}

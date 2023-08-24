@@ -1,6 +1,8 @@
 import universalPrayerImage from '@/assets/universal-prayer.png';
 import sectionImage from '@/assets/section-flower.png';
 import satguruImage from '@/assets/satguru-image.png';
+import Universal1Image from '@/assets/universal-1.png';
+import Universal2Image from '@/assets/universal-2.png';
 import videoThumbnail from '@/assets/thumbnail.png';
 
 export const universalPrayerData = {
@@ -22,9 +24,14 @@ export const universalPrayerData = {
   },
   about: {
     image: satguruImage,
-    whatIsUniversalPrayer: `The essence of Jeevanvidya Philosophy is the Universal Prayer. It is a succinct, beautiful, and profound poetry which, when uttered, creates an aura of vibrations that impacts an individual, a family, a society, a country, and finally the world at large.
+    sectionImage: sectionImage,
+    universalPrayer: `The essence of Jeevanvidya Philosophy is the Universal Prayer. It is a succinct, beautiful, and profound poetry which, when uttered, creates an aura of vibrations that impacts an individual, a family, a society, a country, and finally the world at large.
     The Universal Prayer explores three essential values of humanity - being interdependent, interconnected, and interrelated. Its universality comes from the lack of focus on any particular age, caste, creed, color, or nationality. It promotes only one thing: betterment of humanity as whole.
     Every word is scientific, logical, and practical in its existence. Woven together, it is a sacrosanct chant of well-being adaptable and beneficial for the world. The far-reaching nature of the Universal Prayer aims to create a deep-rooted and impactful influence of positive thoughts for harmonious results, across the world. `,
+    content: `The cosmic essence of the Prayer:
+    Interdependence is the crux of our existence. Our lives are led by the contribution of many people’s lives. Prayer makes you understand the freedom of this dependency, allowing you to co-exist harmoniously with everything and everyone around you.
+    Mind metamorphoses into matter with sheer force of will. Our interconnection through evolution makes us receptive to change. When you change your thoughts and patterns for the positive towards people and things,  they change for you in equal measures. 
+    In the end, our interrelation to each other creates a chain reaction. This keeps positivity and harmony flowing and growing from an individual, to a family, to a society, to a nation, and at large to the world. `,
     benefits: [
       'Benefits of the Universal Prayer',
       'Through the law of attraction, you influence a chain of positive connection. When you think well for others, you manifest wellness for yourself.',
@@ -71,7 +78,7 @@ The Universal Prayer simultaneously invokes the unmanifest Cosmic Life Force and
 The ancient scriptures have references about asking for the ‘good of all’. Unfortunately, this knowledge was forgotten and not explained. 
 Modern quantum mechanics has proved that both thought and matter are two different forms of energy; and that one can be converted into another.
     `,
-    image: satguruImage,
+    image: Universal1Image,
     description: `From time immemorial, human beings are advised to meditate on the ‘Name of God’ to solve all their problems. However it is quite difficult, or almost impossible, due to a variety of reasons. The ‘Universal Prayer’ solves this problem and yet achieves the results, as the practitioner can understand and visualise what he says. Since the ‘Universal Prayer’ asks for the ‘good of all’ and since ‘all’ can be seen and understood, the practitioner is anchored to the ‘Universal Prayer’.
     Advanced practitioners can gradually expand the circle of ‘all’ in the ‘Universal Prayer’ and include all human beings, animals, birds, trees, and non-living things such as earth, water, fire, air, sky, etc. As he does this, he gets a favourable response from each of these elements.
     James Allen, a famous philosopher, said ‘as you change your thoughts towards things and people, the things and people will change towards you’. In the ‘Universal Prayer’, the practitioner sends out positive vibrations towards one and all and hence gets back a favourable response from the entire universe.`,
@@ -79,7 +86,7 @@ Modern quantum mechanics has proved that both thought and matter are two differe
   methods: {
     title: 'Method to say the ‘Universal Prayer’',
     sectionImage: sectionImage,
-    mainImage: satguruImage,
+    mainImage: Universal2Image,
     content: [
       'Maximum flexibility is available to say the ‘Universal Prayer’',
       'It can be said by any one, at any time, at any place, in any language and addressed to any Deity.]ble to say the ‘Universal Prayer’',
