@@ -6,86 +6,108 @@ import mediaBanner from '@/assets/mediapressBanner.png';
 import newsarticlesImg from '@/assets/newsarticlesImg.png';
 import VideoImg from '@/assets/videoImg.png';
 import NewsImg from '@/assets/newspaper1.png';
-import Pagination from '@/components/Pagination';
 import Dropdown from '@/components/InputFields/Dropdown';
-import TextInput from '@/components/InputFields/TextInput';
 
-const pages = [
-  [
-    {
-      image: newsarticlesImg,
-      slug: 'News & Articles',
-      title: 'Title',
-      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
-    },
-    {
-      image: newsarticlesImg,
-      slug: 'News & Articles',
-      title: 'Title',
-      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
-    },
-    {
-      image: newsarticlesImg,
-      slug: 'News & Articles',
-      title: 'Title',
-      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
-    },
-    {
-      image: newsarticlesImg,
-      slug: 'News & Articles',
-      title: 'Title',
-      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
-    },
-  ],
-  [
-    {
-      image: VideoImg,
-      slug: 'Videos',
-      title: 'Video Title 1',
-      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
-    },
-    {
-      image: VideoImg,
-      slug: 'Videos',
-      title: 'Video Title 1',
-      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
-    },
-    {
-      image: VideoImg,
-      slug: 'Videos',
-      title: 'Video Title 1',
-      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
-    },
-  ],
-  [
-    {
-      image: NewsImg,
-      slug: 'Newspapers',
-    },
-    {
-      image: NewsImg,
-      slug: 'Newspapers',
-    },
-    {
-      image: NewsImg,
-      slug: 'Newspapers',
-    },
-    {
-      image: NewsImg,
-      slug: 'Newspapers',
-    },
-    {
-      image: NewsImg,
-      slug: 'Newspapers',
-    },
-    {
-      image: NewsImg,
-      slug: 'Newspapers',
-    },
-  ],
-];
+// const pages = [
+//   [
+//     {
+//       image: newsarticlesImg,
+//       slug: 'News & Articles',
+//       title: 'Title',
+//       desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+//     },
+//     {
+//       image: newsarticlesImg,
+//       slug: 'News & Articles',
+//       title: 'Title',
+//       desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+//     },
+//     {
+//       image: newsarticlesImg,
+//       slug: 'News & Articles',
+//       title: 'Title',
+//       desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+//     },
+//     {
+//       image: newsarticlesImg,
+//       slug: 'News & Articles',
+//       title: 'Title',
+//       desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+//     },
+//   ],
+//   [
+//     {
+//       image: VideoImg,
+//       slug: 'Videos',
+//       title: 'Video Title 1',
+//       desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+//     },
+//     {
+//       image: VideoImg,
+//       slug: 'Videos',
+//       title: 'Video Title 1',
+//       desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+//     },
+//     {
+//       image: VideoImg,
+//       slug: 'Videos',
+//       title: 'Video Title 1',
+//       desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+//     },
+//   ],
+//   [
+//     {
+//       image: NewsImg,
+//       slug: 'Newspapers',
+//     },
+//     {
+//       image: NewsImg,
+//       slug: 'Newspapers',
+//     },
+//     {
+//       image: NewsImg,
+//       slug: 'Newspapers',
+//     },
+//     {
+//       image: NewsImg,
+//       slug: 'Newspapers',
+//     },
+//     {
+//       image: NewsImg,
+//       slug: 'Newspapers',
+//     },
+//     {
+//       image: NewsImg,
+//       slug: 'Newspapers',
+//     },
+//   ],
+// ];
 
 const newsData = [
+  {
+    image: newsarticlesImg,
+    slug: 'News & Articles',
+    title: 'Title',
+    desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+  },
+  {
+    image: newsarticlesImg,
+    slug: 'News & Articles',
+    title: 'Title',
+    desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+  },
+  {
+    image: newsarticlesImg,
+    slug: 'News & Articles',
+    title: 'Title',
+    desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+  },
+  {
+    image: newsarticlesImg,
+    slug: 'News & Articles',
+    title: 'Title',
+    desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+  },
   {
     image: newsarticlesImg,
     slug: 'News & Articles',
@@ -177,7 +199,6 @@ export default function MediaPress() {
       value: 3,
     },
   ];
-  const [pageData, setPageData] = useState(pages[0]);
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   const handleTabClick = (tab) => {
@@ -206,7 +227,7 @@ export default function MediaPress() {
         </div>
 
         <div className='w-full'>
-          <form className='flex items-center gap-4'>
+          <form className='flex text-center items-baseline gap-4'>
             <label htmlFor='sortby'>Sort By:</label>
             <Dropdown options={options} placeholder='Search Branch' />
           </form>
@@ -214,7 +235,6 @@ export default function MediaPress() {
       </div>
 
       <div className='md:p-20 p-3 bg-[#f5f5f5]'>
-        {/* <Pagination pages={pages} pageData={pageData} callback={onChange} btnTitle='Read More' /> */}
         <div
           className={`grid gap-x-6 gap-y-8 ${
             activeTab === tabs[0] || activeTab === tabs[1] ? 'md:grid-cols-3' : 'md:grid-cols-4'
