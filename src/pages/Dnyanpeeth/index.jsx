@@ -3,6 +3,9 @@ import DnyanpeethBanner from '@/assets/Dnyanpeeth-banner.png';
 import MediaCard from '@/components/MediaCard';
 import TestImage from '@/assets/Dnyanpeeth-banner.png';
 import Flower from '@/assets/section-flower.png';
+import Pagination from '@/components/Pagination';
+import PageOne from './pagination-pages/PageOne';
+import PageTwo from './pagination-pages/PageTwo';
 
 const feedbackData = [
   {
@@ -21,6 +24,8 @@ const feedbackData = [
     img: TestImage,
   },
 ];
+
+const pages = [<PageOne />, <PageTwo />];
 
 const Dnyanpeeth = () => {
   return (
@@ -42,11 +47,18 @@ const Dnyanpeeth = () => {
         </p>
         <div className='flex gap-6 mt-8'>
           {feedbackData.map((data, index) => (
-            <MediaCard cardTitle={data.title} cardDesc={data.desc} key={index}>
-              <img src={data.img} alt='' className='rounded-xl' />
-            </MediaCard>
+            <MediaCard
+              cardTitle={data.title}
+              cardDesc={data.desc}
+              key={index}
+              cardImage={data.img}
+            />
           ))}
         </div>
+      </div>
+
+      <div className='p-20'>
+        <Pagination pages={pages} />
       </div>
     </div>
   );
