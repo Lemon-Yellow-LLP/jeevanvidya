@@ -9,6 +9,7 @@ import Download from './components/Download';
 import Philosophy from '@/pages/Philosophy';
 import pdfImage from '@/assets/pdf_file_icon.svg';
 import TestPage from './pages/TestPage';
+import Testimonial from '@/pages/Testimonial';
 
 const fileData = [
   {
