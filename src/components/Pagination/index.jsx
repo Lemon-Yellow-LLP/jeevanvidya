@@ -1,22 +1,11 @@
 import { useState } from 'react';
-import MediaCard from '../MediaCard';
 
-const Pagination = ({ pages, pageData, callback }) => {
+const Pagination = ({ pages }) => {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
     <>
-      <div className='grid grid-cols-3 gap-y-8 gap-x-6'>
-        {pageData.map((data, index) => (
-          <MediaCard
-            btnTitle='Read More'
-            cardTitle={data.title}
-            cardDesc={data.desc}
-            cardImage={data.img}
-            key={index}
-          />
-        ))}
-      </div>
+      {pages.map((page, index) => index === activeStep && <div key={index}>{page}</div>)}
 
       <div className='flex justify-center gap-4 mt-8'>
         {activeStep !== 0 && (
@@ -24,7 +13,6 @@ const Pagination = ({ pages, pageData, callback }) => {
             className='bg-white border-[1px] border-[#E2EAF4] text-primary-black h-10 w-10 rounded-full flex justify-center items-center cursor-pointer'
             onClick={() => {
               setActiveStep((prev) => prev - 1);
-              callback(activeStep - 1);
             }}
           >
             <svg
@@ -60,7 +48,6 @@ const Pagination = ({ pages, pageData, callback }) => {
             key={index}
             onClick={() => {
               setActiveStep(index);
-              callback(index);
             }}
           >
             {index + 1}
@@ -72,7 +59,6 @@ const Pagination = ({ pages, pageData, callback }) => {
             className='bg-white border-[1px] border-[#E2EAF4] text-primary-black h-10 w-10 rounded-full flex justify-center items-center cursor-pointer'
             onClick={() => {
               setActiveStep((prev) => prev + 1);
-              callback(activeStep + 1);
             }}
           >
             <svg
