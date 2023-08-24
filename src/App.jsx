@@ -9,6 +9,7 @@ import Philosophy from '@/pages/Philosophy';
 import pdfImage from '@/assets/pdf_file_icon.svg';
 import TestPage from './pages/TestPage';
 import Testimonial from '@/pages/Testimonial';
+import PhilosophyQuotes from './pages/PhilosophyQuotes';
 
 const fileData = [
   {

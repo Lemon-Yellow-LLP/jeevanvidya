@@ -124,20 +124,19 @@ const Philosophy = () => {
           />
         </div>
       </div>
-      {/* <Slider data={SliderData} slidesPerView={1}>
-          {SliderData?.map((item, index) => (
-            <SwiperSlide key={index}>
-              <ImageDetailContainer
-                image={item.image}
-                title={item.title}
-                description={item.description}
-                imagePosition='left'
-              />
-            </SwiperSlide>
-          ))}
-        </Slider> */}
+      {/* <Slider data={SliderData}>
+        {SliderData?.map((item, index) => (
+          <SwiperSlide key={index}>
+            <ImageDetailContainer
+              image={item.image}
+              title={item.title}
+              description={item.description}
+              imagePosition='right'
+            />
+          </SwiperSlide>
+        ))}
+      </Slider> */}
       <div className='p-4 lg:p-20'>
-        {' '}
         <SectionTitleDescription
           image={FlowerImage}
           title='Benefits of Jeevanvidya'
