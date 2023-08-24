@@ -8,6 +8,7 @@ import Dnyanpeeth from '@/pages/Dnyanpeeth';
 import Philosophy from '@/pages/Philosophy';
 import pdfImage from '@/assets/pdf_file_icon.svg';
 import TestPage from './pages/TestPage';
+import PhilosophyQuotes from './pages/PhilosophyQuotes';
 
 const fileData = [
   {
@@ -56,6 +57,7 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/dnyanpeeth' element={<Dnyanpeeth />} />
         <Route path='/philosophy' element={<Philosophy />} />
+        <Route path='/philosophy-quotes' element={<PhilosophyQuotes />} />
         <Route path='*' element={<div>Page not found</div>} />
       </Routes>
     </BrowserRouter>

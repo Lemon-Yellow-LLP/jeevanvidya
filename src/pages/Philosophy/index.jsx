@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import HeroBanner from '@/components/HeroBanner';
 import ImageDetailContainer from '@/components/ImageDetailContainer';
 import SectionTitleDescription from '@/components/SectionTitleDescription';
@@ -6,12 +6,17 @@ import Slider from '@/components/Slider';
 import FlowerImage from '@/assets/flower.png';
 import FlowerImage2 from '@/assets/flower2.svg';
 import PhilosophyBanner from '@/assets/Philosophy-banner.png';
+import TabImage from '@/assets/tab-img.png';
 import PhilosophyImg1 from '@/assets/philosophy-img1.png';
 import BenefitsCardLogo from '@/assets/benefits-card-logo.svg';
 import TestImage from '@/assets/Dnyanpeeth-banner.png';
 import { BenefitsData } from '@/data/Philosophy';
+import { TabLabelData } from '@/data/Philosophy';
+import { TabData } from '@/data/Philosophy';
 import { SwiperSlide } from 'swiper/react';
 import TabButton from '@/components/TabButton';
+import { useState } from 'react';
+import { cn } from '@/lib/utils';
 
 const SliderData = [
   {
@@ -34,58 +39,22 @@ const SliderData = [
   },
 ];
 
-const TabData = [
-  {
-    label: 'Stress Management',
-    active: 'Stress Management',
-  },
-  {
-    active: 'Mind management',
-    label: 'Mind management',
-  },
-  {
-    active: 'Relationship Management',
-    label: 'Relationship Management',
-  },
-  {
-    active: 'Spiritual Wisdom',
-    label: 'Spiritual Wisdom',
-  },
-  {
-    active: 'Youth Empowement',
-    label: 'Youth Empowement',
-  },
-  {
-    active: 'Inner Peace, Happiness',
-    label: 'Inner Peace, Happiness',
-  },
-  {
-    active: 'Harmonious Thinking',
-    label: 'Harmonious Thinking',
-  },
-  {
-    active: 'Inner Peace, Happiness',
-    label: 'Inner Peace, Happiness',
-  },
-  {
-    active: 'Concept of God',
-    label: 'Concept of God',
-  },
-  {
-    active: 'Relationship Management',
-    label: 'Relationship Management',
-  },
-  {
-    active: 'Thought Revolution',
-    label: 'Thought Revolution',
-  },
-  {
-    active: 'Human Body -Divine Computer',
-    label: 'Human Body -Divine Computer',
-  },
-];
-
 const Philosophy = () => {
+  const [active, setActive] = useState(TabLabelData[0]);
+  const [showMoreTabs, setShowMoreTabs] = useState(true);
+  const [activeData, setActiveData] = useState({});
+  const handleClick = (e) => {
+    setActive(e);
+    // console.log(e);
+  };
+
+  useEffect(() => {
+    //api call and send active tab
+
+    setActiveData({ ...TabData.find((tab) => tab.title === active) });
+    //api res set as activeData
+  }, [active]);
+
   return (
     <div>
       <HeroBanner
@@ -95,6 +64,7 @@ const Philosophy = () => {
       />
 
       <ImageDetailContainer
+        sectionImage={FlowerImage}
         image={PhilosophyImg1}
         title='Jeevanvidya Philosophy'
         description='Satguru Shri Wamanrao Pai evolved the Jeevanvidya Philosophy which is the ‘Science of Life and The Art of Living’based on the teaching of Saints and Sages, his own experiences in life, his deep contemplation and the blessingsof his own Satguru. Jeevanvidya Philosophy is an excellent combination of psychology, parapsychology and metaphysics and has thepotential to help man to achieve both materail prosperity as well as psycho-spiritual progress by making concerted effortsunder the circumstances as they exist.'
@@ -108,10 +78,50 @@ const Philosophy = () => {
           align='center'
           className='!p-0 mb-4 lg:mb-8 '
         />
-        <div className='flex gap-4 flex-wrap'>
-          {TabData?.map((item, index) => (
-            <TabButton label={item.label} activeTab={item.active} />
-          ))}
+        <div className=''>
+          <div
+            className={cn('flex gap-4 flex-wrap', {
+              'h-[60px] overflow-hidden  ': showMoreTabs,
+              'h-auto ': !showMoreTabs,
+            })}
+          >
+            {TabLabelData?.map((item, index) => (
+              <TabButton label={item} activeTab={active} onChange={handleClick} key={index} />
+            ))}
+          </div>
+          <button
+            className='text-base font-semibold p-4 text-secondary-1 flex gap-2'
+            onClick={() => setShowMoreTabs(!showMoreTabs)}
+          >
+            {showMoreTabs ? 'Show more' : 'Show less'}
+            <svg
+              width='24'
+              height='24'
+              viewBox='0 0 24 24'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+              className={cn({ 'rotate-180 ': !showMoreTabs })}
+            >
+              <g clipPath='url(#clip0_1609_63369)'>
+                <path
+                  d='M11.9997 13.172L16.9497 8.22198L18.3637 9.63598L11.9997 16L5.63574 9.63598L7.04974 8.22198L11.9997 13.172Z'
+                  fill='#F09444'
+                />
+              </g>
+              <defs>
+                <clipPath id='clip0_1609_63369'>
+                  <rect width='24' height='24' fill='white' />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+          <ImageDetailContainer
+            image={activeData?.image}
+            title={activeData?.title}
+            description={activeData?.description}
+            imagePosition='left'
+            className='!px-0 py-8 gap-8'
+          />
         </div>
       </div>
       {/* <Slider data={SliderData} slidesPerView={1}>

@@ -19,6 +19,9 @@ export default {
           1: 'rgba(255, 255, 255, 0.80)',
         },
       },
+      backgroundImage: {
+        'quotes-bg': "url('./assets/quotes-bg.png')",
+      },
       boxShadow: {
         primary: '',
         secondary: '0px 4px 44px 0px rgba(50, 103, 227, 0.08)',
