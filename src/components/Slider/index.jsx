@@ -1,6 +1,5 @@
-import React, { useRef } from 'react';
-import thumbnailImage from '@/assets/thumbnail.png';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React from 'react';
+import { Swiper } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { SlideNextButton, SliderPrevButton } from './buttons';
 import { cn } from '@/lib/utils';

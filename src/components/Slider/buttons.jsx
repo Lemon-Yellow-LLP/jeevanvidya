@@ -1,5 +1,5 @@
 // some-inner-component.jsx
-import { React, useEffect } from 'react';
+import { React } from 'react';
 import { useSwiper } from 'swiper/react';
 
 export function SliderPrevButton() {

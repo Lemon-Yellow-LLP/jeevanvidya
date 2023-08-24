@@ -6,7 +6,9 @@ import UniversalPrayer from './pages/UniversalPrayer';
 import About from '@/pages/About';
 import Dnyanpeeth from '@/pages/Dnyanpeeth';
 import Download from './components/Download';
+import Philosophy from '@/pages/Philosophy';
 import pdfImage from '@/assets/pdf_file_icon.svg';
+import TestPage from './pages/TestPage';
 
 const fileData = [
   {
@@ -24,7 +26,6 @@ const fileData = [
     file: pdfImage,
   },
 ];
-import TestPage from './pages/TestPage';
 
 function App() {
   return (
@@ -34,14 +35,12 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/universalPrayer' element={<UniversalPrayer />} />
-        <Route path='/dnyanpeeth' element={<Dnyanpeeth />} />
-        <Route path='*' element={<div>Page not found</div>} />
+        <Route path='/media-press' element={<MediaPress />} />
+        <Route path='/test' element={<TestPage />} />
         <Route
-          path='/mediaPress'
+          path='/test-two'
           element={
             <div className='blue-gradient flex flex-col pt-[164px]'>
-              {/* <MediaPress /> */}
-
               <div className='flex gap-6'>
                 {fileData.map((file, index) => (
                   <Download
@@ -56,9 +55,11 @@ function App() {
               </div>
             </div>
           }
-        />
-        <Route path='/test' element={<TestPage />} />
+        ></Route>
         <Route path='/about' element={<About />} />
+        <Route path='/dnyanpeeth' element={<Dnyanpeeth />} />
+        <Route path='/philosophy' element={<Philosophy />} />
+        <Route path='*' element={<div>Page not found</div>} />
       </Routes>
     </BrowserRouter>
   );
