@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import BackArrow from '@/assets/backarrow.png';
 
 const HeroBanner = ({ bannerImg, bannerTitle, bannerDesc, children, ...props }) => {
   return (
-    <div className='relative banner h-[480px] md:h-full'>
-      <img src={bannerImg} alt='' className='w-full' />
-      <div className='flex flex-col gap-12 absolute md:top-1/3 px-4 pb-6 md:pl-20 w-full z-10'>
+    <div className='relative banner h-[480px] md:h-[450px]'>
+      <img src={bannerImg} alt='' className='w-full h-full object-cover object-center' />
+      <div className='flex flex-col gap-12 md:gap-16 absolute bottom-6 md:bottom-0 md:top-[70px] px-4 md:px-20 w-full z-10'>
         <Link className='flex items-center gap-2'>
           <img src={BackArrow} alt='' />
           <span className='text-sm md:text-base font-semibold text-dark-white'>Back</span>
@@ -25,7 +25,7 @@ const HeroBanner = ({ bannerImg, bannerTitle, bannerDesc, children, ...props }) 
   );
 };
 
-export default HeroBanner;
+export default memo(HeroBanner);
 
 HeroBanner.prototype = {
   bannerTitle: PropTypes.string,

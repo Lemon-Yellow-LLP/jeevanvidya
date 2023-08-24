@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-function TabButton({activeTab, label, onChange }) {
-  console.log(activeTab);
-  console.log(label);
+function TabButton({ activeTab, label, onChange }) {
   return (
     <div
       className={` ${
@@ -15,4 +13,4 @@ function TabButton({activeTab, label, onChange }) {
   );
 }
 
-export default TabButton;
+export default memo(TabButton);
