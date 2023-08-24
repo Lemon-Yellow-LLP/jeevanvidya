@@ -111,13 +111,26 @@ export default function UniversalPrayer() {
             {universalPrayerData.benefits.title}
           </h3>
         </div>
-        <div className='flex gap-6 p-6 w-[302px] h-[326px]'>
+        <div className='grid grid-cols-4 gap-6 '>
           {universalPrayerData.benefits.cards.map((b, i) => (
             <div
               key={i}
-              className='flex flex-col p-6 items-center justify-start bg-[#F5F5F5] rounded-2xl'
+              className='flex flex-col p-6 items-start gap-4 justify-start bg-[#F5F5F5] rounded-2xl w-[302px] h-[326px]'
             >
-              <p className='whitespace-pre-wrap truncate'>{b.text} </p>
+              <div className=''>
+                <svg
+                  width='64'
+                  height='64'
+                  viewBox='0 0 64 64'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <circle id='icon' opacity='0.8' cx='32' cy='32' r='32' fill='#D9D9D9' />
+                </svg>
+              </div>
+              <p className='whitespace-pre-wrap truncate text-base not-italic font-normal leading-7 text-foreground-2'>
+                {b.text}{' '}
+              </p>
             </div>
           ))}
         </div>

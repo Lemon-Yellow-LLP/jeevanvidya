@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 /**
  *  To use slider, pass the children elements wrapped in `SwiperSlide` component
  */
-export default function Slider({ children, className, slidesPerView, spaceBetween }) {
+export default function Slider({ children, className, slidesPerView = 3.5, spaceBetween = 24 }) {
   return (
     <div className={cn('flex flex-col p-8', className)}>
       <Swiper
