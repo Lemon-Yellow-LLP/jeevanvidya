@@ -6,7 +6,7 @@ import BackArrow from '@/assets/backarrow.png';
 const HeroBanner = ({ bannerImg, bannerTitle, bannerDesc, children, ...props }) => {
   return (
     <div className='relative banner h-[480px] md:h-[450px]'>
-      <img src={bannerImg} alt='' className='w-full h-full object-cover object-center' />
+      <img src={bannerImg} alt='' className='w-full h-[270px] md:h-full object-cover object-center' />
       <div className='flex flex-col gap-12 md:gap-16 absolute bottom-6 md:bottom-0 md:top-[70px] px-4 md:px-20 w-full z-10'>
         <Link className='flex items-center gap-2'>
           <img src={BackArrow} alt='' />
