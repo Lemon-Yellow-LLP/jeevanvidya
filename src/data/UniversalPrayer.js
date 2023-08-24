@@ -4,6 +4,7 @@ import satguruImage from '@/assets/satguru-image.png';
 import Universal1Image from '@/assets/universal-1.png';
 import Universal2Image from '@/assets/universal-2.png';
 import videoThumbnail from '@/assets/thumbnail.png';
+import flowerImage from '@/assets/flower.png';
 
 export const universalPrayerData = {
   banner: {
@@ -97,7 +98,7 @@ Modern quantum mechanics has proved that both thought and matter are two differe
     ],
   },
   benefits: {
-    image: sectionImage,
+    image: flowerImage,
     title: 'Benefits of Universal Prayer',
     cards: [
       {

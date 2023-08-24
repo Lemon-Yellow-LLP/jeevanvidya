@@ -191,7 +191,7 @@ export default function UniversalPrayer() {
           {universalPrayerData.benefits.cards.map((b, i) => (
             <div
               key={i}
-              className='relative flex flex-col p-6 mx-auto items-start gap-4 justify-start bg-[#F5F5F5] rounded-2xl w-[302px] h-[326px] border border-[#E8EDF4]'
+              className='relative flex flex-col p-6 mx-auto items-start gap-4 justify-start bg-[#F5F5F5] rounded-2xl w-[min(302px, 100%)] h-[326px] border border-[#E8EDF4]'
             >
               <div className=''>
                 <svg
@@ -204,12 +204,12 @@ export default function UniversalPrayer() {
                   <circle id='icon' opacity='0.8' cx='32' cy='32' r='32' fill='#D9D9D9' />
                 </svg>
               </div>
-              <p className='whitespace-pre-wrap truncate text-base not-italic font-normal leading-7 text-foreground-2'>
+              <p className='whitespace-pre-wrap truncate text-base not-italic font-normal leading-7 text-foreground-2 overflow-y-auto'>
                 {b.text}{' '}
               </p>
 
               <div className='absolute bottom-0 right-0 '>
-                <span className='text-gray-200 text-right text-6xl not-italic font-semibold'>
+                <span className='text-gray-200 text-right text-6xl not-italic font-semibold -z-10'>
                   {String(i + 1).padStart(2, '0')}
                 </span>
               </div>
