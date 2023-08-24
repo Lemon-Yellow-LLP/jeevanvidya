@@ -56,6 +56,7 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/dnyanpeeth' element={<Dnyanpeeth />} />
         <Route path='/philosophy' element={<Philosophy />} />
+        <Route path='/welfare' element={<Welfare />} />
         <Route path='*' element={<div>Page not found</div>} />
       </Routes>
     </BrowserRouter>
