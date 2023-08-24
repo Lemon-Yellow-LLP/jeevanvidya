@@ -1,6 +1,5 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
-import FlowerImage from './flower.png';
 import Button from '../Button';
 export default function ImageDetailContainer({
   image,
@@ -9,6 +8,7 @@ export default function ImageDetailContainer({
   imagePosition,
   className,
   btnTitle,
+  sectionImage,
 }) {
   return (
     <div
@@ -22,14 +22,19 @@ export default function ImageDetailContainer({
         <img className='object-contain' src={image} alt='aboutImage' />
       </div>
       <div className='flex flex-col items-start max-w-[518px] gap-4'>
-        <div className=''>
-          <img src={FlowerImage} alt='flowerImage' />
-        </div>
+        {sectionImage ? (
+          <div className=''>
+            <img src={sectionImage} alt='flowerImage' />
+          </div>
+        ) : null}
+
         <h2 className='text-3xl not-italic font-semibold'>{title}</h2>
         <p className='text-base not-italic font-normal leading-7'>{description}</p>
-        <Button variant='filled' inputClasses='max-w-fit'>
-          Learn More
-        </Button>
+        {btnTitle ? (
+          <Button variant='filled' inputClasses='max-w-fit'>
+            {btnTitle}
+          </Button>
+        ) : null}
       </div>
     </div>
   );
