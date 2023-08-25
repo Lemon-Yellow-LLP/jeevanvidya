@@ -14,7 +14,7 @@ export default function ImageDetailContainer({
   return (
     <div
       className={cn(
-        'flex flex-col py-[40px] px-[16px] lg:p-[80px] lg:flex-row gap-4 md:gap-[48px]',
+        'flex flex-col py-[40px] px-[16px] lg:p-[80px] md:flex-row gap-4 md:gap-[48px]',
         { 'md:flex-row-reverse': imagePosition === 'right' },
         className,
       )}

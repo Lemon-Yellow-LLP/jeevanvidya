@@ -131,7 +131,7 @@ export default function UniversalPrayer() {
           </p>
         </div>
       </div>
-      <div className='w-full overflow-auto bg-[#E2EAF4] flex flex-col items-start py-[40px] px-[80px]'>
+      <div className='w-full overflow-auto bg-[#E2EAF4] flex flex-col items-start py-[20px] px-[16px]  md:py-[40px] md:px-[80px]'>
         <h1 className='text-xl not-italic font-semibold text-foreground-1 mb-6'>
           {universalPrayerData.popularSingersPrayers.title}
         </h1>
@@ -224,12 +224,12 @@ export default function UniversalPrayer() {
 
 export function PopularSingersPrayers() {
   return (
-    <Slider spaceBetween={12} slidesPerView={3} className='w-full overflow-hidden gap-[24px] p-0'>
+    <Slider spaceBetween={12} slidesPerView={1}>
       {universalPrayerData.popularSingersPrayers.videos?.map((v, i) => (
         <SwiperSlide key={i}>
-          <div className='inline-block'>
-            <img src={v.thumbnail} className='rounded-[8px]' />
-            <div className='flex p-3 flex-col items-start gap-2'>
+          <div className='w-full'>
+            <img src={v.thumbnail} className='rounded-[8px] object-fill w-full' />
+            <div className='flex p-3 flex-col items-start gap-2 w-full'>
               <h3 className='text-lg not-italic font-semibold text-foreground-1'>{v.title}</h3>
               <p className='w-full truncate whitespace-pre-wrap text-sm not-italic font-normal leading-6 text-foreground-2'>
                 {v.description}
