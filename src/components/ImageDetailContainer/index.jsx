@@ -15,11 +15,11 @@ export default function ImageDetailContainer({
     <div
       className={cn(
         'flex flex-col py-[40px] px-[16px] lg:p-[80px] lg:flex-row gap-4 md:gap-[48px]',
-        { 'md:flex-row-reverse': imagePosition === 'right' },
+        { 'lg:flex-row-reverse': imagePosition === 'right' },
         className,
       )}
     >
-      <div className='sm:h-fit overflow-hidden rounded-2xl'>
+      <div className='sm:h-fit overflow-hidden rounded-2xl lg:w-2/4'>
         <img className='w-full object-cover' src={image} alt='aboutImage' />
       </div>
       <div className={cn('flex-1 flex flex-col items-start gap-4', contentClassName)}>
