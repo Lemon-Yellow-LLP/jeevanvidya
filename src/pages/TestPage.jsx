@@ -67,8 +67,6 @@ export default function TestPage() {
     setValues({ ...newData });
   }, []);
 
-  console.log(values);
-
   const options = [
     {
       label: '1',
