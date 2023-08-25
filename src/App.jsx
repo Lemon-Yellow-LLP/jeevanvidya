@@ -54,6 +54,7 @@ function App() {
             </div>
           }
         ></Route>
+        <Route path='/testimonial' element={<Testimonial />} />
         <Route path='/about' element={<About />} />
         <Route path='/dnyanpeeth' element={<Dnyanpeeth />} />
         <Route path='/philosophy' element={<Philosophy />} />

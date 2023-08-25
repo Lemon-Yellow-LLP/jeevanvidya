@@ -2,9 +2,10 @@ import { cn } from '@/lib/utils';
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
-const Button = ({ variant, className, children, ...props }) => {
+const Button = ({ type, variant, className, children, ...props }) => {
   return (
-    <Link
+    <button
+      type={type}
       className={cn(
         'flex items-center rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibol ',
         {
@@ -16,7 +17,7 @@ const Button = ({ variant, className, children, ...props }) => {
       )}
     >
       {children}
-    </Link>
+    </button>
   );
 };
 
