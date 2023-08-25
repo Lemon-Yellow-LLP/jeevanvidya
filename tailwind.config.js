@@ -22,7 +22,7 @@ export default {
         background: {
           1: 'linear-gradient(180deg, #E2EAF4 0%, rgba(226, 234, 244, 0.00) 100%)',
           2: 'linear-gradient(135deg, #0352A3 0%, #0084CB 100%, #0084CB 100%)',
-          lightblue: '#E2EAF4',
+          3: '#E2EAF4',
         },
         dialog: {
           1: '#ffffffcc',
