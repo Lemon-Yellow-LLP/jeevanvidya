@@ -6,7 +6,7 @@ import Flower from '@/assets/section-flower.png';
 import Pagination from '@/components/Pagination';
 import PageOne from './pagination-pages/PageOne';
 import PageTwo from './pagination-pages/PageTwo';
-import CourseCard from '@/components/CourseCard';
+import DnyanpeethCourseCard from '@/components/DnyanpeethCourseCard';
 
 const feedbackData = [
   {
@@ -98,7 +98,7 @@ const Dnyanpeeth = () => {
         <div className='flex gap-6 mt-8 overflow-auto'>
           {coursesData.map((data, index) => (
             <div className='min-w-[302px] max-w-[302px]'>
-              <CourseCard
+              <DnyanpeethCourseCard
                 title={data.title}
                 desc={data.desc}
                 key={index}

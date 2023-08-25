@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../Button';
 
-const CourseCard = ({ image, title, desc, duration, ageGroup }) => {
+const DnyanpeethCourseCard = ({ image, title, desc, duration, ageGroup }) => {
   return (
     <div className='w-full p-4 rounded-xl border-[1px] border-dark-white'>
       <img src={image} alt='' className='rounded-xl h-[152px]' />
@@ -22,4 +22,4 @@ const CourseCard = ({ image, title, desc, duration, ageGroup }) => {
   );
 };
 
-export default CourseCard;
+export default DnyanpeethCourseCard;
