@@ -74,7 +74,7 @@ const Testimonial = () => {
         bannerDesc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore '
       />
 
-      <div className='p-20'>
+      <div className='p-4 md:p-20'>
         <div className='flex justify-between items-center'>
           <SectionTitleDescription
             className='mx-0'
@@ -104,6 +104,11 @@ const Testimonial = () => {
                 testimonialposition={data.postion}
                 testimonialReview={data.desc}
               />
+            ))}
+
+          {active === 'Video Testimonials' &&
+            VideoTestimonial.map((data, index) => (
+              <MediaCard cardImg={data.img} cardTitle={data.title} cardDesc={data.desc} />
             ))}
         </div>
       </div>
