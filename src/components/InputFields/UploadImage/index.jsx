@@ -4,7 +4,6 @@ function UploadImage({
   label,
   name,
   error,
-  touched,
   inputClasses,
   displayError = true,
   message,
@@ -26,13 +25,8 @@ function UploadImage({
 
       <div
         className={`input-container justify-between items-center px-4 py-3 border-[2px] rounded-lg flex gap-1
-        transition-all ease-out duration-150
-        ${
-          error && touched
-            ? 'border-primary-red shadow-primary shadow-primary-red'
-            : 'border-light-grey'
-        }
-        ${!error && !touched && 'border-[#0084CB29]'}
+        transition-all ease-out duration-150 
+        ${error ? 'border-[#DE3400]' : 'border-[#0084CB29]'}
         ${disabled ? 'bg-[#EEEEEE] pointer-events-none cursor-not-allowed' : ''}`}
       >
         <input
@@ -56,9 +50,9 @@ function UploadImage({
 
       {displayError ? (
         <span
-          className='text-xs text-primary-red'
+          className='text-xs text-[#DE3400]'
           dangerouslySetInnerHTML={{
-            __html: error && touched ? error : String.fromCharCode(160),
+            __html: error ? error : String.fromCharCode(160),
           }}
         />
       ) : (

@@ -26,8 +26,7 @@ function CaptchaWithInput({
           <input
             className={`input-container px-4 py-3 border-[2px] rounded-lg flex gap-1
       transition-all ease-out duration-150 focus:outline-none outline-none
-      ${error ? 'border-primary-red shadow-primary shadow-primary-red' : 'border-light-grey'}
-      ${!error && 'border-[#0084CB29]'}
+      ${error ? 'border-[#DE3400]' : 'border-[#0084CB29]'}
       ${disabled ? 'bg-[#EEEEEE] pointer-events-none cursor-not-allowed' : ''}
       `}
             placeholder={placeholder}
@@ -40,7 +39,7 @@ function CaptchaWithInput({
 
           {displayError ? (
             <span
-              className='text-xs text-primary-red'
+              className='text-xs text-[#DE3400]'
               dangerouslySetInnerHTML={{
                 __html: error ? error : String.fromCharCode(160),
               }}

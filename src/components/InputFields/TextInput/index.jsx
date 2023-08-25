@@ -27,12 +27,7 @@ const TextInput = ({
       <div
         className={`input-container px-4 py-3 border-[2px] rounded-lg flex gap-1
           transition-all ease-out duration-150 focus:outline-none outline-none
-        ${
-          error && touched
-            ? 'border-primary-red shadow-primary shadow-primary-red'
-            : 'border-light-grey'
-        }
-        ${!error && !touched && 'border-[#0084CB29]'}
+        ${error && touched ? 'border-[#DE3400]' : 'border-[#0084CB29]'}
         ${disabled ? 'bg-[#EEEEEE] pointer-events-none cursor-not-allowed' : ''}
         `}
       >
