@@ -7,26 +7,23 @@ export default function ImageDetailContainer({
   description,
   imagePosition,
   className,
+  contentClassName,
   btnTitle,
   sectionImage,
 }) {
   return (
     <div
       className={cn(
-        'flex flex-col py-[40px] px-[16px] lg:p-[80px] md:flex-row md:justify-between gap-4 ',
+        'flex flex-col py-[40px] px-[16px] lg:p-[80px] lg:flex-row gap-4 md:gap-[48px]',
         { 'md:flex-row-reverse': imagePosition === 'right' },
         className,
       )}
     >
-      <div className='flex-shrink-0 max-w-[328px] max-h-[246px] sm:h-fit  md:w-auto lg:max-w-[628px] lg:max-h-[471px] overflow-hidden rounded-2xl'>
-        <img className='object-contain' src={image} alt='aboutImage' />
+      <div className='sm:h-fit overflow-hidden rounded-2xl'>
+        <img className='w-full object-cover' src={image} alt='aboutImage' />
       </div>
-      <div className='flex flex-col items-start max-w-[518px] gap-4'>
-        {sectionImage ? (
-          <div className=''>
-            <img src={sectionImage} alt='flowerImage' />
-          </div>
-        ) : null}
+      <div className={cn('flex-1 flex flex-col items-start gap-4', contentClassName)}>
+        {sectionImage ? <img src={sectionImage} alt='flowerImage' /> : null}
 
         <h2 className='text-3xl not-italic font-semibold'>{title}</h2>
         <p className='text-base not-italic font-normal leading-7'>{description}</p>
