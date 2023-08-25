@@ -4,7 +4,7 @@ import LearnMoreImage from '@/assets/learnmore.svg';
 const MediaCard = ({ btnTitle, cardDesc, cardTitle, cardImage }) => {
   return (
     <div className='w-full flex flex-col items-start transform transition duration-500 hover:bg-white hover:shadow-lg rounded-xl'>
-      <img src={cardImage} alt='' className='rounded-xl' />
+      <img src={cardImage} alt='' className='rounded-xl w-full' />
       <div className='p-4 flex flex-col items-start gap-2'>
         {cardTitle && (
           <h3 className='text-lg md:text-[22px] font-semibold text-[#122135]'>{cardTitle}</h3>
