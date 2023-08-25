@@ -6,6 +6,7 @@ import mediaBanner from '@/assets/mediapressBanner.png';
 import newsarticlesImg from '@/assets/newsarticlesImg.png';
 import VideoImg from '@/assets/videoImg.png';
 import NewsImg from '@/assets/newspaper1.png';
+import SearchIcon from '@/assets/search_icon.svg';
 import Dropdown from '@/components/InputFields/Dropdown';
 
 // const pages = [
@@ -219,18 +220,24 @@ export default function MediaPress() {
       />
 
       {/* Tab section */}
-      <div className='px-4 md:px-20 md:py-5 flex flex-col md:flex-row justify-between items-center bg-[#f5f5f5]'>
+      <div className='py-4 pl-4 md:px-20 md:py-5 flex flex-col md:flex-row justify-between items-center bg-[#f5f5f5]'>
         <div className='flex gap-2 w-full overflow-x-auto'>
           {tabs.map((tab, index) => (
             <TabButton label={tab} activeTab={activeTab} onChange={handleTabClick} key={index} />
           ))}
         </div>
 
-        <div className='w-full'>
-          <form className='flex text-center items-baseline gap-4'>
-            <label htmlFor='sortby'>Sort By:</label>
-            <Dropdown options={options} placeholder='Search Branch' />
+        <div className='flex gap-4 justify-end items-center w-full'>
+          <form className='flex flex-col md:flex-row items-baseline gap-4'>
+            <label htmlFor='Sort By:' className='text-xs md:text-lg '>
+              Sort By
+            </label>
+            <Dropdown options={options} placeholder='Search Branch'/>
           </form>
+          <div className='relative'>
+            <img src={SearchIcon} alt='Search icon' className='absolute top-4 left-4' />
+            <input type='text' placeholder='Search' className='h-14 rounded-lg text-center' />
+          </div>
         </div>
       </div>
 
