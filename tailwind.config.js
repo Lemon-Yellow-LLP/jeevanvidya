@@ -5,54 +5,37 @@ export default {
     extend: {
       colors: {
         primary: {
-          red: '#E33439',
-          black: '#122135',
-          1: '#0084CB',
+          1: '#0084CB29',
+          2: '#0084CB',
+          red: '#DE3400',
         },
-        gold: '#FFD63E',
-        secondary: { green: '#147257', blue: '#065381', 1: '#F09444' },
-        'dark-white': '#F5F5F5',
+        secondary: {
+          1: '#0084CB75',
+        },
+        accent: {
+          orange: '#F09444',
+          gold: '#FFD63E',
+          white: '#F5F5F5',
+        },
         foreground: {
           1: '#122135',
-          2: 'rgba(18, 33, 53, 0.6)',
-          3: 'rgba(0, 132, 203, 0.16)',
+          2: '#122135CC',
+        },
+        background: {
+          1: 'linear-gradient(180deg, #E2EAF4 0%, rgba(226, 234, 244, 0.00) 100%)',
+          2: 'linear-gradient(135deg, #0352A3 0%, #0084CB 100%, #0084CB 100%)',
+          3: '#E2EAF4',
         },
         dialog: {
-          1: 'rgba(255, 255, 255, 0.80)',
+          1: '#ffffffcc',
         },
         gradient: {
           2: 'linear-gradient(180deg, #E2EAF4 0%, rgba(226, 234, 244, 0.00) 100%)',
         },
       },
       boxShadow: {
-        primary: '',
-        secondary: '0px 4px 44px 0px rgba(50, 103, 227, 0.08)',
-        modal: '0px 8px 11px -4px #0000000D',
-        calendar: '0px 4px 14px 0px #0000001A',
-      },
-      letterSpacing: {
-        tightest: '-.075em',
-        tighter: '-.05em',
-        tight: '-.025em',
-        normal: '0',
-        wide: '.025em',
-        wider: '.05em',
-        widest: '.1em',
-        widest: '.25em',
-      },
-      keyframes: {
-        overlayShow: {
-          from: { opacity: 0 },
-          to: { opacity: 1 },
-        },
-        contentShow: {
-          from: { opacity: 0, transform: 'translate(-50%, -48%) scale(0.96)' },
-          to: { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' },
-        },
-      },
-      animation: {
-        overlayShow: 'overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
-        contentShow: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+        primary: '0px 3px 48px 0px #0353a33d',
+        secondary: '0px 4px 44px 0px #3267e314',
       },
     },
   },

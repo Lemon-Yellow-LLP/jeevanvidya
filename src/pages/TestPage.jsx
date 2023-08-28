@@ -1,6 +1,6 @@
 import CaptchaWithInput from '@/components/InputFields/CaptchaWithInput';
 import TextInput from '@/components/InputFields/TextInput';
-import UploadImage from '@/components/InputFields/UploadImage';
+import UploadImage from '@/components/InputFields/UploadFile';
 import React, { useCallback, useState } from 'react';
 import TestCaptcha from '@/assets/testCaptcha.png';
 import Dropdown from '@/components/InputFields/Dropdown';
@@ -16,19 +16,25 @@ export default function TestPage() {
     about: '',
     location: '',
     message: '',
+    phoneNumber: '',
     phoneNumberVerified: false,
     radio: false,
     checkbox: true,
     verificationCode: '',
+    dropdown: '',
   });
 
   const [errors, setErrors] = useState({
     name: 'Enter Name',
-    email: '',
-    about: '',
-    location: '',
-    message: '',
-    phoneNumberVerified: '',
+    email: 'Enter Name',
+    about: 'Enter Name',
+    location: 'Enter Name',
+    message: 'Enter Name',
+    phoneNumberVerified: 'Enter Name',
+    phoneNumber: 'Enter Name',
+    dropdown: 'Enter Name',
+    image: 'Enter Name',
+    verificationCode: 'Enter Name',
   });
 
   const handleChange = useCallback((e) => {
@@ -45,6 +51,12 @@ export default function TestPage() {
     // setSelectedFileName(file.name);
   }, []);
 
+  const handleDropdownChange = useCallback(({ value, name }) => {
+    let newData = values;
+    newData[name] = value;
+    setValues({ ...newData });
+  }, []);
+
   const verifyOTP = useCallback((e) => {
     console.log(e);
   }, []);
@@ -54,8 +66,6 @@ export default function TestPage() {
     newData[e.target.name] = e.target.checked;
     setValues({ ...newData });
   }, []);
-
-  console.log(values);
 
   const options = [
     {
@@ -85,6 +95,7 @@ export default function TestPage() {
             required
             value={values.name}
             touched={true}
+            disabled={true}
           />
           <TextInput
             name='email'
@@ -94,7 +105,8 @@ export default function TestPage() {
             onChange={handleChange}
             required
             value={values.email}
-            // touched={true}
+            touched={true}
+            disabled={true}
           />
         </div>
 
@@ -107,7 +119,8 @@ export default function TestPage() {
             onChange={handleChange}
             required
             value={values.about}
-            // touched={true}
+            touched={true}
+            disabled={true}
           />
           <TextInput
             name='location'
@@ -117,7 +130,8 @@ export default function TestPage() {
             onChange={handleChange}
             required
             value={values.location}
-            // touched={true}
+            touched={true}
+            disabled={true}
           />
         </div>
 
@@ -130,8 +144,8 @@ export default function TestPage() {
           required
           value={values.message}
           max={200}
+          touched={true}
           disabled={true}
-          // touched={true}
         />
 
         <div className='flex gap-[30px]'>
@@ -143,7 +157,6 @@ export default function TestPage() {
             required
             src={values.image}
             imageName=''
-            // touched={true}
           />
           <CaptchaWithInput
             name='verificationCode'
@@ -153,16 +166,21 @@ export default function TestPage() {
             value={values.verificationCode}
             image={TestCaptcha}
             placeholder='Enter code'
+            disabled={true}
           />
         </div>
 
         <Dropdown
+          name='dropdown'
           label='Label'
           required
+          error={errors.dropdown}
           options={options}
           placeholder='Placeholder'
-          onChange={handleChange}
+          onChange={handleDropdownChange}
           defaultSelected={values.dropdown}
+          touched={true}
+          disabled={true}
         />
 
         <PhoneNumberInput
@@ -173,8 +191,8 @@ export default function TestPage() {
           onChange={handleChange}
           required
           value={values.phoneNumber}
-          // disabled={true}
-          // touched={true}
+          touched={true}
+          disabled={true}
         />
 
         <OtpInputField
@@ -183,7 +201,8 @@ export default function TestPage() {
           verified={values.phoneNumberVerified}
           verifyOTP={verifyOTP}
           error={errors.phoneNumberVerified}
-          // touched={true}
+          touched={true}
+          disabled={true}
         />
 
         <RadioButton name='radio' value={values.radio} onChange={handleCheckbox} />

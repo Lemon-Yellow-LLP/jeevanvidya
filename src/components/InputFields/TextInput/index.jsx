@@ -13,6 +13,7 @@ const TextInput = ({
   value,
   disabled,
   max,
+  onBlur,
 }) => {
   return (
     <div className='flex flex-col gap-1 w-[100%]'>
@@ -27,12 +28,7 @@ const TextInput = ({
       <div
         className={`input-container px-4 py-3 border-[2px] rounded-lg flex gap-1
           transition-all ease-out duration-150 focus:outline-none outline-none
-        ${
-          error && touched
-            ? 'border-primary-red shadow-primary shadow-primary-red'
-            : 'border-light-grey'
-        }
-        ${!error && !touched && 'border-[#0084CB29]'}
+        ${error && touched && touched[name] ? 'border-[#DE3400]' : 'border-[#0084CB29]'}
         ${disabled ? 'bg-[#EEEEEE] pointer-events-none cursor-not-allowed' : ''}
         `}
       >
@@ -45,15 +41,16 @@ const TextInput = ({
           max={max}
           value={value}
           disabled={disabled}
+          onBlur={onBlur}
         />
-        {error && touched && <WarningIcon />}
+        {error && touched && touched[name] && <WarningIcon />}
       </div>
 
       {displayError ? (
         <span
           className='text-xs text-[#DE3400]'
           dangerouslySetInnerHTML={{
-            __html: error && touched ? error : String.fromCharCode(160),
+            __html: error && touched && touched[name] ? error : String.fromCharCode(160),
           }}
         />
       ) : (

@@ -32,10 +32,10 @@ const OtpInputField = ({ label, required, verified, hasSentOTPOnce = true, error
       <div className='mt-3 flex justify-between items-center'>
         <div className='flex gap-0.5'>
           {verified === null && (
-            <span className='text-primary-red text-xs leading-[18px]'>0:{resendTime}s</span>
+            <span className='text-[#DE3400] text-xs leading-[18px]'>0:{resendTime}s</span>
           )}
           {verified === true && (
-            <span className='flex text-primary-black text-xs leading-[18px]'>
+            <span className='flex text-green text-xs leading-[18px]'>
               OTP Verified
               {/* <img src={otpVerified} alt='Otp Verified' role='presentation' /> */}
             </span>

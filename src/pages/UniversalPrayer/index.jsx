@@ -92,7 +92,7 @@ export default function UniversalPrayer() {
               alt='section-image'
             />
           </div>
-          <h2 className='text-center md:text-xl not-italic font-semibold leading-[150%] text-primary-1'>
+          <h2 className='text-center md:text-xl not-italic font-semibold leading-[150%] text-primary-2'>
             {universalPrayerData.prayer.title}
           </h2>
           <div className='text-center md:text-3xl not-italic font-medium py-6 text-foreground-1'>
@@ -171,7 +171,7 @@ export default function UniversalPrayer() {
           <div className='flex flex-col gap-8'>
             {universalPrayerData.methods.content.map((val, idx) => (
               <div className='flex items-start gap-4 md:gap-6' key={idx}>
-                <div className='bg-[#E2EAF4] text-primary-1 text-center not-italic font-semibold w-8 h-8 flex justify-center items-center rounded-full shrink-0'>
+                <div className='bg-[#E2EAF4] text-primary-2 text-center not-italic font-semibold w-8 h-8 flex justify-center items-center rounded-full shrink-0'>
                   {idx + 1}
                 </div>
                 <p className='text-start font-normal text-foreground-1 text-sm not-italic leading-5 sm:leading-7'>

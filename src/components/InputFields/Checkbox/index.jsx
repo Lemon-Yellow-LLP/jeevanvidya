@@ -1,14 +1,17 @@
 import { memo } from 'react';
 
-const Checkbox = ({ name, value, onChange }) => {
+const Checkbox = ({ name, value, onChange, label }) => {
   return (
-    <input
-      name={name}
-      type='checkbox'
-      onChange={onChange}
-      checked={value}
-      className=' w-[24px] h-[24px] accent-[#0084CB] border border-[2px]'
-    />
+    <div className='flex items-center gap-[20px]'>
+      <input
+        name={name}
+        type='checkbox'
+        onChange={onChange}
+        checked={value}
+        className=' w-[20px] h-[20px] accent-[#0084CB] border border-[2px]'
+      />
+      <span className='text-[#122135cc]'>{label}</span>
+    </div>
   );
 };
 
