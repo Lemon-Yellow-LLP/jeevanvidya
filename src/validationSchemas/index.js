@@ -6,6 +6,6 @@ export const testimonialValidations = Yup.object({
   about: Yup.string().required('About is required'),
   location: Yup.string().required('Location is required'),
   message: Yup.string().required('Testimonial / Message is required').max(200),
-  image: Yup.string().required('Image is required'),
+  file: Yup.string().required('File is required'),
   verificationCode: Yup.string().required('Verification Code is required'),
 });

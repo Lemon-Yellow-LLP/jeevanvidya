@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-function UploadImage({
+function UploadFile({
   label,
   name,
   error,
@@ -37,7 +37,7 @@ function UploadImage({
         />
 
         <span className='selected-file-name text-[#a19f9f] cursor-default'>
-          {imageName ? imageName : 'bellow 20 kb'}
+          {imageName ? imageName : ''}
         </span>
 
         <label htmlFor='fileInput' className='text-[#F09444] font-semibold cursor-pointer'>
@@ -59,4 +59,4 @@ function UploadImage({
   );
 }
 
-export default memo(UploadImage);
+export default memo(UploadFile);

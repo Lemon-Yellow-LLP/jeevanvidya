@@ -9,7 +9,7 @@ import videoTestImg from '@/assets/videoImg.png';
 import { useCallback, useState } from 'react';
 import MediaCard from '@/components/MediaCard';
 import TextInput from '@/components/InputFields/TextInput';
-import UploadImage from '@/components/InputFields/UploadImage';
+import UploadFile from '@/components/InputFields/UploadFile';
 import CaptchaWithInput from '@/components/InputFields/CaptchaWithInput';
 import Checkbox from '@/components/InputFields/Checkbox';
 import TestCaptcha from '@/assets/testCaptcha.png';
@@ -129,7 +129,8 @@ const inititalValues = {
   location: '',
   message: '',
   verificationCode: '',
-  image: '',
+  file: '',
+  other: '',
 };
 
 const Testimonial = () => {
@@ -149,10 +150,10 @@ const Testimonial = () => {
     },
   });
 
-  const handleChangeImage = (e) => {
+  const handleChangeFile = (e) => {
     const file = e.target.files[0];
     let newData = { ...values };
-    newData.image = file;
+    newData.file = file;
     setValues({ ...newData });
   };
 
@@ -313,15 +314,28 @@ const Testimonial = () => {
           />
 
           <div className='flex gap-[30px]'>
-            <UploadImage
-              name='image'
-              label='Image'
-              error={errors.image}
-              onChange={handleChangeImage}
-              required
-              imageName={values.image.name}
-              touched={touched}
-            />
+            {activeTab && activeTab === 'Written Testimonial' ? (
+              <UploadFile
+                name='file'
+                label='Upload Your Image'
+                error={errors.file}
+                onChange={handleChangeFile}
+                required
+                imageName={values.file.name}
+                touched={touched}
+              />
+            ) : (
+              <UploadFile
+                name='file'
+                label='Upload Your Video'
+                error={errors.file}
+                onChange={handleChangeFile}
+                required
+                imageName={values.file.name}
+                touched={touched}
+              />
+            )}
+
             <CaptchaWithInput
               name='verificationCode'
               label='Verification Code: '
@@ -349,6 +363,15 @@ const Testimonial = () => {
                   label={e.label}
                 />
               ))}
+            <div className='ml-[35px]'>
+              <TextInput
+                name='other'
+                placeholder='Write here (200 words max)'
+                onChange={handleChange}
+                value={values.other}
+                max={200}
+              />
+            </div>
           </div>
           <Button
             type='submit'
