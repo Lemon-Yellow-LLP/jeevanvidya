@@ -95,6 +95,12 @@ body {
   backdrop-filter: blur(12px);
 }
 
+.bg-image {
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-drag: none;
+}
 .otpInput {
   height: 48px !important;
   width: 48px !important;

@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import BackArrow from '@/assets/backarrow.png';
 
-const HeroBanner = ({ bannerImg, bannerTitle, bannerDesc, children, ...props }) => {
+const HeroBanner = ({
+  bannerImg,
+  bannerTitle,
+  bannerDesc,
+  children,
+  className,
+  imageClassName,
+}) => {
   return (
     <div className='relative banner h-[480px] md:h-[450px]'>
       <img
