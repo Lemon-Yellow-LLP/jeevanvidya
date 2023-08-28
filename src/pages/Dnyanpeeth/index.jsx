@@ -1,15 +1,18 @@
 import HeroBanner from '@/components/HeroBanner';
 import DnyanpeethBanner from '@/assets/Dnyanpeeth-banner.png';
-import MediaCard from '@/components/MediaCard';
 import TestImage from '@/assets/Dnyanpeeth-banner.png';
 import Flower from '@/assets/section-flower.png';
-import Pagination from '@/components/Pagination';
+import Flower2 from '@/assets/flower2.svg';
 import PageOne from './pagination-pages/PageOne';
 import PageTwo from './pagination-pages/PageTwo';
 import DnyanpeethCourseCard from '@/components/DnyanpeethCourseCard';
 import ImageDetailContainer from '@/components/ImageDetailContainer';
 import AboutImage1 from '@/assets/about-image-1.png';
 import AboutImage2 from '@/assets/about-image-2.png';
+import SectionTitleDescription from '@/components/SectionTitleDescription';
+import Slider from '@/components/Slider';
+import { SwiperSlide } from 'swiper/react';
+import MediaCard from '@/components/MediaCard';
 
 const feedbackData = [
   {
@@ -19,6 +22,11 @@ const feedbackData = [
   },
   {
     title: 'VideoTwo',
+    desc: 'FRCPC, Section chief of breast imaging, The Ottawa hospital',
+    img: TestImage,
+  },
+  {
+    title: 'VideoThree',
     desc: 'FRCPC, Section chief of breast imaging, The Ottawa hospital',
     img: TestImage,
   },
@@ -70,7 +78,7 @@ const coursesData = [
 const awardsData = {
   image: AboutImage1,
   description:
-    'One of the unique offerings of this project is the acoustically designed prayer hall. One and all can pray and sing the Divine Universal Prayer together. We intend to take you in a different world through the Divine vibrations of the Universal Prayer and make a lasting impact on your mindset Also present is library of Satguru’s books, audio CDs, video CDs and DVDs. Exhibition rooms host creative depiction of Satguru’s work in the form of photographs, paintings, awards, felicitation letters and honours, feedback, newspaper and magazine articles, etc.',
+    'One of the unique offerings of this project is the acoustically designed prayer hall. One and all can pray and sing the Divine Universal Prayer together. We intend to take you in a different world through the Divine vibrations of the Universal Prayer and make a lasting impact on your mindset Also present is library of Satgurus books, audio CDs, video CDs and DVDs. Exhibition rooms host creative depiction of Satgurus work in the form of photographs, paintings, awards, felicitation letters and honours, feedback, newspaper and magazine articles etc',
   imagePosition: 'right',
   contentClassName: 'justify-center',
 };
@@ -86,7 +94,7 @@ const Dnyanpeeth = () => {
         bannerDesc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore '
       />
 
-      <div className='flex flex-col gap-8 blue-gradient'>
+      <div className='flex flex-col blue-gradient'>
         <div className='flex flex-col py-[40px] px-[16px] lg:p-[80px] lg:flex-row gap-6 lg:gap-[72px]'>
           <div className='sm:h-fit overflow-hidden flex gap-4 md:gap-6 lg:w-2/4'>
             <div>
@@ -118,9 +126,25 @@ const Dnyanpeeth = () => {
         </div>
       </div>
 
-      {/* <div className='p-20'>
-        <Pagination pages={pages} />
-      </div> */}
+      <div className='p-4 md:p-10 lg:p-20 flex flex-col items-center gap-10 text-center light-blue-gradient'>
+        <iframe
+          src='https://www.youtube.com/embed/LUjReWo8NWw?si=XchhF5X8zdc2orW3'
+          title='YouTube video player'
+          frameborder='0'
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+          allowFullScreen
+          className='w-full h-[300px] lg:h-[598px]'
+        ></iframe>
+        <div className=''>
+          <p className='text-base text-foreground-1 font-normal'>
+            The innovative campus of Jeevanvidya World Dynyanpeeth has landscaped gardens, carefully
+            designed water walk-ways, tiny bridges, swimming pools, cozy accommodation (capacity of
+            ~200 people), facility for food and dining and recreation will make your stay a truly
+            memorable experience. Add to that multi-media equipped lecture hall, an amphitheater.
+            The entire campus would be Wi-Fi enabled to have easy internet access
+          </p>
+        </div>
+      </div>
 
       <ImageDetailContainer {...awardsData} className='bg-background-3' />
 
@@ -131,8 +155,8 @@ const Dnyanpeeth = () => {
         <div className='flex-1 flex flex-col items-center justify-center gap-4'>
           <img src={Flower} alt='flowerImage' />
 
-          <h2 className='text-lg md:text-[32px] not-italic font-semibold text-center'>
-            “ Maharashtrian of the year award“
+          <h2 className='text-lg md:text-[32px] italic font-semibold text-center'>
+            " Maharashtrian of the year award"
           </h2>
           <p className='text-sm leading-[22px] md:leading-7 md:text-base not-italic font-normal text-center'>
             Satguru Shri Wamanrao Pai introduced the Jeevanvidya Philosophy which is "the science of
@@ -141,51 +165,107 @@ const Dnyanpeeth = () => {
         </div>
       </div>
 
-      <div className='py-10 pl-4 lg:p-20'>
-        <img src={Flower} alt='flower' className='pr-4 lg:pr-0' />
-        <h2 className='text-lg md:text-[32px] font-semibold pr-4 lg:pr-0'>Courses at Dyanpeeth</h2>
-        <p className='text-sm leading-[22px] md:leading-7 md:text-base mt-4 font-normal opacity-80 pr-4 lg:pr-0'>
-          Empower and enlighten yourself with variety of Jeevanvidya courses, curated carefully for
-          all walks of life.
-        </p>
-        <div className='flex gap-6 mt-8 overflow-auto pr-4 lg:pr-0'>
-          {coursesData.map((data, index) => (
-            <div className='min-w-[270px] md:min-w-[302px] md:max-w-[302px]' key={index}>
-              <DnyanpeethCourseCard
-                title={data.title}
-                desc={data.desc}
-                key={index}
-                image={data.img}
-                duration={data.duration}
-                ageGroup={data.ageGroup}
-              />
-            </div>
-          ))}
+      <div className='pb-20'>
+        <SectionTitleDescription
+          align='left'
+          image={Flower}
+          title='Courses at Dyanpeeth'
+          description='Empower and enlighten yourself with variety of Jeevanvidya courses, curated carefully for
+          all walks of life.'
+          className='p-4 lg:p-20'
+        />
+        <div className='pl-4 lg:pl-20'>
+          <Slider
+            slidesPerView={4.3}
+            spaceBetween={40}
+            breakPoints={{
+              360: {
+                slidesPerView: '1.3',
+                spaceBetween: 16,
+              },
+              480: {
+                slidesPerView: '1.5',
+                spaceBetween: 30,
+              },
+              640: {
+                slidesPerView: '2.5',
+                spaceBetween: 40,
+              },
+              768: {
+                slidesPerView: '2.5',
+                spaceBetween: 40,
+              },
+              1024: {
+                slidesPerView: '2.5',
+                spaceBetween: 24,
+              },
+              1440: {
+                slidesPerView: '4.5',
+                spaceBetween: 24,
+              },
+            }}
+          >
+            {coursesData?.map((data, i) => (
+              <SwiperSlide>
+                <DnyanpeethCourseCard
+                  title={data.title}
+                  desc={data.desc}
+                  key={i}
+                  image={data.img}
+                  duration={data.duration}
+                  ageGroup={data.ageGroup}
+                />
+              </SwiperSlide>
+            ))}
+          </Slider>
         </div>
       </div>
 
-      <div className='py-10 pl-4 lg:p-20'>
-        <div className='flex justify-center w-full pr-4 lg:pr-0'>
-          <img src={Flower} alt='flower' />
-        </div>
-        <h2 className='text-center text-lg md:text-[32px] font-semibold pr-4 lg:pr-0'>
-          Feedbacks & Videos
-        </h2>
-        <p className='text-sm leading-[22px] md:leading-7 md:text-base text-center mt-4 font-normal opacity-80 pr-4 lg:pr-0'>
-          We take immense pride in the accolades and acknowledgments we have received for our
-          outstanding achievements and contributions.
-        </p>
-        <div className='flex gap-6 mt-8 overflow-auto pr-4 lg:pr-0'>
-          {feedbackData.map((data, index) => (
-            <div className='min-w-[270px] md:min-w-[410px]' key={index}>
-              <MediaCard
-                cardTitle={data.title}
-                cardDesc={data.desc}
-                key={index}
-                cardImage={data.img}
-              />
-            </div>
-          ))}
+      <div className='pb-20'>
+        <SectionTitleDescription
+          image={Flower2}
+          title='Feedbacks & Videos'
+          description='We take immense pride in the accolades and acknowledgments we have received for our outstanding 
+          achievements and contributions.'
+          align='center'
+        />
+        <div className='pl-4 lg:pl-20'>
+          <Slider
+            spaceBetween={24}
+            slidesPerView={3.1}
+            breakPoints={{
+              360: {
+                slidesPerView: '1.3',
+                spaceBetween: 16,
+              },
+              480: {
+                slidesPerView: '1.5',
+                spaceBetween: 30,
+              },
+              640: {
+                slidesPerView: '2.5',
+                spaceBetween: 40,
+              },
+              768: {
+                slidesPerView: '2.5',
+                spaceBetween: 40,
+              },
+              1024: {
+                slidesPerView: '2.5',
+                spaceBetween: 24,
+              },
+              1440: {
+                slidesPerView: '4.5',
+                spaceBetween: 24,
+              },
+            }}
+          >
+            {feedbackData?.map((data, i) => (
+              <SwiperSlide>
+                <MediaCard cardTitle={data.title} cardImage={data.img} cardDesc={data.desc} />
+              </SwiperSlide>
+            ))}
+          </Slider>
         </div>
       </div>
 
