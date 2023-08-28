@@ -7,6 +7,12 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
+/* gloabal css */
+.hide-scrollbar::-webkit-scrollbar {
+  width: 0 !important;
+}
+/* end */
+
 /* gradient walker css and animation */
 .gradient-walker {
   position: absolute;

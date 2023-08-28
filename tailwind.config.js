@@ -7,6 +7,7 @@ export default {
         primary: {
           red: '#E33439',
           black: '#122135',
+          white: '#F5F5F5',
         },
         gold: '#FFD63E',
         secondary: { green: '#147257', blue: '#065381', 1: '#F09444' },
@@ -18,7 +19,6 @@ export default {
         dialog: {
           1: 'rgba(255, 255, 255, 0.80)',
         },
-        'gold': '#FFD63E',
         secondary: { green: '#147257', blue: '#065381' },
         'dark-white': '#F5F5F5',
       },

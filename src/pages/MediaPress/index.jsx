@@ -220,31 +220,40 @@ export default function MediaPress() {
       />
 
       {/* Tab section */}
-      <div className='py-4 pl-4 md:px-20 md:py-5 flex flex-col md:flex-row justify-between items-center bg-[#f5f5f5]'>
-        <div className='flex gap-2 w-full overflow-x-auto'>
+      <div className='pl-4 lg:px-10 xl:px-20 pt-3 flex flex-col gap-4 lg:flex-row lg:items-baseline justify-between bg-primary-white'>
+        <div className='flex gap-2 md:gap-4 overflow-x-auto hide-scrollbar'>
           {tabs.map((tab, index) => (
             <TabButton label={tab} activeTab={activeTab} onChange={handleTabClick} key={index} />
           ))}
         </div>
 
-        <div className='flex gap-4 justify-end items-center w-full'>
-          <form className='flex flex-col md:flex-row items-baseline gap-4'>
-            <label htmlFor='Sort By:' className='text-xs md:text-lg '>
-              Sort By
-            </label>
-            <Dropdown options={options} placeholder='Search Branch'/>
-          </form>
-          <div className='relative'>
-            <img src={SearchIcon} alt='Search icon' className='absolute top-4 left-4' />
-            <input type='text' placeholder='Search' className='h-14 rounded-lg text-center' />
+        <div className='flex lg:flex-row-reverse flex-col gap-4'>
+          <div className='relative pr-4 md:pr-10'>
+            <img
+              src={SearchIcon}
+              alt='Search icon'
+              className='absolute top-1/2 md:top-7 left-3 transform -translate-y-1/2'
+            />
+            <input
+              id='search'
+              type='text'
+              placeholder='Search'
+              className='w-full pl-10 py-4 rounded-lg border-white'
+            />
           </div>
+          <form className='flex gap-4 items-baseline'>
+            <label htmlFor='Sort By:' className='text-xs md:text-lg '>
+              Sort By:
+            </label>
+            <Dropdown options={options} placeholder='Search' />
+          </form>
         </div>
       </div>
 
-      <div className='md:p-20 p-3 bg-[#f5f5f5]'>
+      <div className='p-3 md:p-10 lg:p-20 bg-[#f5f5f5]'>
         <div
           className={`grid gap-x-6 gap-y-8 ${
-            activeTab === tabs[0] || activeTab === tabs[1] ? 'md:grid-cols-3' : 'md:grid-cols-4'
+            activeTab === tabs[0] || activeTab === tabs[1] ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-3 lg:grid-cols-4'
           }`}
         >
           {activeTab === tabs[0] &&
