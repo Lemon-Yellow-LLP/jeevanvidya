@@ -22,20 +22,7 @@ export default function Slider({
         slidesPerView={slidesPerView}
         navigation={true}
         modules={[Navigation]}
-        breakpoints={{
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 40,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 40,
-          },
-        }}
+        breakpoints={breakPoints}
       >
         {children}
         <div className='w-full flex justify-center items-center gap-6'>

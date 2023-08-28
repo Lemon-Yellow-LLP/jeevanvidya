@@ -5,6 +5,7 @@ import { universalPrayerData } from '@/data/UniversalPrayer';
 import TabButton from '@/components/TabButton';
 import PatternImage from '@/assets/pattern.svg';
 import Pattern2Image from '@/assets/pattern-2.svg';
+import CirclesImage from '@/assets/circles.svg';
 import ImageDetailContainer from '@/components/ImageDetailContainer';
 import Slider from '@/components/Slider';
 import { SwiperSlide } from 'swiper/react';
@@ -27,12 +28,12 @@ export default function UniversalPrayer() {
         bannerDesc={universalPrayerData.banner.description}
         bannerImg={universalPrayerData.banner.image}
       />
-      <div className='flex py-2 px-4 lg:py-3 lg:px-[80px] justify-center gap-4 bg-white sticky top-0 z-[99] overflow-x-auto'>
+      <div className='flex py-2 px-4 lg:py-3 lg:px-[80px] lg:justify-center gap-2 md:gap-4 bg-white sticky top-0 z-[99] overflow-x-auto'>
         {types.map((label, index) => (
           <div
             key={index}
             className={cn(
-              'px-2 md:px-6 py-4 md:py-[14px] border-[#0084cb7a] border-[1.5px] rounded-[64px] transition-all duration-300 flex justify-center items-center cursor-pointer ',
+              'py-2 md:px-6 px-4 md:py-[14px] border-[#0084cb7a] border-[1.5px] rounded-[64px] transition-all duration-300 text-center my-auto cursor-pointer ',
               { 'bg-[#0084cb28] text-foreground-1': active === label },
             )}
             onClick={() => setActive(label)}
@@ -43,10 +44,9 @@ export default function UniversalPrayer() {
           </div>
         ))}
         <div className='w-fit p-2 pr-6 border-[#0084cb7a] border-[1.5px] rounded-[64px] transition-all duration-300 flex items-center gap-4 cursor-pointer'>
-          <div className='w-10 h-10 flex justify-center items-center flex-shrink-0 rounded-[40px] bg-[#E2EAF4]'>
+          <div className='w-6 h-6 md:w-10 md:h-10 flex justify-center items-center flex-shrink-0 rounded-[40px] bg-[#E2EAF4]'>
             <svg
-              width='25'
-              height='24'
+              className='w-4 h-4 md:w-6 md:h-6'
               viewBox='0 0 25 24'
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
@@ -142,7 +142,7 @@ export default function UniversalPrayer() {
           <img src={Pattern2Image} className='' alt='pattern' />
         </div>
         <div className='flex flex-col px-[16px] lg:px-[80px] lg:py-[40px] lg:gap-[48px]'>
-          <ul className='text-base not-italic font-normal leading-7 text-foreground-2 flex flex-col gap-2'>
+          <ul className='text-sm md:text-base not-italic font-normal leading-5 md:leading-7 text-foreground-2 flex flex-col gap-2'>
             {universalPrayerData.content.text.split('\n').map((v, i) => (
               <p key={i}>{v}</p>
             ))}
@@ -160,43 +160,47 @@ export default function UniversalPrayer() {
           </div>
         </div>
       </div>
-
+      {/* Methods */}
       <div className='flex flex-col gap-4 lg:gap-[32px] p-4 lg:p-[80px] items-center text-center'>
         <img src={universalPrayerData.methods.sectionImage} alt='sectionImage' />
-        <h1 className='text-3xl font-semibold text-foreground-1'>
+        <h1 className='text-lg sm:text-3xl font-semibold text-foreground-1 text-center not-italic leading-7'>
           {universalPrayerData.methods.title}
         </h1>
         <div className='flex flex-col lg:flex-row gap-4 lg:gap-[80px]'>
           <img src={universalPrayerData.methods.mainImage} alt='mainImage' />
           <div className='flex flex-col gap-8'>
             {universalPrayerData.methods.content.map((val, idx) => (
-              <div className='flex items-start gap-6' key={idx}>
+              <div className='flex items-start gap-4 md:gap-6' key={idx}>
                 <div className='bg-[#E2EAF4] text-primary-1 text-center not-italic font-semibold w-8 h-8 flex justify-center items-center rounded-full shrink-0'>
                   {idx + 1}
                 </div>
-                <p className='text-start font-normal leading-7 text-foreground-1'>{val}</p>
+                <p className='text-start font-normal text-foreground-1 text-sm not-italic leading-5 sm:leading-7'>
+                  {val}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </div>
-      <div className='p-4 lg:p-[80px] space-y-[32px] bg-[linear-gradient(180deg,_rgba(226,_234,_244,_0.00)_0%,_#E2EAF4_100%)]'>
+      <div className='relative p-4 lg:p-[80px] space-y-[32px] bg-[linear-gradient(180deg,_rgba(226,_234,_244,_0.00)_0%,_#E2EAF4_100%)]'>
+        <div className='absolute top-0 left-0 -z-10'>
+          <img src={CirclesImage} className='rotate-180' alt='circles-pattern' />
+        </div>
         <div className='flex flex-col justify-center items-center lg:items-start gap-4'>
           <img src={universalPrayerData.benefits.image} alt='section-image' />
-          <h3 className='text-center text-3xl not-italic font-semibold text-foreground-1'>
+          <h3 className='text-center text-lg sm:text-3xl not-italic font-semibold text-foreground-1 leading-7'>
             {universalPrayerData.benefits.title}
           </h3>
         </div>
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
+        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6'>
           {universalPrayerData.benefits.cards.map((b, i) => (
             <div
               key={i}
-              className='relative flex flex-col p-6 mx-auto items-start gap-4 justify-start bg-[#F5F5F5] rounded-2xl w-[min(302px, 100%)] h-[326px] border border-[#E8EDF4]'
+              className='relative w-full flex flex-col p-4 md:p-6 mx-auto items-start gap-2 md:gap-4 justify-start bg-[#F5F5F5] rounded-2xl border border-[#E8EDF4]'
             >
               <div className=''>
                 <svg
-                  width='64'
-                  height='64'
+                  className='w-10 h-10 lg:w-16 lg:h-16'
                   viewBox='0 0 64 64'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
@@ -204,12 +208,11 @@ export default function UniversalPrayer() {
                   <circle id='icon' opacity='0.8' cx='32' cy='32' r='32' fill='#D9D9D9' />
                 </svg>
               </div>
-              <p className='whitespace-pre-wrap truncate text-base not-italic font-normal leading-7 text-foreground-2 overflow-y-auto'>
+              <p className='text-sm md:text-base not-italic font-normal leading-5 md:leading-7 text-foreground-2 overflow-y-auto z-10'>
                 {b.text}{' '}
               </p>
-
-              <div className='absolute bottom-0 right-0 '>
-                <span className='text-gray-200 text-right text-6xl not-italic font-semibold -z-10'>
+              <div className='absolute bottom-[-8px] right-0'>
+                <span className='text-[#E8EDF4] text-right text-6xl not-italic font-semibold'>
                   {String(i + 1).padStart(2, '0')}
                 </span>
               </div>
@@ -224,14 +227,33 @@ export default function UniversalPrayer() {
 
 export function PopularSingersPrayers() {
   return (
-    <Slider spaceBetween={12} slidesPerView={1}>
+    <Slider
+      spaceBetween={12}
+      slidesPerView={1.3}
+      breakPoints={{
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2.5,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+      }}
+    >
       {universalPrayerData.popularSingersPrayers.videos?.map((v, i) => (
         <SwiperSlide key={i}>
           <div className='w-full'>
             <img src={v.thumbnail} className='rounded-[8px] object-fill w-full' />
             <div className='flex p-3 flex-col items-start gap-2 w-full'>
-              <h3 className='text-lg not-italic font-semibold text-foreground-1'>{v.title}</h3>
-              <p className='w-full truncate whitespace-pre-wrap text-sm not-italic font-normal leading-6 text-foreground-2'>
+              <h3 className='text-base md:text-lg not-italic font-semibold text-foreground-1 '>
+                {v.title}
+              </h3>
+              <p className='w-full truncate whitespace-pre-wrap md:text-sm leading-6 text-foreground-2 text-xs not-italic font-normal'>
                 {v.description}
               </p>
             </div>

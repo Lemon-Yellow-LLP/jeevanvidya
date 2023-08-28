@@ -68,6 +68,18 @@ export const universalPrayerData = {
         description:
           'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
       },
+      {
+        thumbnail: videoThumbnail,
+        title: 'Video Title 5',
+        description:
+          'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      },
+      {
+        thumbnail: videoThumbnail,
+        title: 'Video Title 6',
+        description:
+          'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+      },
     ],
   },
 
@@ -108,7 +120,7 @@ Modern quantum mechanics has proved that both thought and matter are two differe
         text: 'He achieves all-round progress in his life, which includes better health, wealth, inter-personal relationships and a genuine respect for the entire mankind/Universe.',
       },
       {
-        text: 'He can achieve enlightenment/eternal bliss.',
+        text: 'A ripple effect of gratitude flows from you to the world at large, influencing an attitude of peace and tolerance.',
       },
       {
         text: 'He easily gives up his vices, addictions, false beliefs, blind faith and empty rituals. This helps him to save his time and money.',
