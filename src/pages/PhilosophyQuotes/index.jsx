@@ -15,7 +15,7 @@ const PhilosophyQuotes = () => {
         {QuoteData.map((data, i) => (
           <div
             key={i}
-            className='min-w-[411px] min-h-[411px] p-10 bg-quotes-bg bg-cover text-foreground-1 text-base font-semibold  flex items-center justify-center text-center leading-[187%]'
+            className='min-w-[411px] min-h-[411px] p-10 bg-quotes-bg bg-contain bg-no-repeat bg-center text-foreground-1 text-base font-semibold  flex items-center justify-center text-center leading-[187%]'
           >
             {data.quote}
           </div>
