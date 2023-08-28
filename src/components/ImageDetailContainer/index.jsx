@@ -23,10 +23,12 @@ export default function ImageDetailContainer({
         <img className='w-full object-cover' src={image} alt='aboutImage' />
       </div>
       <div className={cn('flex-1 flex flex-col items-start gap-4', contentClassName)}>
-        {sectionImage ? <img src={sectionImage} alt='flowerImage' /> : null}
+        {sectionImage ? (
+          <img src={sectionImage} alt='flowerImage' className='h-[40px] lg:h-full w-fit' />
+        ) : null}
 
-        <h2 className='text-3xl not-italic font-semibold'>{title}</h2>
-        <p className='text-base not-italic font-normal leading-7'>{description}</p>
+        <h2 className='text-lg lg:text-3xl not-italic font-semibold'>{title}</h2>
+        <p className='text-sm lg:text-base not-italic font-normal leading-normal'>{description}</p>
         {btnTitle ? (
           <Button variant='filled' inputClasses='max-w-fit'>
             {btnTitle}
