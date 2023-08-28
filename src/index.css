@@ -110,3 +110,11 @@ body {
 .swiper-wrapper {
   display: flex;
 }
+
+.pdf-gradient {
+  background: linear-gradient(180deg, #e2eaf4 70.46%, rgba(226, 234, 244, 0) 100%);
+}
+
+.blue-gradient {
+  background: linear-gradient(180deg, #e2eaf4 0%, rgba(226, 234, 244, 0) 100%);
+}
