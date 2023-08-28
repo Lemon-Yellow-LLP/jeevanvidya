@@ -13,6 +13,8 @@ const Dropdown = ({
   disabled,
   showIcon = true,
   showError = true,
+  error,
+  name,
 }) => {
   const [showDropDown, setShowDropDown] = useState(false);
   const [selectedOption, setSelectedOption] = useState(() =>
@@ -30,7 +32,8 @@ const Dropdown = ({
     (option) => {
       setSelectedOption(option);
       setShowDropDown(false);
-      onChange && onChange(option.value);
+      let vlaue = option.value;
+      onChange && onChange({ vlaue, name });
     },
     [onChange],
   );
@@ -62,7 +65,10 @@ const Dropdown = ({
         }}
         className={`${
           selectedOption ? 'text-primary-black' : 'text-[#a19f9f]'
-        } w-full flex justify-between gap-1 py-3 px-4 rounded-lg mt-1 border-[#0084CB29] border-[2px]`}
+        } w-full flex justify-between gap-1 py-3 px-4 rounded-lg mt-1 border-[2px]
+        ${error ? 'border-[#DE3400]' : 'border-[#0084CB29]'}
+        ${disabled ? 'bg-[#EEEEEE] pointer-events-none cursor-not-allowed' : ''}
+        `}
       >
         {selectedOption ? selectedOption.label : placeholder || 'Click me'} <IconArrowDown />
       </button>
@@ -71,7 +77,7 @@ const Dropdown = ({
           style={{
             maxHeight: optionsMaxHeight ?? 160,
           }}
-          className='rounded-lg bg-white shadow-secondary p-2 mt-2 absolute top-100 w-full overflow-y-auto z-20 border border-stroke'
+          className='rounded-lg bg-white p-2 mt-2 absolute top-100 w-full overflow-y-auto z-20 border border-stroke'
         >
           {options.map((option, index) => (
             <button
@@ -92,11 +98,7 @@ const Dropdown = ({
           ))}
         </div>
       )}
-      {showError ? (
-        <span className='text-sm text-primary-red mt-1'>{false || String.fromCharCode(160)}</span>
-      ) : (
-        ''
-      )}
+      {showError && error ? <span className='text-sm text-[#DE3400] mt-1'>{error}</span> : ''}
     </div>
   );
 };

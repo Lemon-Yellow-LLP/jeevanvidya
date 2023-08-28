@@ -5,29 +5,38 @@ export default {
     extend: {
       colors: {
         primary: {
-          red: '#E33439',
-          black: '#122135',
+          1: '#0084CB29',
+          2: '#0084CB',
+          red: '#DE3400',
+        },
+        secondary: {
+          1: '#0084CB75',
+        },
+        accent: {
+          orange: '#F09444',
+          gold: '#FFD63E',
           white: '#F5F5F5',
         },
-        gold: '#FFD63E',
-        secondary: { green: '#147257', blue: '#065381', 1: '#F09444' },
-        'dark-white': '#F5F5F5',
         foreground: {
           1: '#122135',
-          2: 'rgba(18, 33, 53, 0.6)',
+          2: '#122135CC',
+        },
+        background: {
+          1: 'linear-gradient(180deg, #E2EAF4 0%, rgba(226, 234, 244, 0.00) 100%)',
+          2: 'linear-gradient(135deg, #0352A3 0%, #0084CB 100%, #0084CB 100%)',
+          3: '#E2EAF4',
         },
         dialog: {
-          1: 'rgba(255, 255, 255, 0.80)',
+          1: '#ffffffcc',
         },
-        secondary: { green: '#147257', blue: '#065381' },
-        'dark-white': '#F5F5F5',
+        gradient: {
+          2: 'linear-gradient(180deg, #E2EAF4 0%, rgba(226, 234, 244, 0.00) 100%)',
+        },
       },
-    },
-    boxShadow: {
-      primary: '',
-      secondary: '0px 4px 44px 0px rgba(50, 103, 227, 0.08)',
-      modal: '0px 8px 11px -4px #0000000D',
-      calendar: '0px 4px 14px 0px #0000001A',
+      boxShadow: {
+        primary: '0px 3px 48px 0px #0353a33d',
+        secondary: '0px 4px 44px 0px #3267e314',
+      },
     },
   },
   plugins: [],
