@@ -19,7 +19,7 @@ export default function ImageDetailContainer({
         className,
       )}
     >
-      <div className='sm:h-fit overflow-hidden rounded-2xl'>
+      <div className='sm:h-fit overflow-hidden rounded-2xl lg:w-2/4'>
         <img className='w-full object-cover' src={image} alt='aboutImage' />
       </div>
       <div className={cn('flex-1 flex flex-col items-start gap-4', contentClassName)}>
