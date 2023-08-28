@@ -176,7 +176,7 @@ const Testimonial = () => {
       />
 
       <div className='p-4 md:p-20'>
-        <div className='flex justify-between items-center'>
+        <div className='flex justify-between items-center max-md:flex-col'>
           <SectionTitleDescription
             className='mx-0'
             align='start'
@@ -220,8 +220,8 @@ const Testimonial = () => {
         </div>
       </div>
 
-      <div className='flex flex-col gap-[30px] items-center justify-center w-[100%] mt-[30px] bg-[#E2EAF4] p-[90px]'>
-        <span className='text-[#122135] font-semibold text-[32px] tracking-[-0.32px]'>
+      <div className='flex flex-col gap-[30px] items-center justify-center w-[100%] mt-[30px] bg-[#E2EAF4] p-[90px] max-md:p-[15px]'>
+        <span className='text-[#122135] font-semibold text-[32px] tracking-[-0.32px] text-center max-md:text-[22px] max-md:mt-[40px]'>
           Want to Submit Testimonial?
         </span>
 
@@ -238,7 +238,7 @@ const Testimonial = () => {
               <span
                 key={index}
                 onClick={() => handleTabChange(e.label)}
-                className='w-fit px-6 py-[14px] transition-all duration-300 cursor-pointer'
+                className='w-fit px-6 py-[14px] transition-all duration-300 cursor-pointer max-md:text-center'
               >
                 {e.label}
               </span>
@@ -248,9 +248,9 @@ const Testimonial = () => {
 
         <form
           onSubmit={handleSubmit}
-          className='flex flex-col w-[1062px] rounded-[24px] gap-[20px] p-[40px] bg-[white]'
+          className='flex flex-col w-[1062px] rounded-[24px] gap-[20px] p-[40px] bg-[white] max-md:w-[100%] '
         >
-          <div className='flex gap-[30px]'>
+          <div className='flex gap-[30px] max-md:flex-col'>
             <TextInput
               name='name'
               label='Name'
@@ -275,7 +275,7 @@ const Testimonial = () => {
             />
           </div>
 
-          <div className='flex gap-[30px]'>
+          <div className='flex gap-[30px] max-md:flex-col'>
             <TextInput
               name='about'
               label='About '
@@ -313,7 +313,7 @@ const Testimonial = () => {
             touched={touched}
           />
 
-          <div className='flex gap-[30px]'>
+          <div className='flex gap-[30px] max-md:flex-col'>
             {activeTab && activeTab === 'Written Testimonial' ? (
               <UploadFile
                 name='file'

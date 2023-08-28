@@ -24,7 +24,7 @@ function CaptchaWithInput({
         {required && <span className='text-primary-red text-sm ml-[2px]'>*</span>}
       </label>
 
-      <div className='flex justify-between gap-[20px] w-[100%]'>
+      <div className='flex justify-between gap-[20px] w-[100%] max-md:flex-col'>
         <img src={image} alt='' className='h-[51.2px]' />
         <div className='flex flex-col gap-1 w-[100%]'>
           <input
