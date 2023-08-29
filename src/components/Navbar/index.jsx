@@ -22,7 +22,7 @@ export default function Navbar() {
 
   return (
     <header className='sticky top-0 z-[999] w-full'>
-      <nav className='bg-dark-white shadow-secondary px-4 py-3 md:px-8 lg:px-20 lg:py-[11px]'>
+      <nav className='bg-accent-white shadow-secondary px-4 py-3 md:px-8 lg:px-20 lg:py-[11px]'>
         <div className='flex flex-col lg:flex-row items-center justify-between'>
           <div className='flex w-full justify-between'>
             <img src={Logo} alt='JVMLogo' />
@@ -90,7 +90,9 @@ export default function Navbar() {
             <div className='flex items-center gap-6'>
               <img src={herosectionLogo} alt='' />
               <div className='flex flex-col'>
-                <span className='text-gold text-lg font-semibold'>100 years of eminence</span>
+                <span className='text-accent-gold text-lg font-semibold'>
+                  100 years of eminence
+                </span>
                 <span className='text-white text-sm font-normal'>
                   Remembering, honouring, and celebrating Satguru Shri Wamanrao Pai on his 100th
                   birth anniversary this year.
