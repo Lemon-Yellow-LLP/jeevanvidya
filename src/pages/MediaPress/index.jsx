@@ -1,46 +1,284 @@
+import HeroBanner from '@/components/HeroBanner';
+import TabButton from '@/components/TabButton';
+import MediaCard from '@/components/MediaCard';
 import { useState } from 'react';
-import RegisterArrow from '@/assets/arrowforward.svg';
-import mediaVideo from '@/assets/media_video.svg';
-import Button from '@/components/Button';
+import mediaBanner from '@/assets/mediapressBanner.png';
+import newsarticlesImg from '@/assets/newsarticlesImg.png';
+import VideoImg from '@/assets/videoImg.png';
+import NewsImg from '@/assets/newspaper1.png';
+import SearchIcon from '@/assets/search_icon.svg';
+import Dropdown from '@/components/InputFields/Dropdown';
+
+// const pages = [
+//   [
+//     {
+//       image: newsarticlesImg,
+//       slug: 'News & Articles',
+//       title: 'Title',
+//       desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+//     },
+//     {
+//       image: newsarticlesImg,
+//       slug: 'News & Articles',
+//       title: 'Title',
+//       desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+//     },
+//     {
+//       image: newsarticlesImg,
+//       slug: 'News & Articles',
+//       title: 'Title',
+//       desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+//     },
+//     {
+//       image: newsarticlesImg,
+//       slug: 'News & Articles',
+//       title: 'Title',
+//       desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+//     },
+//   ],
+//   [
+//     {
+//       image: VideoImg,
+//       slug: 'Videos',
+//       title: 'Video Title 1',
+//       desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+//     },
+//     {
+//       image: VideoImg,
+//       slug: 'Videos',
+//       title: 'Video Title 1',
+//       desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+//     },
+//     {
+//       image: VideoImg,
+//       slug: 'Videos',
+//       title: 'Video Title 1',
+//       desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+//     },
+//   ],
+//   [
+//     {
+//       image: NewsImg,
+//       slug: 'Newspapers',
+//     },
+//     {
+//       image: NewsImg,
+//       slug: 'Newspapers',
+//     },
+//     {
+//       image: NewsImg,
+//       slug: 'Newspapers',
+//     },
+//     {
+//       image: NewsImg,
+//       slug: 'Newspapers',
+//     },
+//     {
+//       image: NewsImg,
+//       slug: 'Newspapers',
+//     },
+//     {
+//       image: NewsImg,
+//       slug: 'Newspapers',
+//     },
+//   ],
+// ];
+
+const newsData = [
+  {
+    image: newsarticlesImg,
+    slug: 'News & Articles',
+    title: 'Title',
+    desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+  },
+  {
+    image: newsarticlesImg,
+    slug: 'News & Articles',
+    title: 'Title',
+    desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+  },
+  {
+    image: newsarticlesImg,
+    slug: 'News & Articles',
+    title: 'Title',
+    desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+  },
+  {
+    image: newsarticlesImg,
+    slug: 'News & Articles',
+    title: 'Title',
+    desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+  },
+  {
+    image: newsarticlesImg,
+    slug: 'News & Articles',
+    title: 'Title',
+    desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+  },
+  {
+    image: newsarticlesImg,
+    slug: 'News & Articles',
+    title: 'Title',
+    desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+  },
+  {
+    image: newsarticlesImg,
+    slug: 'News & Articles',
+    title: 'Title',
+    desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+  },
+  {
+    image: newsarticlesImg,
+    slug: 'News & Articles',
+    title: 'Title',
+    desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+  },
+];
+
+const VideoData = [
+  {
+    image: VideoImg,
+    slug: 'Videos',
+    title: 'Video Title 1',
+    desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+  },
+  {
+    image: VideoImg,
+    slug: 'Videos',
+    title: 'Video Title 1',
+    desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+  },
+  {
+    image: VideoImg,
+    slug: 'Videos',
+    title: 'Video Title 1',
+    desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+  },
+];
+
+const NewspaperData = [
+  {
+    image: NewsImg,
+    slug: 'Newspapers',
+  },
+  {
+    image: NewsImg,
+    slug: 'Newspapers',
+  },
+  {
+    image: NewsImg,
+    slug: 'Newspapers',
+  },
+  {
+    image: NewsImg,
+    slug: 'Newspapers',
+  },
+  {
+    image: NewsImg,
+    slug: 'Newspapers',
+  },
+  {
+    image: NewsImg,
+    slug: 'Newspapers',
+  },
+];
 
 export default function MediaPress() {
   const tabs = ['News & Articles', 'Videos', 'Newspapers'];
-  const [activeTab, setActiveTab] = useState('News & Articles');
+
+  const options = [
+    {
+      label: 'News',
+      value: 1,
+    },
+    {
+      label: 'Videos',
+      value: 2,
+    },
+    {
+      label: 'Newspapers',
+      value: 3,
+    },
+  ];
+  const [activeTab, setActiveTab] = useState(tabs[0]);
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+    console.log(tab);
+  };
+
+  const onChange = (value) => {
+    setPageData(pages[value]);
+  };
+
   return (
-    <section className='pt-[164px]'>
-      <div className='tabsection flex gap-6'>
-        {tabs.map((tab, i) => {
-          return (
-            <button
-              key={i}
-              className={`py-[14px] whitespace-nowrap md:py-[14px] px-6 rounded-[64px] bg-[#f5f5f5] border-[1.5px] border-[#0084cb29] ${
-                tab === activeTab ? 'active-tab' : ''
-              }`}
-              onClick={() => setActiveTab(tab)}
-            >
-              {tab}
-            </button>
-          );
-        })}
+    <section className=''>
+      <HeroBanner
+        bannerImg={mediaBanner}
+        bannerTitle='Media and Press Releases'
+        bannerDesc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore '
+      />
+
+      {/* Tab section */}
+      <div className='pl-4 lg:px-10 xl:px-20 pt-3 flex flex-col gap-4 lg:flex-row lg:items-baseline justify-between bg-primary-white'>
+        <div className='flex gap-2 md:gap-4 overflow-x-auto hide-scrollbar'>
+          {tabs.map((tab, index) => (
+            <TabButton label={tab} activeTab={activeTab} onChange={handleTabClick} key={index} />
+          ))}
+        </div>
+
+        <div className='flex lg:flex-row-reverse flex-col gap-4'>
+          <div className='relative pr-4 md:pr-10'>
+            <img
+              src={SearchIcon}
+              alt='Search icon'
+              className='absolute top-1/2 md:top-7 left-3 transform -translate-y-1/2'
+            />
+            <input
+              id='search'
+              type='text'
+              placeholder='Search'
+              className='w-full pl-10 py-4 rounded-lg border-white'
+            />
+          </div>
+          <form className='flex gap-4 items-baseline'>
+            <label htmlFor='Sort By:' className='text-xs md:text-lg '>
+              Sort By:
+            </label>
+            <Dropdown options={options} placeholder='Search' />
+          </form>
+        </div>
       </div>
 
-      <div className='pt-4'>
-        <div className='w-[410px] flex flex-col items-start transform transition duration-500 hover:scale-105 hover:bg-white hover:shadow-lg rounded-xl'>
-          <img src={mediaVideo} className='w-full' alt='' />
-          <div className='p-4 flex flex-col items-start gap-2'>
-            <h3 className='text-[22px] font-semibold text-[#122135]'>Title</h3>
-            <span className='text-base'>
-              Lorem ipsum dolor sit amet, sectre adipiscing elit.Cras molestie blandit...
-            </span>
-            <Button register={true} inputclassNamees='w-[153px] md:hover:w-[170px]'>
-              Register Now
-              <img
-                src={RegisterArrow}
-                className='ml-2 md:opacity-0 md:group-hover:opacity-100'
-                alt='Register Now'
+      <div className='p-3 md:p-10 lg:p-20 bg-[#f5f5f5]'>
+        <div
+          className={`grid gap-x-6 gap-y-8 ${
+            activeTab === tabs[0] || activeTab === tabs[1] ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-3 lg:grid-cols-4'
+          }`}
+        >
+          {activeTab === tabs[0] &&
+            newsData.map((data, i) => (
+              <MediaCard
+                key={i}
+                cardTitle={data.title}
+                cardDesc={data.desc}
+                cardImage={data.image}
+                btnTitle='Read More'
               />
-            </Button>
-          </div>
+            ))}
+
+          {activeTab === tabs[1] &&
+            VideoData.map((data, i) => (
+              <MediaCard
+                key={i}
+                cardTitle={data.title}
+                cardDesc={data.desc}
+                cardImage={data.image}
+              />
+            ))}
+
+          {activeTab === tabs[2] &&
+            NewspaperData.map((data, i) => <MediaCard key={i} cardImage={data.image} />)}
         </div>
       </div>
     </section>
