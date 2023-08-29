@@ -16,7 +16,7 @@ const DnyanpeethCourseCard = ({ image, title, desc, duration, ageGroup }) => {
         <span className='opacity-80'>Age Group:</span>
         <span className='font-semibold'>{ageGroup}</span>
       </p>
-      <Button register={true} variant='outline' className='group flex justify-center mt-4'>
+      <Button register={true} variant='outline' className='group flex justify-center mt-4 w-full'>
         Register Now
         <img src={arrowImg} className='md:opacity-0 transfrom transition-all duration-500 md:group-hover:opacity-100 md:group-hover:ml-3' alt='Register Now' />
       </Button>
