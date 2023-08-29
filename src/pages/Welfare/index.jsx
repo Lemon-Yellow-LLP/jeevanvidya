@@ -1,13 +1,19 @@
 import Footer from '@/components/Footer';
 import HeroBanner from '@/components/HeroBanner';
-import ImageDetailContainer from '@/components/ImageDetailContainer';
 import SectionTitleDescription from '@/components/SectionTitleDescription';
 import TabButton from '@/components/TabButton';
 import { data } from '@/data/Welfare';
-import React, { useState } from 'react';
+import { cn } from '@/lib/utils';
+import circlesImage from '@/assets/circles.svg';
+import React, { useEffect, useState } from 'react';
 
 export default function Welfare() {
   const [activeTab, setActiveTab] = useState(data.socialInitiatives.tabs[0]);
+  const [activeTabContent, setActiveTabContent] = useState([]);
+
+  useEffect(() => {
+    setActiveTabContent(data.socialInitiatives.tabContent[activeTab]);
+  }, [activeTab]);
 
   return (
     <div className=''>
@@ -16,10 +22,10 @@ export default function Welfare() {
         bannerDesc={data.pageSubtitle}
         bannerImg={data.image}
       />
-      <div className='relative py-[40px] px-[10px] lg:p-[80px] '>
+      <div className='relative py-[40px] px-[16px] lg:p-[80px] '>
         <div className='absolute top-0 right-0 -z-10 opacity-10'>
           <svg
-            className='scale-50 lg:scale-100 ml-auto'
+            className='w-[322.194px] lg:w-full lg:h-full'
             xmlns='http://www.w3.org/2000/svg'
             width='804'
             height='636'
@@ -32,25 +38,30 @@ export default function Welfare() {
             />
           </svg>
         </div>
-        <ImageDetailContainer
+        <ImageDetailContainerWithContent
           title={data.section.title}
           description={data.section.description}
           image={data.section.mainImage}
+          sectionImage={data.section.sectionImage}
           imagePosition='right'
-          className='lg:p-0'
+          className='p-0 lg:p-0 flex-col-reverse'
         >
-          <div className='flex mt-4 lg:mt-10 gap-8 justify-between'>
+          <div className='w-full md:w-auto flex mt-6 lg:mt-10 gap-4 md:gap-8 justify-between'>
             {data.section.statistics.map((s, i) => (
-              <div key={i} className='flex flex-col gap-2 items-start'>
-                <p className='text-3xl not-italic font-semibold text-foreground-1'>{s.value}</p>
-                <p className='text-lg not-italic font-normal text-foreground-2'>{s.name}</p>
+              <div key={i} className='flex flex-col gap-2  items-start'>
+                <p className='text-2xl lg:text-3xl not-italic font-semibold text-foreground-1 '>
+                  {s.value}
+                </p>
+                <p className='text-sm lg:text-lg not-italic font-normal text-foreground-2'>
+                  {s.name}
+                </p>
               </div>
             ))}
           </div>
-        </ImageDetailContainer>
+        </ImageDetailContainerWithContent>
       </div>
 
-      <div className='relative py-[40px] px-[10px] lg:p-[80px] bg-[linear-gradient(180deg,_#E2EAF4_0%,_rgba(226,_234,_244,_0.00)_100%)]'>
+      <div className='relative py-[40px] px-[16px] lg:p-[80px] bg-[linear-gradient(180deg,_#E2EAF4_0%,_rgba(226,_234,_244,_0.00)_100%)]'>
         <SectionTitleDescription
           title={data.socialInitiatives.title}
           description={data.socialInitiatives.subtitle}
@@ -58,54 +69,97 @@ export default function Welfare() {
           align='left'
           className='p-0 lg:p-0'
         />
-        <div className='flex flex-wrap gap-8 pt-[24px]'>
-          {data.socialInitiatives.tabs.map((t, i) => (
-            <TabButton
-              onChange={(label) => setActiveTab(label)}
-              activeTab={activeTab}
-              label={t}
-              key={i}
-            />
+
+        <div className='flex py-6 lg:py-3 lg:pb-14 gap-2 md:gap-4 overflow-x-auto'>
+          {data.socialInitiatives.tabs.map((label, index) => (
+            <div
+              key={index}
+              className={cn(
+                'py-2 md:px-6 px-4 md:py-[14px] border-[#0084cb7a] border-[1.5px] rounded-[64px] transition-all duration-300 text-center my-auto cursor-pointer ',
+                { 'bg-[#0084cb28] text-foreground-1': activeTab === label },
+              )}
+              onClick={() => setActiveTab(label)}
+            >
+              <span className='text-base whitespace-nowrap not-italic font-medium text-foreground-2'>
+                {label}
+              </span>
+            </div>
           ))}
         </div>
-
-        {Object.entries(data.socialInitiatives.tabContent).map(([key, valueArr]) => {
-          if (key === activeTab)
-            return (
-              <div key={key} className='pt-[56px] flex flex-col gap-10 '>
-                {valueArr.map((item, idx) => (
-                  <div key={idx} className='flex flex-col md:flex-row gap-4 lg:gap-10 '>
-                    <div className='flex-shrink-0 overflow-hidden rounded-2xl'>
-                      <img className='object-fill' src={item.image} alt='aboutImage' />
-                    </div>
-                    <div className='flex flex-col items-start gap-4'>
-                      <h2 className='text-center text-2xl not-italic font-semibold text-foreground-1'>
-                        {item.title}
-                      </h2>
-                      <p className='text-base not-italic font-normal leading-7'>
-                        {item.description}
-                      </p>
-                      <div className='flex mt-4 lg:mt-10 gap-8 justify-between'>
-                        {item.statistics.map((s, i) => (
-                          <div key={i} className='flex flex-col gap-2 items-start'>
-                            <p className='text-3xl not-italic font-semibold text-foreground-1'>
-                              {s.value}
-                            </p>
-                            <p className='text-lg not-italic font-normal text-foreground-2'>
-                              {s.name}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            );
-          return null;
-        })}
+        <div className='flex flex-col gap-10'>
+          {activeTabContent.map((item, index) => (
+            <SocialInitiativeCard key={index} {...item} />
+          ))}
+        </div>
       </div>
       <Footer />
+    </div>
+  );
+}
+
+function ImageDetailContainerWithContent({ image, title, description, sectionImage, children }) {
+  return (
+    <div className='flex flex-col-reverse lg:flex-row-reverse gap-4 md:gap-[48px]'>
+      <div className='sm:h-fit overflow-hidden rounded-2xl'>
+        <img className='w-full object-cover' src={image} alt='aboutImage' />
+      </div>
+      <div className='flex-1 flex flex-col items-start'>
+        {sectionImage ? (
+          <img src={sectionImage} alt='flowerImage' className='h-[40px] lg:h-fit w-fit' />
+        ) : null}
+
+        <h2 className='text-lg lg:text-3xl not-italic font-semibold pt-4 text-foreground-1'>
+          {title}
+        </h2>
+        <p className='text-sm lg:text-base not-italic font-normal leading-relaxed pt-8 text-foreground-2'>
+          {description}
+        </p>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function SocialInitiativeCard({ image, title, description, statistics, link }) {
+  return (
+    <div className='flex flex-col md:flex-row gap-4 lg:gap-10 '>
+      <div className='flex-shrink-0 overflow-hidden rounded-2xl'>
+        <img className='object-fill' src={image} alt='aboutImage' />
+      </div>
+      <div className='flex flex-col items-start gap-4'>
+        <h2 className='flex items-center text-base lg:text-2xl not-italic font-semibold text-foreground-1'>
+          {title}
+          {link ? (
+            <span className='ml-[6px]'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='24'
+                height='24'
+                viewBox='0 0 24 24'
+                fill='none'
+              >
+                <path d='M5 4V6H15.59L4 17.59L5.41 19L17 7.41V18H19V4H5Z' fill='#122135' />
+              </svg>
+            </span>
+          ) : null}
+        </h2>
+        <p className='text-sm lg:text-base not-italic font-normal lg:leading-7 leading-5 text-foreground-2'>
+          {description}
+        </p>
+
+        <div className='w-full md:w-auto flex mt-6 lg:mt-10 gap-4 md:gap-8 justify-between'>
+          {statistics.map((s, i) => (
+            <div key={i} className='flex flex-col gap-2  items-start'>
+              <p className='text-2xl lg:text-3xl not-italic font-semibold text-foreground-1 '>
+                {s.value}
+              </p>
+              <p className='text-sm lg:text-lg not-italic font-normal text-foreground-2'>
+                {s.name}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
