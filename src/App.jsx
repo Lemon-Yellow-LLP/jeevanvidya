@@ -61,6 +61,7 @@ function App() {
         <Route path='/testimonial' element={<Testimonial />} />
         <Route path='/about' element={<About />} />
         <Route path='/dnyanpeeth' element={<Dnyanpeeth />} />
+        <Route path='/media-press' element={<MediaPress />} />
         <Route path='/philosophy' element={<Philosophy />} />
         <Route path='/philosophy-quotes' element={<PhilosophyQuotes />} />
         <Route path='*' element={<div>Page not found</div>} />
