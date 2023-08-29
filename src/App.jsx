@@ -2,14 +2,16 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from '@/pages/Home';
 import Navbar from '@/components/Navbar';
 import MediaPress from '@/pages/MediaPress';
-import Download from './components/Download';
-import About from './pages/About';
+import UniversalPrayer from './pages/UniversalPrayer';
+import About from '@/pages/About';
 import Dnyanpeeth from '@/pages/Dnyanpeeth';
+import Download from './components/Download';
 import Philosophy from '@/pages/Philosophy';
 import pdfImage from '@/assets/pdf_file_icon.svg';
 import TestPage from './pages/TestPage';
 import Testimonial from '@/pages/Testimonial';
 import Welfare from './pages/Welfare';
+import PhilosophyQuotes from './pages/PhilosophyQuotes';
 
 const fileData = [
   {
@@ -34,6 +36,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/universalPrayer' element={<UniversalPrayer />} />
         <Route path='/media-press' element={<MediaPress />} />
         <Route path='/test' element={<TestPage />} />
         <Route
@@ -58,8 +62,10 @@ function App() {
         <Route path='/testimonial' element={<Testimonial />} />
         <Route path='/about' element={<About />} />
         <Route path='/dnyanpeeth' element={<Dnyanpeeth />} />
+        <Route path='/media-press' element={<MediaPress />} />
         <Route path='/philosophy' element={<Philosophy />} />
         <Route path='/welfare' element={<Welfare />} />
+        <Route path='/philosophy-quotes' element={<PhilosophyQuotes />} />
         <Route path='*' element={<div>Page not found</div>} />
       </Routes>
     </BrowserRouter>

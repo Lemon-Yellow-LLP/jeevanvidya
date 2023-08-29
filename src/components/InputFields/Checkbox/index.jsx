@@ -8,7 +8,7 @@ const Checkbox = ({ name, value, onChange, label }) => {
         type='checkbox'
         onChange={onChange}
         checked={value}
-        className=' w-[20px] h-[20px] accent-[#0084CB] border border-[2px]'
+        className='min-w-[20px] min-h-[20px] max-w-[20px] max-h-[20px] accent-[#0084CB] border border-[2px]'
       />
       <span className='text-[#122135cc]'>{label}</span>
     </div>
