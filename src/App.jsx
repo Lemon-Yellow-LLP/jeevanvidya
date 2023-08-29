@@ -5,7 +5,7 @@ import MediaPress from '@/pages/MediaPress';
 import UniversalPrayer from './pages/UniversalPrayer';
 import About from '@/pages/About';
 import Dnyanpeeth from '@/pages/Dnyanpeeth';
-import Download from './components/Download';
+import DownloadFile from './components/DownloadFile';
 import Philosophy from '@/pages/Philosophy';
 import pdfImage from '@/assets/pdf_file_icon.svg';
 import TestPage from './pages/TestPage';
@@ -45,7 +45,7 @@ function App() {
             <div className='blue-gradient flex flex-col pt-[164px]'>
               <div className='flex gap-6'>
                 {fileData.map((file, index) => (
-                  <Download
+                  <DownloadFile
                     fileImage={file.image}
                     label={file.label}
                     filesize={file.size}

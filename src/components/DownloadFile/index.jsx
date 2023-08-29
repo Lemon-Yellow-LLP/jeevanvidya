@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Download = ({ fileImage, label, filesize, file, filename }) => {
+const DownloadFile = ({ fileImage, label, filesize, file, filename }) => {
   return (
     <div className='rounded-2xl p-6 bg-white w-[302px]'>
       <div className='pdf-gradient h-14 w-14 rounded-full relative'>
@@ -32,9 +32,9 @@ const Download = ({ fileImage, label, filesize, file, filename }) => {
   );
 };
 
-export default Download;
+export default DownloadFile;
 
-Download.prototype = {
+DownloadFile.prototype = {
   fileImage: PropTypes.node,
   label: PropTypes.string,
   filesize: PropTypes.string,
