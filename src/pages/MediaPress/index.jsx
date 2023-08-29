@@ -8,6 +8,7 @@ import VideoImg from '@/assets/videoImg.png';
 import NewsImg from '@/assets/newspaper1.png';
 import SearchIcon from '@/assets/search_icon.svg';
 import Dropdown from '@/components/InputFields/Dropdown';
+import Test from '@/components/test';
 
 // const pages = [
 //   [
@@ -88,49 +89,49 @@ const newsData = [
   {
     image: newsarticlesImg,
     slug: 'News & Articles',
-    title: 'Title',
+    title: 'Title 1',
     desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
   },
   {
     image: newsarticlesImg,
     slug: 'News & Articles',
-    title: 'Title',
+    title: 'Title 2',
     desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
   },
   {
     image: newsarticlesImg,
     slug: 'News & Articles',
-    title: 'Title',
+    title: 'Title 3',
     desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
   },
   {
     image: newsarticlesImg,
     slug: 'News & Articles',
-    title: 'Title',
+    title: 'Title 4',
     desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
   },
   {
     image: newsarticlesImg,
     slug: 'News & Articles',
-    title: 'Title',
+    title: 'Title 5',
     desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
   },
   {
     image: newsarticlesImg,
     slug: 'News & Articles',
-    title: 'Title',
+    title: 'Title 6',
     desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
   },
   {
     image: newsarticlesImg,
     slug: 'News & Articles',
-    title: 'Title',
+    title: 'Title 7',
     desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
   },
   {
     image: newsarticlesImg,
     slug: 'News & Articles',
-    title: 'Title',
+    title: 'Title 8',
     desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
   },
 ];
@@ -185,6 +186,13 @@ const NewspaperData = [
 
 export default function MediaPress() {
   const tabs = ['News & Articles', 'Videos', 'Newspapers'];
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage, setPostPerPage] = useState(3);
+
+  const lastPostIndex = currentPage * postPerPage;
+  const firstPostIndex = lastPostIndex - postPerPage;
+
+  const currentPosts = newsData.slice(firstPostIndex, lastPostIndex);
 
   const options = [
     {
@@ -240,6 +248,7 @@ export default function MediaPress() {
               placeholder='Search'
               className='w-full pl-10 py-4 rounded-lg border-white'
             />
+            
           </div>
           <form className='flex gap-4 items-baseline'>
             <label htmlFor='Sort By:' className='text-xs md:text-lg '>
@@ -253,11 +262,13 @@ export default function MediaPress() {
       <div className='p-3 md:p-10 lg:p-20 bg-[#f5f5f5]'>
         <div
           className={`grid gap-x-6 gap-y-8 ${
-            activeTab === tabs[0] || activeTab === tabs[1] ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-3 lg:grid-cols-4'
+            activeTab === tabs[0] || activeTab === tabs[1]
+              ? 'md:grid-cols-2 lg:grid-cols-3'
+              : 'md:grid-cols-3 lg:grid-cols-4'
           }`}
         >
           {activeTab === tabs[0] &&
-            newsData.map((data, i) => (
+            currentPosts.map((data, i) => (
               <MediaCard
                 key={i}
                 cardTitle={data.title}
@@ -280,6 +291,7 @@ export default function MediaPress() {
           {activeTab === tabs[2] &&
             NewspaperData.map((data, i) => <MediaCard key={i} cardImage={data.image} />)}
         </div>
+        <Test totalPosts={newsData.length} postPerPage={postPerPage} setCurrentPage={setCurrentPage}/>
       </div>
     </section>
   );
