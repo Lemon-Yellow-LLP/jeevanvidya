@@ -1,5 +1,7 @@
 import HeroBanner from '@/components/HeroBanner';
 import DnyanpeethBanner from '@/assets/Dnyanpeeth-banner.png';
+import dnyannpeethloaction from '@/assets/dnyannpeethloaction.png';
+import loactionArrow from '@/assets/locationarrow.svg';
 import TestImage from '@/assets/Dnyanpeeth-banner.png';
 import Flower from '@/assets/section-flower.png';
 import Flower2 from '@/assets/flower2.svg';
@@ -13,6 +15,11 @@ import SectionTitleDescription from '@/components/SectionTitleDescription';
 import Slider from '@/components/Slider';
 import { SwiperSlide } from 'swiper/react';
 import MediaCard from '@/components/MediaCard';
+import TextInput from '@/components/InputFields/TextInput';
+import { useCallback, useState } from 'react';
+import PhoneNumberInput from '@/components/InputFields/TextInput/PhoneNumberInput';
+import Dropdown from '@/components/InputFields/Dropdown';
+import Button from '@/components/Button';
 
 const feedbackData = [
   {
@@ -22,6 +29,11 @@ const feedbackData = [
   },
   {
     title: 'VideoTwo',
+    desc: 'FRCPC, Section chief of breast imaging, The Ottawa hospital',
+    img: TestImage,
+  },
+  {
+    title: 'VideoThree',
     desc: 'FRCPC, Section chief of breast imaging, The Ottawa hospital',
     img: TestImage,
   },
@@ -73,6 +85,13 @@ const coursesData = [
     duration: '1 day',
     ageGroup: '15 to 21',
   },
+  {
+    title: 'VideoFive',
+    desc: 'FRCPC, Section chief of breast imaging, The Ottawa hospital',
+    img: TestImage,
+    duration: '1 day',
+    ageGroup: '15 to 21',
+  },
 ];
 
 const awardsData = {
@@ -86,6 +105,59 @@ const awardsData = {
 const pages = [<PageOne />, <PageTwo />];
 
 const Dnyanpeeth = () => {
+  const [values, setValues] = useState({
+    name: '',
+    email: '',
+    about: '',
+    location: '',
+    message: '',
+    phoneNumber: '',
+    phoneNumberVerified: false,
+    radio: false,
+    checkbox: true,
+    verificationCode: '',
+    dropdown: '',
+  });
+
+  const [errors, setErrors] = useState({
+    name: 'Enter Name',
+    email: 'Enter Name',
+    about: 'Enter Name',
+    location: 'Enter Name',
+    message: 'Enter Name',
+    phoneNumberVerified: 'Enter Name',
+    phoneNumber: 'Enter Name',
+    dropdown: 'Enter Name',
+    image: 'Enter Name',
+    verificationCode: 'Enter Name',
+  });
+
+  const handleChange = useCallback((e) => {
+    let newData = values;
+    newData[e.target.name] = e.target.value;
+    setValues({ ...newData });
+  }, []);
+
+  const options = [
+    {
+      label: '1',
+      value: 1,
+    },
+    {
+      label: '2',
+      value: 2,
+    },
+    {
+      label: '3',
+      value: 3,
+    },
+  ];
+
+  const handleDropdownChange = useCallback(({ value, name }) => {
+    let newData = values;
+    newData[name] = value;
+    setValues({ ...newData });
+  }, []);
   return (
     <div>
       <HeroBanner
@@ -206,7 +278,7 @@ const Dnyanpeeth = () => {
             }}
           >
             {coursesData?.map((data, i) => (
-              <SwiperSlide>
+              <SwiperSlide key={i}>
                 <DnyanpeethCourseCard
                   title={data.title}
                   desc={data.desc}
@@ -261,7 +333,7 @@ const Dnyanpeeth = () => {
             }}
           >
             {feedbackData?.map((data, i) => (
-              <SwiperSlide>
+              <SwiperSlide key={i}>
                 <MediaCard cardTitle={data.title} cardImage={data.img} cardDesc={data.desc} />
               </SwiperSlide>
             ))}
@@ -273,14 +345,82 @@ const Dnyanpeeth = () => {
         <img src={Flower} alt='flower' className='pr-4 lg:pr-0' />
         <h2 className='text-lg md:text-[32px] font-semibold pr-4 lg:pr-0'>Visitor Registration</h2>
         <p className='text-sm leading-[22px] md:leading-7 md:text-base mt-4 font-normal opacity-80 pr-4 lg:pr-0'>
-          Empower and enlighten yourself with variety of Jeevanvidya courses, curated carefully for
-          all walks of life.
+          All visitors who opt to visit jeevanvidya dnyanpeeth need to either apply for day pass or
+          night stay pass well in advance. This will help us to serve you better once you reach
+          dnyanpeeth.
         </p>
         <div className='flex gap-6 mt-8'>
-          <div className='w-[60%]'>
-            <img src={DnyanpeethBanner} alt='' className='rounded-xl' />
+          <div className='w-[60%] relative'>
+            <img src={dnyannpeethloaction} alt='' className='rounded-xl' />
+            <div className='absolute bottom-6 left-6 right-6 flex items-end gap-6'>
+              <div className='w-3/4 flex flex-col gap-2'>
+                <span className='text-[22px] font-semibold text-accent-white'>Address:</span>
+                <span className='text-lg font-normal text-accent-white'>
+                  Vaijnath, Tata Power Road, Off, Karjat - Murbad Rd, Karjat, Maharashtra 410201
+                </span>
+              </div>
+              <div className='w-1/4 flex gap-2 cursor-pointer'>
+                <h4 className='text-lg font-medium text-accent-orange'>View on Map</h4>
+                <img src={loactionArrow} alt='map loaction' />
+              </div>
+            </div>
           </div>
-          <div className='w-[40%] p-6 rounded-xl bg-white'></div>
+          <div className='w-[40%] p-6 rounded-xl bg-white'>
+            <div>
+              <TextInput
+                name='name'
+                label='Name'
+                error={errors.name}
+                placeholder='E.g. Rakesh Jadhav'
+                onChange={handleChange}
+                required
+                value={values.name}
+                touched={true}
+                disabled={true}
+              />
+              <PhoneNumberInput
+                name='phoneNumber'
+                label='Phone Number'
+                error={errors.phoneNumber}
+                placeholder='Placeholder'
+                onChange={handleChange}
+                required
+                value={values.phoneNumber}
+                touched={true}
+                disabled={true}
+              />
+              <div className='flex'>
+                <Dropdown
+                  name='dropdown'
+                  label='Label'
+                  required
+                  error={errors.dropdown}
+                  options={options}
+                  placeholder='Placeholder'
+                  onChange={handleDropdownChange}
+                  defaultSelected={values.dropdown}
+                  touched={true}
+                  disabled={true}
+                />
+                <TextInput
+                  name='name'
+                  label='Name'
+                  error={errors.name}
+                  placeholder='E.g. Rakesh Jadhav'
+                  onChange={handleChange}
+                  required
+                  value={values.name}
+                  touched={true}
+                  disabled={true}
+                />
+              </div>
+            </div>
+            <div>
+              <Button variant="filled" className="ml-auto">
+                Submit
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
