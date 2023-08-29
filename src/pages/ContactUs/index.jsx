@@ -7,6 +7,7 @@ import phone from '@/assets/phone_icon.svg';
 import React, { useCallback, useState } from 'react';
 import TextInput from '@/components/InputFields/TextInput';
 import Button from '@/components/Button';
+import TextareaInput from '@/components/InputFields/TextareaInput';
 
 const ContactUs = () => {
   const [values, setValues] = useState({
@@ -107,6 +108,19 @@ const ContactUs = () => {
               value={values.email}
               touched={true}
               disabled={true}
+            />
+
+            <TextareaInput
+              name='message'
+              label='Message'
+              error={errors.message}
+              placeholder='Write here'
+              onChange={handleChange}
+              required
+              value={values.message}
+              touched={true}
+              disabled={true}
+              className="h-44"
             />
 
             <div className='ml-auto'>
