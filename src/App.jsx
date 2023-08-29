@@ -10,6 +10,7 @@ import Philosophy from '@/pages/Philosophy';
 import pdfImage from '@/assets/pdf_file_icon.svg';
 import TestPage from './pages/TestPage';
 import Testimonial from '@/pages/Testimonial';
+import Welfare from './pages/Welfare';
 import PhilosophyQuotes from './pages/PhilosophyQuotes';
 
 const fileData = [
@@ -63,6 +64,7 @@ function App() {
         <Route path='/dnyanpeeth' element={<Dnyanpeeth />} />
         <Route path='/media-press' element={<MediaPress />} />
         <Route path='/philosophy' element={<Philosophy />} />
+        <Route path='/welfare' element={<Welfare />} />
         <Route path='/philosophy-quotes' element={<PhilosophyQuotes />} />
         <Route path='*' element={<div>Page not found</div>} />
       </Routes>
