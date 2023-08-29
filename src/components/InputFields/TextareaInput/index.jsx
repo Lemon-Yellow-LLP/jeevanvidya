@@ -34,7 +34,7 @@ const TextareaInput = ({
       `}
       >
         <textarea
-          className={`w-full focus:outline-none ${className}}`}
+          className={`w-full focus:outline-none ${className}`}
           placeholder={placeholder}
           id={name}
           name={name}
