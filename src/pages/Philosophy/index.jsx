@@ -10,13 +10,14 @@ import TabImage from '@/assets/tab-img.png';
 import PhilosophyImg1 from '@/assets/philosophy-img1.png';
 import BenefitsCardLogo from '@/assets/benefits-card-logo.svg';
 import TestImage from '@/assets/Dnyanpeeth-banner.png';
-import { BenefitsData, QuoteData } from '@/data/Philosophy';
+import { BenefitsData, FeaturesData, QuoteData } from '@/data/Philosophy';
 import { TabLabelData } from '@/data/Philosophy';
 import { TabData } from '@/data/Philosophy';
 import { SwiperSlide } from 'swiper/react';
 import TabButton from '@/components/TabButton';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import Button from '@/components/Button';
 
 const SliderData = [
   {
@@ -138,6 +139,15 @@ const Philosophy = () => {
       </Slider> */}
       <div className='p-4 lg:p-20'>
         <SectionTitleDescription
+          image={FlowerImage2}
+          title='Salient Features of Jeevanvidya philosophy'
+          align='center'
+          className='!p-0 mb-4 lg:mb-8 '
+        />
+        <PhilosophyFeatures />
+      </div>
+      <div className='p-4 lg:p-20'>
+        <SectionTitleDescription
           image={FlowerImage}
           title='Benefits of Jeevanvidya'
           description='Those people who accept the philosophy of Jeevanvidya and sincerely make efforts to put it into practice definitely improve their financial position, make progress in life and are blessed with peace and happiness.'
@@ -164,21 +174,27 @@ const Philosophy = () => {
           ))}
         </div>
       </div>
-      <div className='px-4 py-10'>
-        <SectionTitleDescription
-          image={FlowerImage}
-          title='Philosophy – Quotes'
-          description='Those people who accept the philosophy of Jeevanvidya and sincerely make efforts to put it into practice definitely improve their financial position, make progress in life and are blessed with peace and happiness.'
-          align='left'
-          className='!p-0 mb-4 lg:mb-8 '
-        />
+
+      <div className=' flex flex-col gap-6 lg:gap-8'>
+        <div className='px-4 pt-10 lg:px-20 lg:pt-20 flex flex-col gap-6 lg:gap-8'>
+          <SectionTitleDescription
+            image={FlowerImage}
+            title='Philosophy – Quotes'
+            description='Those people who accept the philosophy of Jeevanvidya and sincerely make efforts to put it into practice definitely improve their financial position, make progress in life and are blessed with peace and happiness.'
+            align='left'
+            className='!p-0 mb-4 lg:mb-8 '
+          />
+          <Button variant='outline' className='w-fit'>
+            View All
+          </Button>
+        </div>
+        <PhilosophyQuotes />
       </div>
-      <PopularSingersPrayers />
     </div>
   );
 };
 
-export function PopularSingersPrayers() {
+export function PhilosophyQuotes() {
   return (
     <Slider
       spaceBetween={12}
@@ -193,19 +209,37 @@ export function PopularSingersPrayers() {
           spaceBetween: 40,
         },
         1024: {
-          slidesPerView: 3.2,
-          spaceBetween: 24,
+          slidesPerView: 3.3,
+          spaceBetween: 0,
         },
       }}
     >
       {QuoteData.map((v, i) => (
-        <SwiperSlide key={i}>
+        <SwiperSlide key={i} className='px-4 lg:px-20'>
           <div
             key={i}
-            className='md:min-w-[411px] md:min-h-[411px] p-10 bg-quotes-bg bg-contain bg-no-repeat bg-center text-foreground-1 text-base font-semibold  flex items-center justify-center text-center leading-[187%]'
+            className='min-w-[328px] min-h-[328px] md:min-w-[411px] md:min-h-[411px] p-10 bg-quotes-bg bg-contain bg-no-repeat bg-center text-foreground-1 text-xs lg:text-base font-semibold  flex items-center justify-center text-center leading-[187%]'
           >
             {v.quote}
           </div>
+        </SwiperSlide>
+      ))}
+    </Slider>
+  );
+}
+export function PhilosophyFeatures() {
+  return (
+    <Slider spaceBetween={12} slidesPerView={1}>
+      {FeaturesData.map((v, i) => (
+        <SwiperSlide key={i}>
+          <ImageDetailContainer
+            image={v.image}
+            title={v.title}
+            description={v.description}
+            imagePosition='right'
+            className='!p-0'
+            titleClassName='lg:text-[22px] '
+          />
         </SwiperSlide>
       ))}
     </Slider>
