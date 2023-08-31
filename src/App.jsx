@@ -13,6 +13,7 @@ import Testimonial from '@/pages/Testimonial';
 import Welfare from './pages/Welfare';
 import PhilosophyQuotes from './pages/PhilosophyQuotes';
 import Donation from './pages/Donation';
+import ContactUs from './pages/ContactUs';
 
 const fileData = [
   {
@@ -64,6 +65,7 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/dnyanpeeth' element={<Dnyanpeeth />} />
         <Route path='/media-press' element={<MediaPress />} />
+        <Route path='/contact-us' element={<ContactUs />} />
         <Route path='/philosophy' element={<Philosophy />} />
         <Route path='/welfare' element={<Welfare />} />
         <Route path='/philosophy-quotes' element={<PhilosophyQuotes />} />

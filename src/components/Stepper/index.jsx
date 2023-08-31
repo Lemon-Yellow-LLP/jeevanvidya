@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-const Stepper = ({ steps, activeStep, progress }) => {
+const MobileStepper = ({ steps, activeStep, progress }) => {
   return (
     <div className='pt-2 pb-4 flex gap-4 justify-center'>
       {steps.map(
@@ -25,4 +25,4 @@ const Stepper = ({ steps, activeStep, progress }) => {
   3;
 };
 
-export default Stepper;
+export default MobileStepper;

@@ -220,7 +220,7 @@ export default function MediaPress() {
       />
 
       {/* Tab section */}
-      <div className='pl-4 lg:px-10 xl:px-20 pt-3 flex flex-col gap-4 lg:flex-row lg:items-baseline justify-between bg-primary-white'>
+      <div className='pl-4 lg:px-10 xl:px-20 pt-3 flex flex-col gap-4 lg:flex-row lg:items-baseline justify-between bg-accent-white'>
         <div className='flex gap-2 md:gap-4 overflow-x-auto hide-scrollbar'>
           {tabs.map((tab, index) => (
             <TabButton label={tab} activeTab={activeTab} onChange={handleTabClick} key={index} />
