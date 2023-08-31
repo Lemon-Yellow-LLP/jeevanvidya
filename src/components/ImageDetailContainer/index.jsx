@@ -1,6 +1,5 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
-import FlowerImage from './flower.png';
 import Button from '../Button';
 export default function ImageDetailContainer({
   image,
@@ -8,28 +7,37 @@ export default function ImageDetailContainer({
   description,
   imagePosition,
   className,
+  contentClassName,
+  titleClassName,
+  imageClassName,
   btnTitle,
+  sectionImage,
 }) {
   return (
     <div
       className={cn(
-        'flex flex-col py-[40px] px-[16px] lg:p-[80px] md:flex-row md:justify-between gap-4 ',
-        { 'md:flex-row-reverse': imagePosition === 'right' },
+        'flex flex-col py-[40px] px-[16px] lg:p-[80px] lg:flex-row gap-4 md:gap-[48px]',
+        { 'lg:flex-row-reverse': imagePosition === 'right' },
         className,
       )}
     >
-      <div className='flex-shrink-0 max-w-[328px] max-h-[246px] sm:h-fit  md:w-auto lg:max-w-[628px] lg:max-h-[471px] overflow-hidden rounded-2xl'>
-        <img className='object-contain' src={image} alt='aboutImage' />
+      <div className={cn('sm:h-fit overflow-hidden rounded-2xl', imageClassName)}>
+        <img className='w-full object-cover' src={image} alt='aboutImage' />
       </div>
-      <div className='flex flex-col items-start max-w-[518px] gap-4'>
-        <div className=''>
-          <img src={FlowerImage} alt='flowerImage' />
-        </div>
-        <h2 className='text-3xl not-italic font-semibold'>{title}</h2>
-        <p className='text-base not-italic font-normal leading-7'>{description}</p>
-        <Button variant='filled' inputClasses='max-w-fit'>
-          Learn More
-        </Button>
+      <div className={cn('flex-1 flex flex-col items-start gap-4', contentClassName)}>
+        {sectionImage ? (
+          <img src={sectionImage} alt='flowerImage' className='h-[40px] lg:h-fit w-fit' />
+        ) : null}
+
+        <h2 className={cn('text-lg lg:text-3xl not-italic font-semibold', titleClassName)}>
+          {title}
+        </h2>
+        <p className='text-sm lg:text-base not-italic font-normal leading-relaxed'>{description}</p>
+        {btnTitle ? (
+          <Button variant='filled' inputClasses='max-w-fit'>
+            {btnTitle}
+          </Button>
+        ) : null}
       </div>
     </div>
   );
