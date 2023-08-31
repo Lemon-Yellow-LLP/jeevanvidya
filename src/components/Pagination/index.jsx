@@ -1,18 +1,17 @@
 import { useState } from 'react';
 
-const Pagination = ({ pages }) => {
+const Pagination = ({ pages, callback, children }) => {
   const [activeStep, setActiveStep] = useState(0);
-
   return (
     <>
-      {pages.map((page, index) => index === activeStep && <div key={index}>{page}</div>)}
-
+      {children}
       <div className='flex justify-center gap-4 mt-8'>
         {activeStep !== 0 && (
           <div
             className='bg-white border-[1px] border-[#E2EAF4] text-primary-black h-10 w-10 rounded-full flex justify-center items-center cursor-pointer'
             onClick={() => {
               setActiveStep((prev) => prev - 1);
+              callback(activeStep - 1);
             }}
           >
             <svg
@@ -37,7 +36,6 @@ const Pagination = ({ pages }) => {
             </svg>
           </div>
         )}
-
         {pages.map((_, index) => (
           <div
             className={`${
@@ -48,17 +46,18 @@ const Pagination = ({ pages }) => {
             key={index}
             onClick={() => {
               setActiveStep(index);
+              callback(index);
             }}
           >
             {index + 1}
           </div>
         ))}
-
         {activeStep !== pages.length - 1 && (
           <div
             className='bg-white border-[1px] border-[#E2EAF4] text-primary-black h-10 w-10 rounded-full flex justify-center items-center cursor-pointer'
             onClick={() => {
               setActiveStep((prev) => prev + 1);
+              callback(activeStep + 1);
             }}
           >
             <svg
@@ -86,5 +85,4 @@ const Pagination = ({ pages }) => {
     </>
   );
 };
-
 export default Pagination;
