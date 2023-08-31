@@ -46,6 +46,7 @@ const DesktopStepper = ({ steps, activeStep }) => {
             <div className='flex flex-col text-center'>
               <span>{step}</span>
             </div>
+            <div></div>
           </div>
         );
       })}

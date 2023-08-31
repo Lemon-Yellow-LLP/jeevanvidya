@@ -1,7 +1,8 @@
+import React from 'react';
 import WarningIcon from '@/assets/WarningIcon.jsx';
 import { memo } from 'react';
 
-const PhoneNumberInput = ({
+const TextInputWithIcon = ({
   label,
   name,
   error,
@@ -13,7 +14,8 @@ const PhoneNumberInput = ({
   value,
   disabled,
   max,
-  children,
+  onBlur,
+  icon,
 }) => {
   return (
     <div className='flex flex-col gap-1 w-[100%]'>
@@ -27,13 +29,13 @@ const PhoneNumberInput = ({
 
       <div
         className={`input-container px-4 py-3 border-[2px] rounded-lg flex gap-1
-          transition-all ease-out duration-150 focus:outline-none outline-none h-[54px]
-          ${error && touched ? 'border-[#DE3400]' : 'border-[#0084CB29]'}
-          ${disabled ? 'bg-[#EEEEEE] pointer-events-none cursor-not-allowed' : ''}
+          transition-all ease-out duration-150 focus:outline-none outline-none
+        ${error && touched && touched[name] ? 'border-[#DE3400]' : 'border-[#0084CB29]'}
+        ${disabled ? 'bg-[#EEEEEE] pointer-events-none cursor-not-allowed' : ''}
         `}
       >
-        <span className='font-normal text-[#a19f9f]'>+91</span>
-        <hr className='h-[100%] w-[1.5px] bg-[#0084CB3D] ml-[15px] mr-[15px]' />
+        {icon}
+
         <input
           className={`w-full focus:outline-none`}
           placeholder={placeholder}
@@ -43,16 +45,16 @@ const PhoneNumberInput = ({
           max={max}
           value={value}
           disabled={disabled}
+          onBlur={onBlur}
         />
-        {error && touched && <WarningIcon />}
-        {children}
+        {error && touched && touched[name] && <WarningIcon />}
       </div>
 
       {displayError ? (
         <span
           className='text-xs text-[#DE3400]'
           dangerouslySetInnerHTML={{
-            __html: error && touched ? error : String.fromCharCode(160),
+            __html: error && touched && touched[name] ? error : String.fromCharCode(160),
           }}
         />
       ) : (
@@ -62,4 +64,4 @@ const PhoneNumberInput = ({
   );
 };
 
-export default memo(PhoneNumberInput);
+export default memo(TextInputWithIcon);

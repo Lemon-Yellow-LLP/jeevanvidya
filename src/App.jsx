@@ -12,6 +12,7 @@ import TestPage from './pages/TestPage';
 import Testimonial from '@/pages/Testimonial';
 import Welfare from './pages/Welfare';
 import PhilosophyQuotes from './pages/PhilosophyQuotes';
+import Donation from './pages/Donation';
 
 const fileData = [
   {
@@ -66,6 +67,7 @@ function App() {
         <Route path='/philosophy' element={<Philosophy />} />
         <Route path='/welfare' element={<Welfare />} />
         <Route path='/philosophy-quotes' element={<PhilosophyQuotes />} />
+        <Route path='/donation' element={<Donation />} />
         <Route path='*' element={<div>Page not found</div>} />
       </Routes>
     </BrowserRouter>

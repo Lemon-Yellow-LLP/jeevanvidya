@@ -7,10 +7,12 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
+
 /* gloabal css */
 .hide-scrollbar::-webkit-scrollbar {
   width: 0 !important;
 }
+
 /* end */
 
 /* gradient walker css and animation */
@@ -24,19 +26,17 @@ body {
   animation: move 1.8s linear 0s infinite;
   animation-fill-mode: forwards;
   background:
-    linear-gradient(to bottom right, rgba(254, 254, 254, 0.4) 0%, rgba(255, 255, 255, 0) 47%) bottom
-      right / 50% 50% no-repeat,
-    linear-gradient(to bottom left, rgba(255, 255, 255, 0.4) 2%, rgba(255, 255, 255, 0) 47%) bottom
-      left / 50% 50% no-repeat,
-    linear-gradient(to top left, rgba(255, 255, 255, 0.4) 2%, rgba(255, 255, 255, 0) 47%) top left /
-      50% 50% no-repeat,
-    linear-gradient(to top right, rgba(255, 255, 255, 0.4) 6%, rgba(255, 255, 255, 0) 47%) top right /
-      50% 50% no-repeat;
+    linear-gradient(to bottom right, rgba(254, 254, 254, 0.4) 0%, rgba(255, 255, 255, 0) 47%) bottom right / 50% 50% no-repeat,
+    linear-gradient(to bottom left, rgba(255, 255, 255, 0.4) 2%, rgba(255, 255, 255, 0) 47%) bottom left / 50% 50% no-repeat,
+    linear-gradient(to top left, rgba(255, 255, 255, 0.4) 2%, rgba(255, 255, 255, 0) 47%) top left / 50% 50% no-repeat,
+    linear-gradient(to top right, rgba(255, 255, 255, 0.4) 6%, rgba(255, 255, 255, 0) 47%) top right / 50% 50% no-repeat;
 }
+
 @keyframes move {
   from {
     left: -30%;
   }
+
   to {
     left: 100%;
   }
@@ -44,10 +44,8 @@ body {
 
 /* hero-strip color */
 .hero-gradient {
-  background: var(
-    --gradient-gradient-1,
-    linear-gradient(135deg, #0352a3 0%, #0084cb 100%, #0084cb 100%)
-  );
+  background: var(--gradient-gradient-1,
+      linear-gradient(135deg, #0352a3 0%, #0084cb 100%, #0084cb 100%));
 }
 
 /* arrow animation with rotating circle */
@@ -57,10 +55,12 @@ body {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+
 @keyframes rotate {
   from {
     transform: rotate(-360deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -75,25 +75,23 @@ body {
   height: 100%;
   top: 0;
   z-index: 2;
-  background: linear-gradient(
-    90deg,
-    #0352a3 0%,
-    #0084cb 23.71%,
-    rgba(0, 132, 203, 0.87) 38.37%,
-    rgba(0, 132, 203, 0) 56.33%
-  );
+  background: linear-gradient(90deg,
+      #0352a3 0%,
+      #0084cb 23.71%,
+      rgba(0, 132, 203, 0.87) 38.37%,
+      rgba(0, 132, 203, 0) 56.33%);
 }
+
 @media only screen and (max-width: 767px) {
   .banner::before {
-    background: linear-gradient(
-      360deg,
-      #0352a3 0%,
-      #0084cb 44.36%,
-      rgba(0, 132, 203, 0.8659) 50.34%,
-      rgba(0, 132, 203, 0) 64.74%
-    );
+    background: linear-gradient(360deg,
+        #0352a3 0%,
+        #0084cb 44.36%,
+        rgba(0, 132, 203, 0.8659) 50.34%,
+        rgba(0, 132, 203, 0) 64.74%);
   }
 }
+
 .active-tab {
   border-radius: 64px;
   border: 1.5px solid rgba(0, 132, 203, 0.48);
@@ -107,6 +105,7 @@ body {
   -moz-user-drag: none;
   -ms-user-drag: none;
 }
+
 .otpInput {
   height: 48px !important;
   width: 48px !important;
@@ -129,4 +128,12 @@ body {
 
 .blue-gradient {
   background: linear-gradient(180deg, #e2eaf4 0%, rgba(226, 234, 244, 0) 100%);
+}
+
+@media only screen and (max-width: 425px) {
+  .otpInput {
+    height: 54px !important;
+    width: 36px !important;
+    border-radius: 8px !important;
+  }
 }

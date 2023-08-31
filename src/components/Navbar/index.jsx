@@ -14,7 +14,7 @@ export default function Navbar() {
     { name: 'Dnyanpeeth' },
     { name: 'Welfare' },
     { name: 'Publications' },
-    { name: 'Donation' },
+    { name: 'Donation', link: '/donation' },
     { name: 'More' },
   ];
 

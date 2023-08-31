@@ -25,7 +25,7 @@ const OtpInputField = ({ label, required, verified, hasSentOTPOnce = true, error
         renderSeparator={<span></span>}
         inputType='tel'
         renderInput={(props) => <input {...props} />}
-        containerStyle='flex gap-2 mt-[5px]'
+        containerStyle='flex gap-1 md:gap-2 mt-[5px]'
         inputStyle={inputClasses}
       />
       {/* </div> */}
