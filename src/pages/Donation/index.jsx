@@ -14,13 +14,15 @@ import RadioButton from '@/components/InputFields/RadioButton';
 import Button from '@/components/Button';
 import Loader from '@/components/Loader';
 import { useFormik } from 'formik';
-import { donationValidation } from '@/validationSchemas';
+import { donationValidation, personalDetailsValidation } from '@/validationSchemas';
 import { useNavigate } from 'react-router-dom';
 import Dropdown from '@/components/InputFields/Dropdown';
 import Checkbox from '@/components/InputFields/Checkbox';
+import RadioGroup from '@/components/RadioGroup';
 
 export default function Donation() {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
   const goToNextStep = useCallback(() => {
     setActiveStepIndex((prev) => prev + 1);
     setProgress((prev) => prev + 0.25);
@@ -45,7 +47,7 @@ export default function Donation() {
         {/* <Loader show={true} /> */}
         <div className='mx-auto flex p-4 lg:p-8 mt-10 lg:mt-20  flex-col items-end rounded-3xl bg-white'>
           <div className='container flex flex-col gap-6 lg:gap-14'>
-            <Stepper steps={data.steps} activeStep={activeStepIndex} />
+            <Stepper steps={data.steps} activeStep={activeStepIndex} progress={progress} />
             {activeStepIndex == 0 && <DonationStep data={data} />}
             {activeStepIndex == 1 && <PersonalDetailsStep data={data} />}
             {activeStepIndex == 2 && <SuccessStep data={data} />}
@@ -65,92 +67,129 @@ export default function Donation() {
 }
 
 function DonationStep({ data }) {
-  const [amount, setAmount] = useState('');
   const [amountInWords, setAmountInWords] = useState('-');
-  const { values, errors, handleBlur, handleChange, handleSubmit, touched, setValues } = useFormik({
-    initialValues: {
-      amount: '',
-      phone: '',
-      otp: '',
-    },
-    validationSchema: donationValidation,
-    onSubmit: (values) => {
-      console.log(values);
-    },
-  });
+  const { handleSubmit, values, handleBlur, setFieldValue, handleChange, errors, touched } =
+    useFormik({
+      initialValues: {
+        amount: '',
+        phone: '',
+        otp: '',
+      },
+      validationSchema: donationValidation,
+      validateOnBlur: true,
+      onSubmit: (e) => {
+        // e.preventDefault();
+        console.log(e);
+      },
+    });
 
   useEffect(() => {
-    setAmountInWords(numWords(amount));
-  }, [amount]);
-
-  const handleAmount = (e) => {
-    setAmount(e.target.value);
-  };
+    setAmountInWords(numWords(values.amount));
+  }, [values.amount]);
 
   return (
-    <form onSubmit={handleSubmit} className='mt-6 mx-auto max-w-xl space-y-6'>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit();
+      }}
+      className='mt-6 mx-auto max-w-xl space-y-6'
+    >
       <div className='grid grid-cols-3 gap-4 lg:gap-6'>
-        {data.amounts.map((_amount, i) => (
+        {data.amounts.map((amount, i) => (
           <div
             key={i}
             className={cn(
               'py-2 px-4 md:px-6 lg:w-40 md:py-[14px] border-[#0084cb7a] border-[1.5px] rounded-[64px] transition-all duration-300 text-center my-auto cursor-pointer bg-accent-white ',
-              { 'bg-[#0084cb28] text-foreground-1': amount === _amount },
+              { 'bg-[#0084cb28] text-foreground-1': values.amount === amount },
             )}
-            onClick={() => setAmount(_amount)}
+            onClick={() => setFieldValue('amount', amount)}
           >
             <span className='whitespace-nowrap not-italic font-medium text-foreground-2 text-sm lg:text-base leading-5'>
               {new Intl.NumberFormat('en-IN', {
                 style: 'currency',
                 currency: 'INR',
                 minimumFractionDigits: 0,
-              }).format(_amount)}
+              }).format(amount)}
             </span>
           </div>
         ))}
       </div>
 
       <TextInputWithIcon
+        type='number'
+        name='amount'
         required={true}
-        value={amount}
-        onChange={handleAmount}
+        value={values.amount}
+        onChange={handleChange}
+        onBlur={handleBlur}
         label='Donation amount'
         placeholder='Enter amount'
+        error={errors.amount}
+        touched={touched.amount}
       >
         <span className='mr-4'>₹</span>
       </TextInputWithIcon>
+
       {/* Amount Card */}
       <div className='p-6 flex flex-col gap-2 items-center bg-primary-1 border border-primary-2 rounded-3xl'>
         <h4 className='text-base not-italic font-normal leading-7 text-foreground-2'>
           Your Contribution Amount:
         </h4>
         <p className='text-lg lg:text-2xl leading-7 sm:leading-normal not-italic font-semibold text-primary-2'>
-          {amount ? `Rupees ${amountInWords} only` : '-'}
+          {values.amount ? `Rupees ${amountInWords} only` : '-'}
         </p>
         <p>
           Your Contribution of{' '}
           <span className='text-2xl not-italic font-semibold text-foreground-2'>
-            ₹{amount ? amount : '_'}
+            ₹{values.amount ?? '_'}
           </span>{' '}
           is greatly appreciated.{' '}
         </p>
       </div>
 
-      <PhoneNumberInput required={true} label='Mobile' placeholder='Enter here'>
-        <button className='min-w-max'>
+      <PhoneNumberInput
+        name={'phone'}
+        value={values.phone}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        required={true}
+        label='Mobile'
+        placeholder='Enter here'
+        error={errors.phone}
+        touched={touched.phone}
+      >
+        <button disabled={errors.phone} className='min-w-max disabled:opacity-40'>
           <span className='text-right lg:text-base lg:font-semibold lg:leading-6 text-sm not-italic font-semibold leading-5 uppercase text-primary-2'>
             Send OTP
           </span>
         </button>
       </PhoneNumberInput>
 
-      <OtpInputField required={true} label='Enter OTP' error={errors.otp} />
+      <OtpInputField
+        name={'otp'}
+        value={values.otp}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        required={true}
+        label='Enter OTP'
+        error={errors.otp}
+        touched={touched.otp}
+      />
 
       <p className='text-center text-xs not-italic font-normal lg:text-sm lg:leading-5 text-foreground-2'>
         Donations made to Jeevanvidya Mission are 50% tax exempt in India, under section 80-G, of
         Income Tax Act, 1961. Jeevanvidya Mission is also registered under India’s Foreign
         Contribution Regulation Act, 1976.
       </p>
+      <div className={`w-full flex justify-end`}>
+        <button
+          className='rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibold text-white bg-[#0074FC] cursor-pointer'
+          type='submit'
+        >
+          Save & Next
+        </button>
+      </div>
     </form>
   );
 }
@@ -159,13 +198,13 @@ function PersonalDetailsStep() {
   const [amount, setAmount] = useState(null);
   const [amountInWords, setAmountInWords] = useState('-');
 
-  const { values, errors, handleBlur, handleChange, handleSubmit, touched, setValues } = useFormik({
+  const { values, errors, handleBlur, handleChange, handleSubmit, touched } = useFormik({
     initialValues: {
       firstName: '',
       lastName: '',
       email: '',
       gender: '',
-      JeevanvidyaFollower: '',
+      jeevanvidyaFollower: '',
       indianCitizen: '',
       state: '',
       district: '',
@@ -177,7 +216,7 @@ function PersonalDetailsStep() {
       confirmInfo: '',
       agreeToPromotional: '',
     },
-    validationSchema: donationValidation,
+    validationSchema: personalDetailsValidation,
     onSubmit: (values) => {
       console.log(values);
     },
@@ -187,65 +226,154 @@ function PersonalDetailsStep() {
     setAmountInWords(numWords(amount));
   }, [amount]);
 
-  const handleAmount = (e) => {
-    setAmount(e.target.value);
-  };
   return (
-    <div className='mt-6 space-y-4'>
+    <form onSubmit={handleSubmit} className='mt-6 space-y-4'>
       <div className='flex flex-col md:flex-row gap-0 md:gap-8'>
-        <TextInput required={true} label='First Name' placeholder='Eg. Rakesh' />
-        <TextInput required={true} label='Last Name' placeholder='Eg. Jhadav' />
+        <TextInput
+          name='firstName'
+          value={values.firstName}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={errors.firstName}
+          touched={touched.firstName}
+          required={true}
+          label='First Name'
+          placeholder='Eg. Rakesh'
+        />
+        <TextInput
+          name='lastName'
+          value={values.lastName}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={errors.lastName}
+          touched={touched.lastName}
+          required={true}
+          label='Last Name'
+          placeholder='Eg. Jhadav'
+        />
       </div>
       <div className='flex  flex-col md:flex-row gap-0 md:gap-8'>
-        <TextInput required={true} label='Email' placeholder='Eg. rakesh@mail.com' />
-        <TextInput required={true} label='Last Name' placeholder='Eg. Jhadav' />
+        <TextInput
+          name='email'
+          value={values.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={errors.email}
+          touched={touched.email}
+          required={true}
+          label='Email'
+          placeholder='Eg. rakesh@mail.com'
+        />
+        <RadioGroup
+          name='gender'
+          value={values.gender}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={errors.gender}
+          touched={touched.gender}
+          options={data.gender}
+          label={'Select Gender: '}
+        />
+      </div>
+      <div className='flex  flex-col md:flex-row gap-0 md:gap-8'>
+        <RadioGroup
+          name='jeevanvidyaFollower'
+          value={values.jeevanvidyaFollower}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={errors.jeevanvidyaFollower}
+          touched={touched.jeevanvidyaFollower}
+          options={data.JVFollower}
+          label={'Are you a follower of Jeevanvidya philosophy?'}
+        />
+        <RadioGroup
+          name='indianCitizen'
+          value={values.indianCitizen}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={errors.indianCitizen}
+          touched={touched.indianCitizen}
+          options={data.indianCitizen}
+          label={'Are you an Indian Citizen?'}
+        />
       </div>
       <div className='flex  flex-col md:flex-row gap-0 md:gap-8'>
         <Dropdown
+          name='states'
           className='flex-1'
           label='States'
           required={true}
           options={data.states}
           placeholder={'Enter here'}
+          error={errors.state}
+          defaultSelected={values.state}
+          touched={touched.state}
+          onChange={handleChange}
+          onBlur={handleBlur}
         />
         <Dropdown
+          name='district'
           className='flex-1'
-          label='States'
+          label='District'
           required={true}
           options={data.districts}
           placeholder={'Enter here'}
+          error={errors.district}
+          defaultSelected={values.district}
+          touched={touched.district}
+          onChange={handleChange}
+          onBlur={handleBlur}
         />
       </div>
+
       <div className='flex  flex-col md:flex-row gap-0 md:gap-8'>
         <Dropdown
+          name='taluka'
           className='flex-1'
           label='Taluka'
           required={true}
           options={data.talukas}
           placeholder={'Enter here'}
+          error={errors.taluka}
+          defaultSelected={values.taluka}
+          touched={touched.taluka}
+          onChange={handleChange}
+          onBlur={handleBlur}
         />
-        <TextInput className='flex-1' required={true} label='Last Name' placeholder='Eg. Jhadav' />
-      </div>
-      <div className='flex  flex-col md:flex-row gap-0 md:gap-8'>
-        <Dropdown
+        <TextInput
+          error={errors.address}
+          defaultSelected={values.address}
+          touched={touched.address}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          value={values.address}
+          name='address'
           className='flex-1'
-          label='Taluka'
-          required={true}
-          options={data.talukas}
-          placeholder={'Enter here'}
+          label='Address'
+          placeholder='Enter here'
         />
-        <TextInput className='flex-1' required={true} label='Address' placeholder='Enter here' />
       </div>
       <div className='flex  flex-col md:flex-row gap-0 md:gap-8'>
         <TextInput
+          name='pinCode'
           type='number'
           className='flex-1'
           required={true}
           label='Pin / Zip Code'
           placeholder='Enter here'
+          value={values.pinCode}
+          touched={touched.pinCode}
+          onChange={handleChange}
+          onBlur={handleBlur}
         />
 
         <TextInputWithIcon
+          name='comment'
+          value={values.pan}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={errors.pan}
+          touched={touched.pan}
           childPosition='right'
           type='number'
           className='flex-1'
@@ -280,18 +408,60 @@ function PersonalDetailsStep() {
           </div>
         </TextInputWithIcon>
       </div>
-      <div className='flex  flex-col md:flex-row gap-0 md:gap-8'>
-        <TextInput className='flex-1' required={true} label='Comment' placeholder='Write here' />
+      <div className='flex flex-col md:flex-row gap-0 md:gap-8'>
+        <TextInput
+          name='comment'
+          value={values.comment}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={errors.comment}
+          touched={touched.comment}
+          className='flex-1'
+          label='Comment'
+          placeholder='Write here'
+        />
       </div>
       <div className='flex  flex-col items-start gap-4 lg:gap-8 '>
-        <Checkbox label={'I confirm my information related to Pan No. and Address is correct.'} />
         <Checkbox
+          required
+          label={'I confirm my information related to Pan No. and Address is correct.'}
+        />
+        <Checkbox
+          required
           label={
             'I Agree to receive the invitation to events & courses, updates on course & events, the newsletter by email,SMS & voice calls.'
           }
         />
       </div>
-    </div>
+      <div className={`w-full flex justify-end`}>
+        <button
+          className='rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibold text-[#0074FC] cursor-pointer'
+          type='submit'
+        >
+          <span>Back</span>
+        </button>
+        <button
+          className='rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibold text-white bg-[#0074FC] cursor-pointer flex items-center justify-center'
+          type='submit'
+        >
+          <svg
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              fillRule='evenodd'
+              clipRule='evenodd'
+              d='M20 8.00184H17V6.21208C17 3.60242 15.09 1.27273 12.49 1.02276C9.51 0.742798 7 3.08249 7 6.00211V8.00184H4V22H20V8.00184ZM12 17C10.9 17 10 16.1 10 15C10 13.9 10.9 13 12 13C13.1 13 14 13.9 14 15C14 16.1 13.1 17 12 17ZM9 6V8H15V6C15 4.34 13.66 3 12 3C10.34 3 9 4.34 9 6Z'
+              fill='#F5F5F5'
+            />
+          </svg>
+          <span>Pay Securely</span>
+        </button>
+      </div>
+    </form>
   );
 }
 

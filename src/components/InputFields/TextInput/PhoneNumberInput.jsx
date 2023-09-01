@@ -8,6 +8,7 @@ const PhoneNumberInput = ({
   touched,
   displayError = true,
   onChange,
+  onBlur,
   placeholder,
   required,
   value,
@@ -35,6 +36,7 @@ const PhoneNumberInput = ({
         <span className='font-normal text-[#a19f9f]'>+91</span>
         <hr className='h-[100%] w-[1.5px] bg-[#0084CB3D] ml-[15px] mr-[15px]' />
         <input
+          type='tel'
           className={`w-full focus:outline-none`}
           placeholder={placeholder}
           id={name}
@@ -43,6 +45,7 @@ const PhoneNumberInput = ({
           max={max}
           value={value}
           disabled={disabled}
+          onBlur={onBlur}
         />
         {error && touched && <WarningIcon />}
         {children}

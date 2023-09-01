@@ -17,8 +17,9 @@ export const donationValidation = Yup.object({
   amount: Yup.number().required('Amount is required').min(10, 'Minimum amount should be 10'),
   phone: Yup.string()
     .required('Phone number is required')
+    .length(10, 'Phone number should be of length 10')
     .matches(phoneRegExp, 'Phone number is not valid'),
-  otp: Yup.string().length(6, 'Invalid OTP'),
+  otp: Yup.string().required().length(6, 'Invalid OTP'),
 });
 
 export const personalDetailsValidation = Yup.object({

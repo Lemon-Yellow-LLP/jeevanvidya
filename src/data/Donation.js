@@ -17,6 +17,20 @@ export const data = {
   steps: ['Donation', 'Personal Details', 'Success'],
   amounts: [100, 200, 500, 1000, 2000, 5000],
   email: 'jvmho@jeevanvidya.org',
+  gender: [
+    { name: 'Male', value: 'male' },
+    { name: 'Female', value: 'female' },
+    { name: 'Other', value: 'other' },
+  ],
+  JVFollower: [
+    { name: 'Yes', value: 'yes' },
+    { name: 'No', value: 'no' },
+  ],
+  indianCitizen: [
+    { name: 'Yes', value: 'yes' },
+    { name: 'No', value: 'no' },
+  ],
+
   states: [
     { label: 'Andhra Pradesh', value: 'Andhra Pradesh' },
     { label: 'Assam', value: 'Assam' },

@@ -17,6 +17,7 @@ const TextInputWithIcon = ({
   onBlur,
   childPosition = 'left',
   children,
+  type,
 }) => {
   return (
     <div className='flex flex-1 flex-col gap-1 w-[100%]'>
@@ -31,13 +32,14 @@ const TextInputWithIcon = ({
       <div
         className={`input-container px-4 py-3 border-[2px] rounded-lg flex gap-1
           transition-all ease-out duration-150 focus:outline-none outline-none
-        ${error && touched && touched[name] ? 'border-[#DE3400]' : 'border-[#0084CB29]'}
+        ${error && touched ? 'border-[#DE3400]' : 'border-[#0084CB29]'}
         ${disabled ? 'bg-[#EEEEEE] pointer-events-none cursor-not-allowed' : ''}
         `}
       >
         {childPosition == 'left' && children}
 
         <input
+          // type={type}
           className={`w-full focus:outline-none`}
           placeholder={placeholder}
           id={name}
@@ -48,7 +50,7 @@ const TextInputWithIcon = ({
           disabled={disabled}
           onBlur={onBlur}
         />
-        {error && touched && touched[name] && <WarningIcon />}
+        {error && touched && <WarningIcon />}
         {childPosition == 'right' && children}
       </div>
 
@@ -56,7 +58,7 @@ const TextInputWithIcon = ({
         <span
           className='text-xs text-[#DE3400]'
           dangerouslySetInnerHTML={{
-            __html: error && touched && touched[name] ? error : String.fromCharCode(160),
+            __html: error && touched ? error : String.fromCharCode(160),
           }}
         />
       ) : (

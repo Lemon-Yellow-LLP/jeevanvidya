@@ -1,15 +1,23 @@
-import { useState, useMemo, memo } from 'react';
+import { useState, useMemo, memo, useEffect } from 'react';
 import OtpInput from 'react-otp-input';
 
-const OtpInputField = ({ label, required, verified, hasSentOTPOnce = true, error }) => {
+const OtpInputField = ({
+  label,
+  required,
+  verified,
+  hasSentOTPOnce = true,
+  error,
+  touched,
+  onBlur,
+}) => {
   const [otp, setOtp] = useState('');
 
-  const inputClasses = useMemo(() => {
+  const inputClasses = () => {
     if (!hasSentOTPOnce) return 'otpInput border-[#0084CB29] border-[2px]';
     if (hasSentOTPOnce && !error) return 'otpInput border-[#0084CB29] border-[2px]';
-    if (error && !verified) return 'otpInput border-[#DE3400] border-[2px]';
+    if (error) return 'otpInput border-[#DE3400] border-[2px]';
     if (verified) return 'otpInput border-[#0084CB29] border-[2px]';
-  }, [verified, hasSentOTPOnce]);
+  };
 
   return (
     <div className='otp-container'>
@@ -21,12 +29,13 @@ const OtpInputField = ({ label, required, verified, hasSentOTPOnce = true, error
       <OtpInput
         value={otp}
         onChange={setOtp}
+        onBlur={onBlur}
         numInputs={6}
         renderSeparator={<span></span>}
         inputType='tel'
         renderInput={(props) => <input {...props} />}
         containerStyle='flex gap-1 md:gap-2 mt-[5px]'
-        inputStyle={inputClasses}
+        inputStyle={inputClasses()}
       />
       {/* </div> */}
       <div className='mt-3 flex justify-between items-center'>
@@ -40,7 +49,7 @@ const OtpInputField = ({ label, required, verified, hasSentOTPOnce = true, error
               {/* <img src={otpVerified} alt='Otp Verified' role='presentation' /> */}
             </span>
           )}
-          {verified === false && error && (
+          {!verified && error && touched && (
             <span className='flex text-[#DE3400] text-xs leading-[18px]'>
               Enter correct OTP
               {/* <img src={otpNotVerified} alt='Otp Verified' role='presentation' /> */}
@@ -52,4 +61,4 @@ const OtpInputField = ({ label, required, verified, hasSentOTPOnce = true, error
   );
 };
 
-export default memo(OtpInputField);
+export default OtpInputField;
