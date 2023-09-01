@@ -1,16 +1,14 @@
 import React, { memo } from 'react';
 
-function UploadImage({
+function UploadFile({
   label,
   name,
   error,
-  inputClasses,
   displayError = true,
-  message,
   onChange,
   imageName,
   required,
-  src,
+  touched,
   disabled,
 }) {
   return (
@@ -26,21 +24,20 @@ function UploadImage({
       <div
         className={`input-container justify-between items-center px-4 py-3 border-[2px] rounded-lg flex gap-1
         transition-all ease-out duration-150 
-        ${error ? 'border-[#DE3400]' : 'border-[#0084CB29]'}
+        ${error && touched && touched[name] ? 'border-[#DE3400]' : 'border-[#0084CB29]'}
         ${disabled ? 'bg-[#EEEEEE] pointer-events-none cursor-not-allowed' : ''}`}
       >
         <input
           className={`hidden`}
           id='fileInput'
+          type='file'
           name={name}
           onChange={(e) => onChange(e)}
-          type='file'
-          src={src}
           disabled={disabled}
         />
 
         <span className='selected-file-name text-[#a19f9f] cursor-default'>
-          {imageName ? imageName : 'bellow 20 kb'}
+          {imageName ? imageName : ''}
         </span>
 
         <label htmlFor='fileInput' className='text-[#F09444] font-semibold cursor-pointer'>
@@ -52,7 +49,7 @@ function UploadImage({
         <span
           className='text-xs text-[#DE3400]'
           dangerouslySetInnerHTML={{
-            __html: error ? error : String.fromCharCode(160),
+            __html: error && touched && touched[name] ? error : String.fromCharCode(160),
           }}
         />
       ) : (
@@ -62,4 +59,4 @@ function UploadImage({
   );
 }
 
-export default memo(UploadImage);
+export default memo(UploadFile);

@@ -7,6 +7,12 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
+/* gloabal css */
+.hide-scrollbar::-webkit-scrollbar {
+  width: 0 !important;
+}
+/* end */
+
 /* gradient walker css and animation */
 .gradient-walker {
   position: absolute;
@@ -96,6 +102,12 @@ body {
   backdrop-filter: blur(12px);
 }
 
+.bg-image {
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-drag: none;
+}
 .otpInput {
   height: 48px !important;
   width: 48px !important;
@@ -110,4 +122,16 @@ body {
 
 .swiper-wrapper {
   display: flex;
+}
+
+.pdf-gradient {
+  background: linear-gradient(180deg, #e2eaf4 70.46%, rgba(226, 234, 244, 0) 100%);
+}
+
+.blue-gradient {
+  background: linear-gradient(180deg, #e2eaf4 0%, rgba(226, 234, 244, 0) 100%);
+}
+
+.dark_white_gradient {
+  background: linear-gradient(0deg, #e2eaf4 0%, rgba(226, 234, 244, 0) 100%);
 }

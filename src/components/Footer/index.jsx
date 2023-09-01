@@ -5,10 +5,11 @@ import mail from '@/assets/mail.svg';
 import mappin from '@/assets/mappin.svg';
 import phoneimg from '@/assets/phone.svg';
 import socialmedia from '@/assets/socialmedia.svg';
+import { cn } from '@/lib/utils';
 
-export default function Footer() {
+export default function Footer({ className }) {
   return (
-    <footer className='mt-20 bg-[#172539]'>
+    <footer className={cn('mt-20 bg-[#172539]', className)}>
       <div className='w-full px-4 md:px-20 pt-10 pb-5'>
         <div className='flex flex-col-reverse md:flex-row md:justify-between md:items-center'>
           <div className='flex flex-col gap-6'>

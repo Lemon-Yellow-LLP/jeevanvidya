@@ -1,6 +1,6 @@
 import CaptchaWithInput from '@/components/InputFields/CaptchaWithInput';
 import TextInput from '@/components/InputFields/TextInput';
-import UploadImage from '@/components/InputFields/UploadImage';
+import UploadImage from '@/components/InputFields/UploadFile';
 import React, { useCallback, useState } from 'react';
 import TestCaptcha from '@/assets/testCaptcha.png';
 import Dropdown from '@/components/InputFields/Dropdown';
@@ -66,8 +66,6 @@ export default function TestPage() {
     newData[e.target.name] = e.target.checked;
     setValues({ ...newData });
   }, []);
-
-  console.log(values);
 
   const options = [
     {

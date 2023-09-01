@@ -6,10 +6,13 @@ export default {
       colors: {
         primary: {
           1: '#0084CB29',
+          2: '#0084CB',
+          3: '#0074FC',
           red: '#DE3400',
         },
         secondary: {
           1: '#0084CB75',
+          2: '#0074fc1f'
         },
         accent: {
           orange: '#F09444',
@@ -28,6 +31,12 @@ export default {
         dialog: {
           1: '#ffffffcc',
         },
+        gradient: {
+          2: 'linear-gradient(180deg, #E2EAF4 0%, rgba(226, 234, 244, 0.00) 100%)',
+        },
+      },
+      backgroundImage: {
+        'quotes-bg': "url('./assets/quotes-bg.png')",
       },
       boxShadow: {
         primary: '0px 3px 48px 0px #0353a33d',
