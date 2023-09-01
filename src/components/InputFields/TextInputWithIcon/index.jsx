@@ -15,10 +15,11 @@ const TextInputWithIcon = ({
   disabled,
   max,
   onBlur,
-  icon,
+  childPosition = 'left',
+  children,
 }) => {
   return (
-    <div className='flex flex-col gap-1 w-[100%]'>
+    <div className='flex flex-1 flex-col gap-1 w-[100%]'>
       <label
         htmlFor={name}
         className='flex gap-0.5 items-center text-[#122135CC] text-[14px] font-normal'
@@ -34,7 +35,7 @@ const TextInputWithIcon = ({
         ${disabled ? 'bg-[#EEEEEE] pointer-events-none cursor-not-allowed' : ''}
         `}
       >
-        {icon}
+        {childPosition == 'left' && children}
 
         <input
           className={`w-full focus:outline-none`}
@@ -48,6 +49,7 @@ const TextInputWithIcon = ({
           onBlur={onBlur}
         />
         {error && touched && touched[name] && <WarningIcon />}
+        {childPosition == 'right' && children}
       </div>
 
       {displayError ? (

@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 const Checkbox = ({ name, value, onChange, label }) => {
   return (
-    <div className='flex items-center gap-[20px]'>
+    <div className='flex items-start sm:items-center gap-[20px]'>
       <input
         name={name}
         type='checkbox'

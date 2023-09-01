@@ -141,3 +141,27 @@ body {
 .dark_white_gradient {
   background: linear-gradient(0deg, #e2eaf4 0%, rgba(226, 234, 244, 0) 100%);
 }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#tooltipContent::after {
+  content: "";
+  position: absolute;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 12px solid #122135;
+  bottom: -10px;
+  right: 10px;
+  border-radius: 8px;
+  transform: rotate(-90deg);
+}

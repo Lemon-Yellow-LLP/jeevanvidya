@@ -3,7 +3,6 @@ import SectionTitleDescription from '@/components/SectionTitleDescription';
 import { data } from '@/data/Donation';
 import React, { useCallback, useEffect, useState } from 'react';
 import Courses from '../Courses';
-import DesktopStepper from '@/components/DesktopStepper';
 import Stepper from '@/components/Stepper';
 import { cn } from '@/lib/utils';
 import TextInputWithIcon from '@/components/InputFields/TextInputWithIcon';
@@ -18,24 +17,14 @@ import { useFormik } from 'formik';
 import { donationValidation } from '@/validationSchemas';
 import { useNavigate } from 'react-router-dom';
 import Dropdown from '@/components/InputFields/Dropdown';
+import Checkbox from '@/components/InputFields/Checkbox';
 
 export default function Donation() {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
-  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
-  const [progress, setProgress] = useState(0.25);
-
   const goToNextStep = useCallback(() => {
     setActiveStepIndex((prev) => prev + 1);
     setProgress((prev) => prev + 0.25);
   });
-
-  useEffect(() => {
-    function handleWindowResize() {
-      setInnerWidth(window.innerWidth);
-    }
-    window.addEventListener('resize', handleWindowResize);
-    return () => window.removeEventListener('resize', handleWindowResize);
-  }, []);
 
   return (
     <div>
@@ -56,18 +45,13 @@ export default function Donation() {
         {/* <Loader show={true} /> */}
         <div className='mx-auto flex p-4 lg:p-8 mt-10 lg:mt-20  flex-col items-end rounded-3xl bg-white'>
           <div className='container flex flex-col gap-6 lg:gap-14'>
-            {innerWidth < 768 ? (
-              <Stepper steps={data.steps} activeStep={activeStepIndex} progress={progress} />
-            ) : (
-              <DesktopStepper steps={data.steps} activeStep={activeStepIndex} />
-            )}
-
+            <Stepper steps={data.steps} activeStep={activeStepIndex} />
             {activeStepIndex == 0 && <DonationStep data={data} />}
             {activeStepIndex == 1 && <PersonalDetailsStep data={data} />}
             {activeStepIndex == 2 && <SuccessStep data={data} />}
             <div className={`ml-auto ${activeStepIndex == data.steps.length - 1 ? 'hidden' : ''}`}>
               <button
-                className='rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibold text-white bg-[#F09444] cursor-pointer'
+                className='rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibold text-white bg-[#0074FC] cursor-pointer'
                 onClick={goToNextStep}
               >
                 Save & Next
@@ -127,12 +111,14 @@ function DonationStep({ data }) {
       </div>
 
       <TextInputWithIcon
+        required={true}
         value={amount}
         onChange={handleAmount}
         label='Donation amount'
         placeholder='Enter amount'
-        icon={<span className='mr-4'>₹</span>}
-      />
+      >
+        <span className='mr-4'>₹</span>
+      </TextInputWithIcon>
       {/* Amount Card */}
       <div className='p-6 flex flex-col gap-2 items-center bg-primary-1 border border-primary-2 rounded-3xl'>
         <h4 className='text-base not-italic font-normal leading-7 text-foreground-2'>
@@ -150,7 +136,7 @@ function DonationStep({ data }) {
         </p>
       </div>
 
-      <PhoneNumberInput label='Mobile' placeholder='Enter here'>
+      <PhoneNumberInput required={true} label='Mobile' placeholder='Enter here'>
         <button className='min-w-max'>
           <span className='text-right lg:text-base lg:font-semibold lg:leading-6 text-sm not-italic font-semibold leading-5 uppercase text-primary-2'>
             Send OTP
@@ -158,7 +144,7 @@ function DonationStep({ data }) {
         </button>
       </PhoneNumberInput>
 
-      <OtpInputField label='Enter OTP' required error={errors.otp} />
+      <OtpInputField required={true} label='Enter OTP' error={errors.otp} />
 
       <p className='text-center text-xs not-italic font-normal lg:text-sm lg:leading-5 text-foreground-2'>
         Donations made to Jeevanvidya Mission are 50% tax exempt in India, under section 80-G, of
@@ -215,7 +201,95 @@ function PersonalDetailsStep() {
         <TextInput required={true} label='Last Name' placeholder='Eg. Jhadav' />
       </div>
       <div className='flex  flex-col md:flex-row gap-0 md:gap-8'>
-        <Dropdown label='States' required={true} options={data.states} placeholder={'Enter here'} />
+        <Dropdown
+          className='flex-1'
+          label='States'
+          required={true}
+          options={data.states}
+          placeholder={'Enter here'}
+        />
+        <Dropdown
+          className='flex-1'
+          label='States'
+          required={true}
+          options={data.districts}
+          placeholder={'Enter here'}
+        />
+      </div>
+      <div className='flex  flex-col md:flex-row gap-0 md:gap-8'>
+        <Dropdown
+          className='flex-1'
+          label='Taluka'
+          required={true}
+          options={data.talukas}
+          placeholder={'Enter here'}
+        />
+        <TextInput className='flex-1' required={true} label='Last Name' placeholder='Eg. Jhadav' />
+      </div>
+      <div className='flex  flex-col md:flex-row gap-0 md:gap-8'>
+        <Dropdown
+          className='flex-1'
+          label='Taluka'
+          required={true}
+          options={data.talukas}
+          placeholder={'Enter here'}
+        />
+        <TextInput className='flex-1' required={true} label='Address' placeholder='Enter here' />
+      </div>
+      <div className='flex  flex-col md:flex-row gap-0 md:gap-8'>
+        <TextInput
+          type='number'
+          className='flex-1'
+          required={true}
+          label='Pin / Zip Code'
+          placeholder='Enter here'
+        />
+
+        <TextInputWithIcon
+          childPosition='right'
+          type='number'
+          className='flex-1'
+          required={true}
+          label='PAN Number'
+          placeholder='Enter here'
+        >
+          <div className='relative flex flex-col items-center group'>
+            <svg
+              width='24'
+              height='24'
+              viewBox='0 0 24 24'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                d='M11 7H13V9H11V7ZM11 11H13V17H11V11ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z'
+                fill='#122135'
+                fillOpacity='0.8'
+              />
+            </svg>
+            <div
+              id='tooltipContent'
+              className='absolute right-[-44px] sm:right-0 bottom-0 flex-col items-center hidden mb-6 group-hover:flex bg-foreground-1 rounded-lg p-4  justify-center w-[314px] gap-2 transition ease-linear '
+            >
+              <p className='text-xs not-italic font-normal text-white'>
+                Donations to Jeevanvidya Mission are 50% tax exempt in India (under section 80-G, of
+                Income Tax Act,1961).However, to avail this benefit, your address as well as PAN No.
+                shared with us has to be complete and accurate.
+              </p>
+            </div>
+          </div>
+        </TextInputWithIcon>
+      </div>
+      <div className='flex  flex-col md:flex-row gap-0 md:gap-8'>
+        <TextInput className='flex-1' required={true} label='Comment' placeholder='Write here' />
+      </div>
+      <div className='flex  flex-col items-start gap-4 lg:gap-8 '>
+        <Checkbox label={'I confirm my information related to Pan No. and Address is correct.'} />
+        <Checkbox
+          label={
+            'I Agree to receive the invitation to events & courses, updates on course & events, the newsletter by email,SMS & voice calls.'
+          }
+        />
       </div>
     </div>
   );

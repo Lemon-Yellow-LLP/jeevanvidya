@@ -15,6 +15,7 @@ const Dropdown = ({
   showError = true,
   error,
   name,
+  className,
 }) => {
   const [showDropDown, setShowDropDown] = useState(false);
   const [selectedOption, setSelectedOption] = useState(() =>
@@ -51,7 +52,7 @@ const Dropdown = ({
   }, []);
 
   return (
-    <div ref={containerRef} className='dropdown relative'>
+    <div ref={containerRef} className={`dropdown relative ${className}`}>
       <span className='flex gap-0.5 items-center text-[#122135CC] text-[14px] font-normal'>
         {label}
         {required && <span className='text-primary-red text-sm'>*</span>}
