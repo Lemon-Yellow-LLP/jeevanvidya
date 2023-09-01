@@ -5,6 +5,7 @@ import MediaPress from '@/pages/MediaPress';
 import UniversalPrayer from './pages/UniversalPrayer';
 import About from '@/pages/About';
 import Dnyanpeeth from '@/pages/Dnyanpeeth';
+import Download from '@/pages/Download';
 import DownloadFile from './components/DownloadFile';
 import Philosophy from '@/pages/Philosophy';
 import pdfImage from '@/assets/pdf_file_icon.svg';
@@ -68,6 +69,7 @@ function App() {
         <Route path='/philosophy' element={<Philosophy />} />
         <Route path='/welfare' element={<Welfare />} />
         <Route path='/philosophy-quotes' element={<PhilosophyQuotes />} />
+        <Route path='/download' element={<Download />} />
         <Route path='*' element={<div>Page not found</div>} />
       </Routes>
     </BrowserRouter>
