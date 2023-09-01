@@ -35,35 +35,13 @@ export default function Navbar() {
             </div>
           </div>
           {/* Mobile Navbar */}
-          {isOpen && (
-            <div
-              className='mt-3 w-full lg:flex lg:items-center transition-all duration-[2000ms] z-auto'
-              id='menu'
-            >
-              <ul className='flex flex-col gap-2'>
-                {navLinks.map((item) => {
-                  return (
-                    <li key={item.name}>
-                      <Link to={item.link} className='block p-3 text-sm font-normal'>
-                        {item.name}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-              <div className='flex justify-center items-center w-full rounded-lg text-[#F5F5F5] md:w-[92px] h-[47px] bg-[#F09444]'>
-                <Link href='' className='text-base py-6 px-[14px]'>
-                  Login
-                </Link>
-              </div>
-            </div>
-          )}
-          {/* Desktop Navbar */}
           <div
-            className='hidden mt-3 lg:flex lg:items-center transition-all duration-[2000ms] z-auto'
+            className={`mt-3 w-full lg:flex lg:items-center transition-all duration-[2000ms] z-auto ${
+              isOpen ? 'block' : 'hidden'
+            }`}
             id='menu'
           >
-            <ul className='flex flex-col md:flex-row md:justify-between gap-2'>
+            <ul className='flex flex-col lg:flex-row gap-2'>
               {navLinks.map((item) => {
                 return (
                   <li key={item.name}>
@@ -74,7 +52,7 @@ export default function Navbar() {
                 );
               })}
             </ul>
-            <div className='flex justify-center items-center w-full rounded-lg text-[#F5F5F5] md:w-[92px] h-[47px] bg-[#F09444]'>
+            <div className='flex justify-center items-center w-full rounded-lg text-[#F5F5F5] lg:w-[92px] h-[47px] bg-[#F09444]'>
               <Link href='' className='text-base py-6 px-[14px]'>
                 Login
               </Link>
@@ -83,7 +61,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <section id='herosection' className='hidden lg:block w-full'>
+      <section id='herosection' className={`w-full ${isOpen ? 'hidden' : 'block'}`}>
         <div className='relative overflow-hidden'>
           <div className='gradient-walker'></div>
           <div className='hero-gradient flex justify-between items-center w-full py-[6px] px-4 md:px-20'>
@@ -93,10 +71,10 @@ export default function Navbar() {
                 <span className='text-accent-gold text-lg font-semibold'>
                   100 years of eminence
                 </span>
-                <span className='text-white text-sm font-normal'>
+                <p className='text-white text-sm font-normal truncate ... w-[210px] md:w-full'>
                   Remembering, honouring, and celebrating Satguru Shri Wamanrao Pai on his 100th
                   birth anniversary this year.
-                </span>
+                </p>
               </div>
             </div>
             <div className='relative ml-auto'>
