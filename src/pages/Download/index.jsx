@@ -40,17 +40,17 @@ const Download = (file, filename) => {
         bannerDesc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore  '
       />
       <div className='bg-[#F5F5F5]'>
-        <div className='py-4 px-[12px] lg:py-[14px] lg:px-20  flex gap-2 md:gap-4 lg:gap-6 overflow-x-auto hide-scrollbar'>
+        <div className='py-4 px-[12px] md:p-10 xl:py-[14px] xl:px-20  flex gap-2 md:gap-4 xl:gap-6 overflow-x-auto hide-scrollbar'>
           {tabs.map((tab, index) => (
             <TabButton label={tab} activeTab={activeTab} onChange={handleTabClick} key={index} />
           ))}
         </div>
-        <div className='py-10 px-4 md:p-10 lg:p-20 '>
+        <div className='py-10 px-4 md:p-10 xl:p-20 '>
           <div
             className={`grid gap-x-6 gap-y-8 ${
-              (activeTab === tabs[0] && 'grid-cols-1 md:grid-cols-3 lg:grid-cols-4') ||
-              (activeTab === tabs[1] && 'grid-cols-1 md:grid-cols-3 lg:grid-cols-3') ||
-              (activeTab === tabs[2] && 'grid-cols-2 md:grid-cols-4 lg:grid-cols-4')
+              (activeTab === tabs[0] && 'grid-cols-1 md:grid-cols-3 xl:grid-cols-4') ||
+              (activeTab === tabs[1] && 'grid-cols-1 md:grid-cols-3 xl:grid-cols-3') ||
+              (activeTab === tabs[2] && 'grid-cols-2 md:grid-cols-4 xl:grid-cols-4')
             }`}
           >
             {activeTab === tabs[0] &&
