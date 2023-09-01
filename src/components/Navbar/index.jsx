@@ -21,7 +21,7 @@ export default function Navbar() {
   const [isOpen, setIsOpened] = useState(false);
 
   return (
-    <header className='sticky top-0 z-[999] w-full'>
+    <header className='fixed top-0 z-[999] w-full'>
       <nav className='bg-accent-white shadow-secondary px-4 py-3 md:px-8 lg:px-20 lg:py-[11px]'>
         <div className='flex flex-col lg:flex-row items-center justify-between'>
           <div className='flex w-full justify-between'>
