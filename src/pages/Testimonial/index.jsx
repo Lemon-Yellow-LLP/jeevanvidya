@@ -5,7 +5,8 @@ import TestimonialCard from '@/components/TestimonialCard';
 import HeroBanner from '@/components/HeroBanner';
 import Flower from '@/assets/section-flower.png';
 import testImage from '@/assets/Testimonialimg.png';
-import videoTestImg from '@/assets/videoImg.png';
+import videoImage from '@/assets/video.png';
+import vectorImg from '@/assets/testimonial_pattern.png';
 import { useCallback, useState } from 'react';
 import MediaCard from '@/components/MediaCard';
 import TextInput from '@/components/InputFields/TextInput';
@@ -16,55 +17,182 @@ import TestCaptcha from '@/assets/testCaptcha.png';
 import Button from '@/components/Button';
 import { useFormik } from 'formik';
 import { testimonialValidations } from '@/validationSchemas';
+import Pagination from '@/components/Pagination';
 
-const TestimonialData = [
-  {
-    title: 'Vaibhav Nimbalkar',
-    postion: 'IPS (ASSAM CADRE)',
-    desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
-    img: testImage,
-  },
-  {
-    title: 'Nitin Gadkari​',
-    postion: 'Minister of Road Transport & Highways, Government of India',
-    desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
-    img: testImage,
-  },
-  {
-    title: 'Mandar Sukhatankar',
-    postion: 'Senior Vice President,Bank of America',
-    desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
-    img: testImage,
-  },
-  {
-    title: 'Vaibhav Nimbalkar',
-    postion: 'IPS (ASSAM CADRE)',
-    desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
-    img: testImage,
-  },
+const tabOne = [
+  [
+    {
+      title: 'Vaibhav Nimbalkar',
+      postion: 'IPS (ASSAM CADRE)',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+    {
+      title: 'Nitin Gadkari​',
+      postion: 'Minister of Road Transport & Highways, Government of India',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+    {
+      title: 'Mandar Sukhatankar',
+      postion: 'Senior Vice President,Bank of America',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+    {
+      title: 'Vaibhav Nimbalkar',
+      postion: 'IPS (ASSAM CADRE)',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+  ],
+  [
+    {
+      title: 'Vaibhav Nimbalkar',
+      postion: 'IPS (ASSAM CADRE)',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+    {
+      title: 'Nitin Gadkari​',
+      postion: 'Minister of Road Transport & Highways, Government of India',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+    {
+      title: 'Mandar Sukhatankar',
+      postion: 'Senior Vice President,Bank of America',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+    {
+      title: 'Vaibhav Nimbalkar',
+      postion: 'IPS (ASSAM CADRE)',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+  ],
+  [
+    {
+      title: 'Vaibhav Nimbalkar',
+      postion: 'IPS (ASSAM CADRE)',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+    {
+      title: 'Nitin Gadkari​',
+      postion: 'Minister of Road Transport & Highways, Government of India',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+    {
+      title: 'Mandar Sukhatankar',
+      postion: 'Senior Vice President,Bank of America',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+    {
+      title: 'Vaibhav Nimbalkar',
+      postion: 'IPS (ASSAM CADRE)',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+  ],
+  [
+    {
+      title: 'Vaibhav Nimbalkar',
+      postion: 'IPS (ASSAM CADRE)',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+    {
+      title: 'Nitin Gadkari​',
+      postion: 'Minister of Road Transport & Highways, Government of India',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+    {
+      title: 'Mandar Sukhatankar',
+      postion: 'Senior Vice President,Bank of America',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+    {
+      title: 'Vaibhav Nimbalkar',
+      postion: 'IPS (ASSAM CADRE)',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+  ],
 ];
 
-const VideoTestimonial = [
-  {
-    title: 'Dr. Jean M. Seely',
-    desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
-    img: videoTestImg,
-  },
-  {
-    title: 'Dr. Jean M. Seely',
-    desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
-    img: videoTestImg,
-  },
-  {
-    title: 'Dr. Jean M. Seely',
-    desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
-    img: videoTestImg,
-  },
-  {
-    title: 'Dr. Jean M. Seely',
-    desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
-    img: videoTestImg,
-  },
+const tabTwo = [
+  [
+    {
+      title: 'Dr. Jean M. Seely',
+      desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
+      img: videoImage,
+    },
+    {
+      title: 'Dr. Jean M. Seely',
+      desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
+      img: videoImage,
+    },
+    {
+      title: 'Dr. Jean M. Seely',
+      desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
+      img: videoImage,
+    },
+    {
+      title: 'Dr. Jean M. Seely',
+      desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
+      img: videoImage,
+    },
+  ],
+  [
+    {
+      title: 'Dr. Jean M. Seely',
+      desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
+      img: videoImage,
+    },
+    {
+      title: 'Dr. Jean M. Seely',
+      desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
+      img: videoImage,
+    },
+    {
+      title: 'Dr. Jean M. Seely',
+      desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
+      img: videoImage,
+    },
+    {
+      title: 'Dr. Jean M. Seely',
+      desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
+      img: videoImage,
+    },
+  ],
+  [
+    {
+      title: 'Dr. Jean M. Seely',
+      desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
+      img: videoImage,
+    },
+    {
+      title: 'Dr. Jean M. Seely',
+      desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
+      img: videoImage,
+    },
+    {
+      title: 'Dr. Jean M. Seely',
+      desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
+      img: videoImage,
+    },
+    {
+      title: 'Dr. Jean M. Seely',
+      desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
+      img: videoImage,
+    },
+  ],
 ];
 
 const options = [
@@ -114,11 +242,11 @@ const options = [
 const tabOptions = [
   {
     label: 'Written Testimonial',
-    value: 1,
+    value: 0,
   },
   {
     label: 'Video Testimonials',
-    value: 2,
+    value: 1,
   },
 ];
 
@@ -134,12 +262,22 @@ const inititalValues = {
 };
 
 const Testimonial = () => {
-  const testimonials = ['Written Testimonial', 'Video Testimonials'];
-  const [active, setActive] = useState(testimonials[0]);
-  const [activeTab, setActiveTab] = useState(tabOptions[0].label);
+  const tabs = ['Written Testimonial', 'Video Testimonials'];
+  const [pageDataOne, setPageDataOne] = useState(tabOne[0]);
+  const [pageDataTwo, setPageDataTwo] = useState(tabTwo[0]);
 
-  const handleClick = (e) => {
-    setActive(e);
+  const [activeTab, setActiveTab] = useState(tabs[0]);
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
+
+  const onChangeOfPageOne = (value) => {
+    setPageDataOne(tabOne[value]);
+  };
+
+  const onChangeOfPageTwo = (value) => {
+    setPageDataTwo(tabTwo[value]);
   };
 
   const { values, errors, handleBlur, handleChange, handleSubmit, touched, setValues } = useFormik({
@@ -168,14 +306,19 @@ const Testimonial = () => {
   };
 
   return (
-    <div>
+    <div className='pt-[140px]'>
       <HeroBanner
         bannerImg={TestimonialBanner}
         bannerTitle='Testimonials'
         bannerDesc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore '
       />
 
-      <div className='p-4 md:p-20'>
+      <div className='relative p-4 md:p-8 lg:p-14 xl:p-20 bg-accent-white'>
+        <img
+          src={vectorImg}
+          alt='vector page'
+          className='absolute right-0 top-[0%] opacity-5 w-[332px] h-[318px] xl:w-[587px] xl:h-[732px]'
+        />
         <div className='flex justify-between items-center max-md:flex-col'>
           <SectionTitleDescription
             className='mx-0'
@@ -185,42 +328,51 @@ const Testimonial = () => {
             description='People are at the heart of everything we do. Their trust in us reflects in these words'
           />
           <div className='flex gap-6'>
-            {testimonials.map((type, index) => (
-              <TabButton
-                label={type}
-                activeTab={active}
-                onChange={handleClick}
-                key={index}
-              ></TabButton>
+            {tabs.map((tab, index) => (
+              <TabButton label={tab} activeTab={activeTab} onChange={handleTabClick} key={index} />
             ))}
           </div>
         </div>
 
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-20 mt-20'>
-          {active === 'Written Testimonial' &&
-            TestimonialData.map((data, index) => (
-              <TestimonialCard
-                key={index}
-                profile={data.img}
-                testimonialName={data.title}
-                testimonialposition={data.postion}
-                testimonialReview={data.desc}
-              />
-            ))}
+        <div className='pt-[87px]'>
+          {activeTab === tabs[0] && (
+            <Pagination pages={tabOne} pageData={pageDataOne} callback={onChangeOfPageOne}>
+              <div className='grid md:grid-cols-2 xl:grid-cols-3 md:gap-x-4 lg:gap-x-6 gap-y-[68px] md:gap-y-16 lg:gap-y-20'>
+                {pageDataOne.map((data, index) => {
+                  return (
+                    <TestimonialCard
+                      key={index}
+                      testimonialName={data.title}
+                      testimonialposition={data.postion}
+                      testimonialReview={data.desc}
+                      profile={data.img}
+                    />
+                  );
+                })}
+              </div>
+            </Pagination>
+          )}
 
-          {active === 'Video Testimonials' &&
-            VideoTestimonial.map((data, index) => (
-              <MediaCard
-                key={index}
-                cardImg={data.img}
-                cardTitle={data.title}
-                cardDesc={data.desc}
-              />
-            ))}
+          {activeTab === tabs[1] && (
+            <Pagination pages={tabTwo} pageData={pageDataTwo} callback={onChangeOfPageTwo}>
+              <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4 md:gap-y-16 lg:gap-y-20'>
+                {pageDataTwo.map((data, index) => {
+                  return (
+                    <MediaCard
+                      key={index}
+                      cardTitle={data.title}
+                      cardDesc={data.desc}
+                      cardImage={data.img}
+                    />
+                  );
+                })}
+              </div>
+            </Pagination>
+          )}
         </div>
       </div>
 
-      <div className='flex flex-col gap-[30px] items-center justify-center w-[100%] mt-[30px] bg-[#E2EAF4] p-[90px] max-md:p-[15px]'>
+      <div className='flex flex-col gap-[30px] items-center justify-center w-[100%] bg-[#E2EAF4] px-4 py-10 md:p-14 xl:p-20 max-md:p-[15px]'>
         <span className='text-[#122135] font-semibold text-[32px] tracking-[-0.32px] text-center max-md:text-[22px] max-md:mt-[40px]'>
           Want to Submit Testimonial?
         </span>
@@ -248,7 +400,7 @@ const Testimonial = () => {
 
         <form
           onSubmit={handleSubmit}
-          className='flex flex-col w-[1062px] rounded-[24px] gap-[20px] p-[40px] bg-[white] max-md:w-[100%] '
+          className='flex flex-col w-full rounded-[24px] gap-[20px] p-[40px] bg-[white] max-md:w-[100%] '
         >
           <div className='flex gap-[30px] max-md:flex-col'>
             <TextInput
@@ -313,7 +465,7 @@ const Testimonial = () => {
             touched={touched}
           />
 
-          <div className='flex gap-[30px] max-md:flex-col'>
+          <div className='flex flex-col xl:flex-row gap-6'>
             {activeTab && activeTab === 'Written Testimonial' ? (
               <UploadFile
                 name='file'
