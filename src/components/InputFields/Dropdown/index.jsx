@@ -15,6 +15,7 @@ const Dropdown = ({
   showError = true,
   error,
   name,
+  className,
 }) => {
   const [showDropDown, setShowDropDown] = useState(false);
   const [selectedOption, setSelectedOption] = useState(defaultSelected);
@@ -66,6 +67,7 @@ const Dropdown = ({
         } w-full flex justify-between gap-1 py-3 px-4 rounded-lg mt-1 border-[2px]
         ${error ? 'border-[#DE3400]' : 'border-[#0084CB29]'}
         ${disabled ? 'bg-[#EEEEEE] pointer-events-none cursor-not-allowed' : ''}
+        ${className}
         `}
       >
         {selectedOption ? selectedOption.label : placeholder} <IconArrowDown />

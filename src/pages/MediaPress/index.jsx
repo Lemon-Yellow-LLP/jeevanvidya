@@ -221,7 +221,7 @@ export default function MediaPress() {
       />
 
       {/* Tab section */}
-      <div className='pl-4 lg:px-10 xl:px-20 pt-3 flex flex-col gap-4 lg:flex-row lg:items-baseline justify-between bg-accent-white'>
+      <div className='pl-4 lg:px-10 xl:px-20 pt-3 flex flex-col gap-4 xl:flex-row lg:items-baseline justify-between bg-accent-white'>
         <div className='flex gap-2 md:gap-6 overflow-x-auto whitespace-nowrap hide-scrollbar'>
           {tabs.map((tab, index) => (
             <TabButton label={tab} activeTab={activeTab} onChange={handleTabClick} key={index} />
@@ -246,7 +246,7 @@ export default function MediaPress() {
             <label htmlFor='Sort By:' className='text-xs md:text-lg '>
               Sort By:
             </label>
-            <Dropdown options={options} placeholder='Search' />
+            <Dropdown options={options} placeholder='Search' className="bg-white md:w-[193px]" />
           </form>
         </div>
       </div>
@@ -264,6 +264,7 @@ export default function MediaPress() {
                     cardDesc={data.desc}
                     cardImage={data.image}
                     btnTitle='Read More'
+                    className="hover:shadow-xl"
                   />
                 );
               })}
@@ -281,6 +282,7 @@ export default function MediaPress() {
                     cardTitle={data.title}
                     cardImage={data.image}
                     cardDesc={data.desc}
+                    className="hover:shadow-xl"
                   />
                 );
               })}
@@ -290,7 +292,7 @@ export default function MediaPress() {
         {/* NewsPapers */}
         {activeTab === tabs[2] && (
           <Pagination pages={tabThree} pageData={pageDataThree} callback={onChangeOfPageThree}>
-            <div className='grid md:grid-cols-3 lg:grid-cols-4 gap-x-6'>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6'>
               {pageDataThree.map((data, index) => {
                 return <MediaCard key={index} cardImage={data.image} />;
               })}
