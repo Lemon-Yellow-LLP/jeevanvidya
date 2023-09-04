@@ -10,7 +10,10 @@ const MobileStepper = ({ steps, activeStep, progress }) => {
           activeStep === index && (
             <div className='relative'>
               <CircularProgressbar className='w-[72px] h-[72px]' value={progress} maxValue={1} />
-              <h4 className='absolute top-1/3 left-1/2 -translate-x-[40%] text-right text-primary-black leading-[18px]' key={index}>
+              <h4
+                className='absolute top-1/3 left-1/2 -translate-x-[40%] text-right text-primary-black leading-[18px]'
+                key={index}
+              >
                 <span className='font-semibold text-base'>{activeStep + 1}</span>/{steps.length}
               </h4>
             </div>

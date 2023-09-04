@@ -120,7 +120,7 @@ const ContactUs = () => {
               value={values.message}
               touched={true}
               disabled={true}
-              className="h-44"
+              className='h-44'
             />
 
             <div className='ml-auto'>

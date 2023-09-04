@@ -422,7 +422,7 @@ export default function MediaPress() {
             <label htmlFor='Sort By:' className='text-xs md:text-lg '>
               Sort By:
             </label>
-            <Dropdown options={options} placeholder='Search' className="bg-white md:w-[193px]" />
+            <Dropdown options={options} placeholder='Search' className='bg-white md:w-[193px]' />
           </form>
         </div>
       </div>
@@ -440,7 +440,7 @@ export default function MediaPress() {
                     cardDesc={data.desc}
                     cardImage={data.image}
                     btnTitle='Read More'
-                    className="hover:shadow-xl"
+                    className='hover:shadow-xl'
                   />
                 );
               })}
@@ -458,7 +458,7 @@ export default function MediaPress() {
                     cardTitle={data.title}
                     cardImage={data.image}
                     cardDesc={data.desc}
-                    className="hover:shadow-xl"
+                    className='hover:shadow-xl'
                   />
                 );
               })}

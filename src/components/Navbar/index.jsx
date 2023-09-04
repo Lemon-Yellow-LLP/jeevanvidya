@@ -103,7 +103,10 @@ export default function Navbar() {
               </li>
             </ul>
             <div className='p-4 flex text-center border-t border-[#1221353d] lg:border-none'>
-              <Link href='' className='text-sm px-6 py-[9px] w-full lg:text-base text-accent-white bg-accent-orange rounded-lg'>
+              <Link
+                href=''
+                className='text-sm px-6 py-[9px] w-full lg:text-base text-accent-white bg-accent-orange rounded-lg'
+              >
                 Login
               </Link>
             </div>

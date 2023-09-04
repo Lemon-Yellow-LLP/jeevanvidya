@@ -16,8 +16,8 @@ body {
 @media only screen and (max-width: 767px) {
   .res-height_navbar {
     height: calc(100vh - 72px);
-  } 
-  .menu-items{
+  }
+  .menu-items {
     overflow: auto;
   }
 }

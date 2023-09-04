@@ -14,7 +14,7 @@ const TextareaInput = ({
   disabled,
   max,
   onBlur,
-  className
+  className,
 }) => {
   return (
     <div className='flex flex-col gap-1 w-[100%]'>
@@ -60,6 +60,5 @@ const TextareaInput = ({
     </div>
   );
 };
-
 
 export default memo(TextareaInput);
