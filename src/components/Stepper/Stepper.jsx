@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import MobileStepper from './index';
+import MobileStepper from '.';
 import DesktopStepper from '../DesktopStepper';
 
 const Stepper = ({ className, buttonTitle, steps }) => {
