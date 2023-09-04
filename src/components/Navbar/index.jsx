@@ -94,7 +94,9 @@ export default function Navbar() {
                 >
                   <li className='py-3 text-sm'>Anugrah</li>
                   <li className='py-3 text-sm'>Volunteering</li>
-                  <li className='py-3 text-sm'>Media</li>
+                  <li className='py-3 text-sm'>
+                    <Link to='/media-press'>Media</Link>
+                  </li>
                   <li className='py-3 text-sm'>Gallery</li>
                   <li className='py-3 text-sm'>Downloads</li>
                   <li className='py-3 text-sm'>Testimonial</li>
