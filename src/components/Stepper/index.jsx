@@ -1,28 +1,43 @@
-import { useEffect, useState } from 'react';
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+import React, { useCallback, useEffect, useState } from 'react';
+import MobileStepper from './mobile';
+import DesktopStepper from './desktop';
 
-const Stepper = ({ steps, activeStep, progress }) => {
+const Stepper = ({ className, buttonTitle, steps }) => {
+  const [activeStepIndex, setActiveStepIndex] = useState(0);
+  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  const [progress, setProgress] = useState(1 / steps.length);
+
+  const goToNextStep = useCallback(() => {
+    setActiveStepIndex((prev) => prev + 1);
+    setProgress((prev) => prev + 0.25);
+  });
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setInnerWidth(window.innerWidth);
+    }
+    window.addEventListener('resize', handleWindowResize);
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, []);
   return (
-    <div className='pt-2 pb-4 flex gap-4 justify-center'>
-      {steps.map(
-        (step, index) =>
-          activeStep === index && (
-            <div className='relative'>
-              <CircularProgressbar className='w-[72px] h-[72px]' value={progress} maxValue={1} />
-              <h4 className='absolute top-1/3 left-1/2 -translate-x-[40%] text-right text-primary-black leading-[18px]' key={index}>
-                <span className='font-semibold text-base'>{activeStep + 1}</span>/{steps.length}
-              </h4>
-            </div>
-          ),
+    <div className={`w-full mx-auto mt-4 flex flex-col  ${className}`}>
+      {innerWidth < 768 ? (
+        <MobileStepper steps={steps} activeStep={activeStepIndex} progress={progress} />
+      ) : (
+        <DesktopStepper steps={steps} activeStep={activeStepIndex} />
       )}
-      <div className='flex flex-col'>
-        {steps.map((step, index) => activeStep === index && <span className=''>{step}</span>)}
-        <span>In-Progress</span>
-      </div>
+      {buttonTitle ? (
+        <div className='ml-auto'>
+          <button
+            className='rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibold text-white bg-[#F09444] cursor-pointer'
+            onClick={goToNextStep}
+          >
+            {buttonTitle}
+          </button>
+        </div>
+      ) : null}
     </div>
   );
-  3;
 };
 
-export default Stepper;
+export default MobileStepper;

@@ -1,20 +1,21 @@
 import PropTypes from 'prop-types';
 
-const Download = ({ fileImage, label, filesize, file, filename }) => {
+const DownloadFile = ({ fileImage, label, filesize, file, filename }) => {
   return (
-    <div className='rounded-2xl p-6 bg-white w-[302px]'>
-      <div className='pdf-gradient h-14 w-14 rounded-full relative'>
-        <img
-          src={fileImage}
-          alt=''
-          className='absolute left-2/4 -translate-x-2/4 top-2/4 -translate-y-2/4'
-        />
+    <div className='rounded-2xl p-4 lg:p-6 bg-white md:w-[302px] h-[268px] lg:h-[284px] flex flex-col justify-between'>
+      <div className=''>
+        <div className='pdf-gradient h-14 w-14 rounded-full relative'>
+          <img
+            src={fileImage}
+            alt=''
+            className='absolute left-2/4 -translate-x-2/4 top-2/4 -translate-y-2/4'
+          />
+        </div>
+        <h2 className='mt-3 font-semibold text-xl text-primary-black'>{label}</h2>
+        <p className='mt-2 font-normal text-primary-black opacity-80'>File size: {filesize}</p>
       </div>
-      <h2 className='mt-3 font-semibold text-xl text-primary-black'>{label}</h2>
-      <p className='mt-2 font-normal text-primary-black opacity-80'>File size: {filesize}</p>
       <a href={file} download={filename}>
         <svg
-          className='mt-12'
           width='56'
           height='56'
           viewBox='0 0 56 56'
@@ -32,9 +33,9 @@ const Download = ({ fileImage, label, filesize, file, filename }) => {
   );
 };
 
-export default Download;
+export default DownloadFile;
 
-Download.prototype = {
+DownloadFile.prototype = {
   fileImage: PropTypes.node,
   label: PropTypes.string,
   filesize: PropTypes.string,

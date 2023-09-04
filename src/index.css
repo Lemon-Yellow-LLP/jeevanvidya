@@ -7,6 +7,24 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
+
+/* gloabal css */
+.hide-scrollbar::-webkit-scrollbar {
+  width: 0px !important;
+  height: 0px !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .res-height_navbar {
+    height: calc(100vh - 72px);
+  }
+  .menu-items {
+    overflow: auto;
+  }
+}
+
+/* end */
+
 /* gradient walker css and animation */
 .gradient-walker {
   position: absolute;
@@ -27,15 +45,18 @@ body {
     linear-gradient(to top right, rgba(255, 255, 255, 0.4) 6%, rgba(255, 255, 255, 0) 47%) top right /
       50% 50% no-repeat;
 }
+
 @keyframes move {
   from {
     left: -30%;
   }
+
   to {
     left: 100%;
   }
 }
 
+/* navbar */
 /* hero-strip color */
 .hero-gradient {
   background: var(
@@ -51,10 +72,12 @@ body {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+
 @keyframes rotate {
   from {
     transform: rotate(-360deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -77,6 +100,7 @@ body {
     rgba(0, 132, 203, 0) 56.33%
   );
 }
+
 @media only screen and (max-width: 767px) {
   .banner::before {
     background: linear-gradient(
@@ -88,6 +112,7 @@ body {
     );
   }
 }
+
 .active-tab {
   border-radius: 64px;
   border: 1.5px solid rgba(0, 132, 203, 0.48);
@@ -101,6 +126,7 @@ body {
   -moz-user-drag: none;
   -ms-user-drag: none;
 }
+
 .otpInput {
   height: 48px !important;
   width: 48px !important;
