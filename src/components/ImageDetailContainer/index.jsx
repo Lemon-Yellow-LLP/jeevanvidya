@@ -16,7 +16,7 @@ export default function ImageDetailContainer({
   return (
     <div
       className={cn(
-        'flex flex-col py-[40px] px-[16px] lg:p-[80px] lg:flex-row gap-4 md:gap-[48px]',
+        'flex flex-col py-[40px] px-[16px] md:px-8 xl:p-[80px] lg:flex-row gap-4 md:gap-[48px]',
         { 'lg:flex-row-reverse': imagePosition === 'right' },
         className,
       )}
@@ -29,10 +29,17 @@ export default function ImageDetailContainer({
           <img src={sectionImage} alt='flowerImage' className='h-[40px] lg:h-fit w-fit' />
         ) : null}
 
-        <h2 className={cn('text-lg lg:text-3xl not-italic font-semibold', titleClassName)}>
+        <h2
+          className={cn(
+            'text-lg lg:text-3xl not-italic font-semibold text-foreground-1',
+            titleClassName,
+          )}
+        >
           {title}
         </h2>
-        <p className='text-sm lg:text-base not-italic font-normal leading-relaxed'>{description}</p>
+        <p className='text-sm lg:text-base not-italic font-normal leading-relaxed text-foreground-2'>
+          {description}
+        </p>
         {btnTitle ? (
           <Button variant='filled' inputClasses='max-w-fit'>
             {btnTitle}
