@@ -4,15 +4,15 @@ import React, { useState } from 'react';
 export default function Loader({ show }) {
   const [open, setOpen] = useState(show ?? false);
   return (
-    <div className='relative text-center flex p-6 flex-col items-center'>
+    <div className='relative text-center flex p-6 flex-col items-center overscroll-none'>
       <div
-        className={cn('bg-dialog-1 blur-[2px] hi fixed inset-0 hidden', {
+        className={cn('bg-dialog-1 blur-[2px] fixed inset-0 hidden', {
           'block animate-overlayShow': open,
         })}
       ></div>
       <div
         className={cn(
-          'hidden fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[627px] translate-x-[-50%] translate-y-[-50%] bg-[#F5F5F5] rounded-3xl p-[24px] focus:outline-none"',
+          'hidden fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[627px] translate-x-[-50%] translate-y-[-50%] bg-[#F5F5F5] rounded-3xl p-[24px] focus:outline-none z-[99]',
           { 'block animate-contentShow': open },
         )}
       >
@@ -37,15 +37,21 @@ export default function Loader({ show }) {
             />
           </svg>
         </div>
-        <button onClick={() => setOpen(!open)}>close</button>
         <div className='flex flex-col gap-4'>
           <h1 className='text-center text-xl not-italic font-semibold text-foreground-1'>
             Redirecting to the Payment page
           </h1>
+          <div></div>
           <p className='text-center text-lg not-italic font-normal text-foreground-2'>
             Please do not refresh the page or click the{' '}
-            <span className='text-xl not-italic font-semibold '>Back</span> or{' '}
-            <span className='text-xl not-italic font-semibold'>Close</span> button of your browser.
+            <span className='text-xl not-italic font-semibold'>Back</span> or{' '}
+            <span
+              className='text-xl not-italic font-semibold cursor-pointer'
+              onClick={() => setOpen(!open)}
+            >
+              Close
+            </span>{' '}
+            button of your browser.
           </p>
         </div>
       </div>

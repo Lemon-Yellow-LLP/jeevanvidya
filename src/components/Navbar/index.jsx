@@ -11,10 +11,10 @@ export default function Navbar() {
     { name: 'About', link: '/about' },
     { name: 'Philosophy' },
     { name: 'Courses' },
-    { name: 'Dnyanpeeth' },
-    { name: 'Welfare' },
+    { name: 'Dnyanpeeth', link: '/dnyanpeeth' },
+    { name: 'Welfare', link: '/welfare' },
     { name: 'Publications' },
-    { name: 'Donation' },
+    { name: 'Donation', link: '/donation' },
     { name: 'More' },
   ];
 

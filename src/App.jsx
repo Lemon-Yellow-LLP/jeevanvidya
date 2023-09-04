@@ -5,6 +5,7 @@ import MediaPress from '@/pages/MediaPress';
 import UniversalPrayer from './pages/UniversalPrayer';
 import About from '@/pages/About';
 import Dnyanpeeth from '@/pages/Dnyanpeeth';
+import Download from '@/pages/Download';
 import DownloadFile from './components/DownloadFile';
 import Philosophy from '@/pages/Philosophy';
 import pdfImage from '@/assets/pdf_file_icon.svg';
@@ -12,6 +13,7 @@ import TestPage from './pages/TestPage';
 import Testimonial from '@/pages/Testimonial';
 import Welfare from './pages/Welfare';
 import PhilosophyQuotes from './pages/PhilosophyQuotes';
+import Donation from './pages/Donation';
 import ContactUs from './pages/ContactUs';
 
 const fileData = [
@@ -38,7 +40,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-        <Route path='/universalPrayer' element={<UniversalPrayer />} />
+        <Route path='/universal-prayer' element={<UniversalPrayer />} />
         <Route path='/media-press' element={<MediaPress />} />
         <Route path='/test' element={<TestPage />} />
         <Route
@@ -68,6 +70,8 @@ function App() {
         <Route path='/philosophy' element={<Philosophy />} />
         <Route path='/welfare' element={<Welfare />} />
         <Route path='/philosophy-quotes' element={<PhilosophyQuotes />} />
+        <Route path='/donation' element={<Donation />} />
+        <Route path='/download' element={<Download />} />
         <Route path='*' element={<div>Page not found</div>} />
       </Routes>
     </BrowserRouter>
