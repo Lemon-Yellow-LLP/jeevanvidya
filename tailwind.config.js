@@ -5,26 +5,47 @@ export default {
     extend: {
       colors: {
         primary: {
-          red: '#E33439',
-          black: '#373435',
+          1: '#0084CB29',
+          2: '#0084CB',
+          3: '#0074FC',
+          red: '#DE3400',
         },
-        'natural-black': '#212121',
-        secondary: { green: '#147257', blue: '#065381' },
-        'dark-grey': '#727376',
-        'light-grey': '#96989A',
-        'light-green': '#D9F2CB',
-        'neutral-white': '#FEFEFE',
-        'light-red': '#F1999C',
-        'grey-white': '#F3F3F3',
-        stroke: '#D9D9D9',
+        secondary: {
+          1: '#0084CB75',
+          2: '#0074fc1f',
+        },
+        accent: {
+          orange: '#F09444',
+          gold: '#FFD63E',
+          white: '#F5F5F5',
+        },
+        foreground: {
+          1: '#122135',
+          2: '#122135CC',
+        },
+        background: {
+          1: 'linear-gradient(180deg, #E2EAF4 0%, rgba(226, 234, 244, 0.00) 100%)',
+          2: 'linear-gradient(135deg, #0352A3 0%, #0084CB 100%, #0084CB 100%)',
+          3: '#E2EAF4',
+        },
+        dialog: {
+          1: '#ffffffcc',
+        },
+        gradient: {
+          2: 'linear-gradient(180deg, #E2EAF4 0%, rgba(226, 234, 244, 0.00) 100%)',
+        },
+      },
+      backgroundImage: {
+        'quotes-bg': "url('./assets/quotes-bg.png')",
+      },
+      boxShadow: {
+        primary: '0px 3px 48px 0px #0353a33d',
+        secondary: '0px 4px 44px 0px #3267e314',
       },
     },
-    boxShadow: {
-      primary: '0px 0px 3px 0px',
-      secondary: '0px 2px 10px rgba(0, 0, 0, 0.06)',
-      modal: '0px 8px 11px -4px #0000000D',
-      calendar: '0px 4px 14px 0px #0000001A',
-    },
+    // screens: {
+    //   sm: '576px',
+    // },
   },
   plugins: [],
 };
