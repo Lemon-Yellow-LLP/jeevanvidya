@@ -1,15 +1,15 @@
-const DesktopStepper = ({ steps, activeStep }) => {
+const DesktopStepper = ({ steps, activeStep, progress }) => {
   return (
-    <div className='flex gap-6'>
+    <div className='flex gap-6 w-full justify-center border-b py-6 border-[#122135CC]'>
       {steps.map((step, index) => {
         return (
-          <div className='flex flex-col w-full'>
+          <div key={index} className='flex flex-col max-w-fit'>
             <div key={index} className='flex items-center w-full'>
               {index <= activeStep ? (
                 index < activeStep ? (
                   <div
                     key={index}
-                    className='w-12 h-12 flex items-center p-2 rounded-[32px] border-2 border-[#0084CB] bg-[#0084CB]'
+                    className='flex items-center p-2 rounded-[32px] border-2 border-[#0084CB] bg-[#0084CB]'
                   >
                     <div className='w-8 h-8'>
                       <svg
@@ -29,7 +29,7 @@ const DesktopStepper = ({ steps, activeStep }) => {
                 ) : (
                   <div
                     key={index}
-                    className='w-12 h-12 flex items-center p-2 rounded-[32px] border-2 border-[#0084CB] bg-[#0084cb14]'
+                    className=' flex items-center p-2 rounded-[32px] border-2 border-[#0084CB] bg-[#0084cb14]'
                   >
                     <div className='w-8 h-8 bg-[#0084CB] rounded-full'></div>
                   </div>
@@ -39,27 +39,31 @@ const DesktopStepper = ({ steps, activeStep }) => {
                   key={index}
                   className='w-12 h-12 flex items-center p-2 rounded-[32px] border-2 bg-[#12213566]'
                 >
-                  <div className='w-8 h-8 flex justify-center text-center'>
-                    <span className='text-xl font-semibold text-white'>{index + 1}</span>
+                  <div className='w-8 h-8 flex justify-center items-center'>
+                    <span className='text-xl font-semibold text-white '>{index + 1}</span>
                   </div>
                 </div>
               )}
               {index !== steps.length - 1 ? (
-                <div
-                  className={`${
-                    index <= activeStep ? 'bg-[#0084CB]' : 'bg-slate-300'
-                  } w-full h-1.5 ml-6 rounded-md`}
-                ></div>
+                <div className='bg-slate-300 w-full md:w-[140px] xl:w-[340px] h-1.5 ml-6 rounded-md'>
+                  <div
+                    style={{
+                      width: `${progress}%`,
+                      display: index !== activeStep ? 'none' : 'block',
+                    }}
+                    className='bg-[#0084CB] w-1/2 h-1.5 rounded-md'
+                  ></div>
+                </div>
               ) : null}
             </div>
             <div>
-              <h3>{step}</h3>
-              <h4>
+              <h3 className='text-sm leading-5 lg:text-xl not-italic font-semibold text-foreground-2 '>
+                {step}
+              </h3>
+              <h4 className='text-xs not-italic font-normal text-foreground-2 lg:font-medium lg:leading-7'>
                 {index <= activeStep ? (index < activeStep ? 'Done' : 'In-Progress') : 'pending'}
               </h4>
             </div>
-
-            <div></div>
           </div>
         );
       })}

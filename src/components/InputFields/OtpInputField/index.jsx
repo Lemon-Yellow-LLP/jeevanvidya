@@ -9,14 +9,20 @@ const OtpInputField = ({
   error,
   touched,
   onBlur,
+  handleInput,
 }) => {
   const [otp, setOtp] = useState('');
+
+  useEffect(() => {
+    handleInput(otp);
+  }, [otp]);
 
   const inputClasses = () => {
     if (!hasSentOTPOnce) return 'otpInput border-[#0084CB29] border-[2px]';
     if (hasSentOTPOnce && !error) return 'otpInput border-[#0084CB29] border-[2px]';
-    if (error) return 'otpInput border-[#DE3400] border-[2px]';
+    if (error && touched) return 'otpInput border-[#DE3400] border-[2px]';
     if (verified) return 'otpInput border-[#0084CB29] border-[2px]';
+    return 'otpInput border-[#0084CB29] border-[2px]';
   };
 
   return (

@@ -3,7 +3,7 @@ import SectionTitleDescription from '@/components/SectionTitleDescription';
 import { data } from '@/data/Donation';
 import React, { useCallback, useEffect, useState } from 'react';
 import Courses from '../Courses';
-import Stepper from '@/components/Stepper/Stepper';
+import Stepper from '@/components/Stepper';
 import { cn } from '@/lib/utils';
 import TextInputWithIcon from '@/components/InputFields/TextInputWithIcon';
 import PhoneNumberInput from '@/components/InputFields/TextInput/PhoneNumberInput';
@@ -54,26 +54,18 @@ export default function Donation() {
         <div className='mx-auto flex p-4 lg:p-8 mt-10 lg:mt-20  flex-col items-end rounded-3xl bg-white'>
           <div className='container flex flex-col gap-6 lg:gap-14'>
             <Stepper steps={data.steps} activeStep={activeStepIndex} progress={progress} />
-            {activeStepIndex == 0 && (
+            <div className={`${activeStepIndex == 0 ? 'block' : 'hidden'}`}>
               <DonationStep data={data} goToNextStep={goToNextStep} goToPrevStep={goToPrevStep} />
-            )}
-            {activeStepIndex == 1 && (
+            </div>
+            <div className={`${activeStepIndex == 1 ? 'block' : 'hidden'}`}>
               <PersonalDetailsStep
                 data={data}
                 goToNextStep={goToNextStep}
                 goToPrevStep={goToPrevStep}
               />
-            )}
-            {activeStepIndex == 2 && (
+            </div>
+            <div className={`${activeStepIndex == 2 ? 'block' : 'hidden'}`}>
               <SuccessStep data={data} goToNextStep={goToNextStep} goToPrevStep={goToPrevStep} />
-            )}
-            <div className={`ml-auto ${activeStepIndex == data.steps.length - 1 ? 'hidden' : ''}`}>
-              <button
-                className='rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibold text-white bg-[#0074FC] cursor-pointer'
-                onClick={goToNextStep}
-              >
-                Next
-              </button>
             </div>
           </div>
         </div>
@@ -92,10 +84,9 @@ function DonationStep({ data, goToNextStep, goToPrevStep }) {
         otp: '',
       },
       validationSchema: donationValidation,
-      validateOnBlur: true,
-      onSubmit: (e) => {
-        // e.preventDefault();
-        console.log(e);
+      onSubmit: () => {
+        console.log(values);
+        goToNextStep();
       },
     });
 
@@ -104,13 +95,7 @@ function DonationStep({ data, goToNextStep, goToPrevStep }) {
   }, [values.amount]);
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit();
-      }}
-      className='flex flex-col gap-6 lg:gap-14'
-    >
+    <form onSubmit={handleSubmit} className='flex flex-col gap-6 lg:gap-14'>
       <div className='mt-6 mx-auto max-w-xl space-y-6'>
         <div className='grid grid-cols-3 gap-4 lg:gap-6'>
           {data.amounts.map((amount, i) => (
@@ -186,7 +171,7 @@ function DonationStep({ data, goToNextStep, goToPrevStep }) {
         <OtpInputField
           name={'otp'}
           value={values.otp}
-          onChange={handleChange}
+          handleInput={(v) => setFieldValue('otp', v)}
           onBlur={handleBlur}
           required={true}
           label='Enter OTP'
@@ -203,7 +188,8 @@ function DonationStep({ data, goToNextStep, goToPrevStep }) {
 
       <div className={`w-full flex justify-end`}>
         <button
-          className='rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibold text-white bg-[#0074FC] cursor-pointer'
+          disabled={errors && Object.keys(errors).length}
+          className='rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibold text-white bg-[#0074FC] cursor-pointer disabled:opacity-50 disabled:pointer-events-none'
           type='submit'
         >
           Save & Next
@@ -214,9 +200,6 @@ function DonationStep({ data, goToNextStep, goToPrevStep }) {
 }
 
 function PersonalDetailsStep({ data, goToNextStep, goToPrevStep }) {
-  const [amount, setAmount] = useState(null);
-  const [amountInWords, setAmountInWords] = useState('-');
-
   const { values, errors, handleBlur, handleChange, handleSubmit, touched, setFieldValue } =
     useFormik({
       initialValues: {
@@ -233,19 +216,15 @@ function PersonalDetailsStep({ data, goToNextStep, goToPrevStep }) {
         pinCode: '',
         pan: '',
         comment: '',
-        confirmInfo: '',
-        agreeToPromotional: '',
+        confirmInfo: false,
+        agreeToPromotional: false,
       },
       validationSchema: personalDetailsValidation,
+      validateOnMount: true,
       onSubmit: (values) => {
         console.log(values);
       },
     });
-
-  useEffect(() => {
-    setAmountInWords(numWords(amount));
-  }, [amount]);
-
   return (
     <form onSubmit={handleSubmit} className='mt-6 space-y-4'>
       <div className='flex flex-col md:flex-row gap-4 md:gap-8'>
@@ -445,11 +424,16 @@ function PersonalDetailsStep({ data, goToNextStep, goToPrevStep }) {
       </div>
       <div className='flex  flex-col items-start gap-4 lg:gap-8 '>
         <Checkbox
+          name='confirmInfo'
+          onChange={handleChange}
           required
+          value={values.confirmInfo}
           label={'I confirm my information related to Pan No. and Address is correct.'}
         />
         <Checkbox
-          required
+          name='agreeToPromotional'
+          onChange={handleChange}
+          value={values.agreeToPromotional}
           label={
             'I Agree to receive the invitation to events & courses, updates on course & events, the newsletter by email,SMS & voice calls.'
           }
@@ -463,7 +447,8 @@ function PersonalDetailsStep({ data, goToNextStep, goToPrevStep }) {
           <span>Back</span>
         </button>
         <button
-          className='shrink-0 rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibold text-white bg-[#0074FC] cursor-pointer flex items-center justify-center'
+          disabled={errors && Object.keys(errors).length}
+          className='shrink-0 rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibold text-white bg-[#0074FC] cursor-pointer flex items-center justify-center disabled:opacity-50 disabled:pointer-events-none'
           type='submit'
         >
           <svg

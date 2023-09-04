@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import RadioButton from '../InputFields/RadioButton';
 
 function RadioGroup({
@@ -19,10 +19,13 @@ function RadioGroup({
 }) {
   const [selectedOption, setSelectedOption] = useState('');
 
-  const handleSelect = (e) => {
-    setSelectedOption(e.target.value);
-  };
-
+  const handleSelect = useCallback(
+    (e) => {
+      setSelectedOption(e.target.value);
+      onChange && onChange(e.target.value);
+    },
+    [onChange],
+  );
   return (
     <div className='flex flex-col flex-1 gap-1 lg:gap-4'>
       <label

@@ -20,10 +20,10 @@ const TextInput = ({
     <div className='flex flex-col flex-1 gap-1 w-[100%]'>
       <label
         htmlFor={name}
-        className='flex gap-0.5 items-center text-[#122135CC] text-[14px] font-normal'
+        className='flex gap-0.5 items-center text-[#122135CC] text-xs lg:text-[14px] font-normal'
       >
         {label}
-        {required && <span className='text-primary-red text-sm ml-[2px]'>*</span>}
+        {required && <span className='text-primary-red text-xs lg:text-sm ml-[2px]'>*</span>}
       </label>
 
       <div
