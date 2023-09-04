@@ -30,6 +30,60 @@ const tabOne = [
       title: 'Title 3',
       desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
     },
+    {
+      image: newsarticlesImg,
+      slug: 'News & Articles',
+      title: 'Title 3',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: newsarticlesImg,
+      slug: 'News & Articles',
+      title: 'Title 3',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: newsarticlesImg,
+      slug: 'News & Articles',
+      title: 'Title 3',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: newsarticlesImg,
+      slug: 'News & Articles',
+      title: 'Title 3',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: newsarticlesImg,
+      slug: 'News & Articles',
+      title: 'Title 3',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: newsarticlesImg,
+      slug: 'News & Articles',
+      title: 'Title 3',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: newsarticlesImg,
+      slug: 'News & Articles',
+      title: 'Title 3',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: newsarticlesImg,
+      slug: 'News & Articles',
+      title: 'Title 3',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: newsarticlesImg,
+      slug: 'News & Articles',
+      title: 'Title 3',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
   ],
   [
     {
@@ -42,6 +96,42 @@ const tabOne = [
       image: newsarticlesImg,
       slug: 'News & Articles',
       title: 'Title 5',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: newsarticlesImg,
+      slug: 'News & Articles',
+      title: 'Title 6',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: newsarticlesImg,
+      slug: 'News & Articles',
+      title: 'Title 6',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: newsarticlesImg,
+      slug: 'News & Articles',
+      title: 'Title 6',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: newsarticlesImg,
+      slug: 'News & Articles',
+      title: 'Title 6',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: newsarticlesImg,
+      slug: 'News & Articles',
+      title: 'Title 6',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: newsarticlesImg,
+      slug: 'News & Articles',
+      title: 'Title 6',
       desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
     },
     {
@@ -85,6 +175,60 @@ const tabTwo = [
       image: VideoImg,
       slug: 'Videos',
       title: 'Video Title 2',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: VideoImg,
+      slug: 'Videos',
+      title: 'Video Title 3',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: VideoImg,
+      slug: 'Videos',
+      title: 'Video Title 3',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: VideoImg,
+      slug: 'Videos',
+      title: 'Video Title 3',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: VideoImg,
+      slug: 'Videos',
+      title: 'Video Title 3',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: VideoImg,
+      slug: 'Videos',
+      title: 'Video Title 3',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: VideoImg,
+      slug: 'Videos',
+      title: 'Video Title 3',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: VideoImg,
+      slug: 'Videos',
+      title: 'Video Title 3',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: VideoImg,
+      slug: 'Videos',
+      title: 'Video Title 3',
+      desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
+    },
+    {
+      image: VideoImg,
+      slug: 'Videos',
+      title: 'Video Title 3',
       desc: 'Lorem ipsum dolor sit amet, sectetur adipiscing elit. Cras molestie blandit...',
     },
     {
@@ -138,6 +282,38 @@ const tabTwo = [
 
 const tabThree = [
   [
+    {
+      image: NewsImg,
+      slug: 'Newspapers',
+    },
+    {
+      image: NewsImg,
+      slug: 'Newspapers',
+    },
+    {
+      image: NewsImg,
+      slug: 'Newspapers',
+    },
+    {
+      image: NewsImg,
+      slug: 'Newspapers',
+    },
+    {
+      image: NewsImg,
+      slug: 'Newspapers',
+    },
+    {
+      image: NewsImg,
+      slug: 'Newspapers',
+    },
+    {
+      image: NewsImg,
+      slug: 'Newspapers',
+    },
+    {
+      image: NewsImg,
+      slug: 'Newspapers',
+    },
     {
       image: NewsImg,
       slug: 'Newspapers',
@@ -213,7 +389,7 @@ export default function MediaPress() {
   };
 
   return (
-    <section className=''>
+    <section className='pt-[140px]'>
       <HeroBanner
         bannerImg={mediaBanner}
         bannerTitle='Media and Press Releases'
@@ -242,7 +418,7 @@ export default function MediaPress() {
               className='w-full pl-10 py-4 rounded-lg border-white'
             />
           </div>
-          <form className='flex gap-4 items-baseline'>
+          <form className='flex flex-col lg:flex-row gap-4 items-baseline'>
             <label htmlFor='Sort By:' className='text-xs md:text-lg '>
               Sort By:
             </label>
@@ -251,7 +427,7 @@ export default function MediaPress() {
         </div>
       </div>
 
-      <div className='p-3 md:p-10 lg:p-20 bg-[#f5f5f5]'>
+      <div className='p-3 md:p-8 lg:p-15 xl:p-20 bg-[#f5f5f5]'>
         {/* News And Articles */}
         {activeTab === tabs[0] && (
           <Pagination pages={tabOne} pageData={pageDataOne} callback={onChangeOfPageOne}>
