@@ -10,7 +10,17 @@ body {
 
 /* gloabal css */
 .hide-scrollbar::-webkit-scrollbar {
-  width: 0 !important;
+  width: 0px !important;
+  height: 0px !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .res-height_navbar {
+    height: calc(100vh - 72px);
+  } 
+  .menu-items{
+    overflow: auto;
+  }
 }
 
 /* end */
@@ -42,6 +52,7 @@ body {
   }
 }
 
+/* navbar */
 /* hero-strip color */
 .hero-gradient {
   background: var(--gradient-gradient-1,

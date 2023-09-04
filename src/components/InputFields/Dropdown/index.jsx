@@ -18,14 +18,12 @@ const Dropdown = ({
   className,
 }) => {
   const [showDropDown, setShowDropDown] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(() =>
-    options?.find((option) => defaultSelected === option.value),
-  );
+  const [selectedOption, setSelectedOption] = useState(defaultSelected);
 
-  useEffect(() => {
-    const option = options.find((option) => option.value === defaultSelected);
-    setSelectedOption(option);
-  }, [defaultSelected, options]);
+  // useEffect(() => {
+  //   const option = options.find((option) => option.value === defaultSelected);
+  //   setSelectedOption(option);
+  // }, [defaultSelected, options]);
 
   const containerRef = useRef(null);
 
@@ -69,9 +67,10 @@ const Dropdown = ({
         } w-full flex justify-between gap-1 py-3 px-4 rounded-lg mt-1 border-[2px]
         ${error ? 'border-[#DE3400]' : 'border-[#0084CB29]'}
         ${disabled ? 'bg-[#EEEEEE] pointer-events-none cursor-not-allowed' : ''}
+        ${className}
         `}
       >
-        {selectedOption ? selectedOption.label : placeholder || 'Click me'} <IconArrowDown />
+        {selectedOption ? selectedOption.label : placeholder} <IconArrowDown />
       </button>
       {showDropDown && (
         <div
