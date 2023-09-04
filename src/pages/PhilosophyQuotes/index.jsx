@@ -11,14 +11,14 @@ const PhilosophyQuotes = () => {
     setPageQuoteData(QuoteData[value]);
   };
   return (
-    <div>
+    <div className='mb-10 xl:mb-20'>
       <HeroBanner
         bannerImg={PhilosophyBanner}
         bannerTitle='Philosophy - Quotes'
         bannerDesc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore  '
       />
       <Pagination pages={QuoteData} pageData={pageQuoteData} callback={onChangeOfPageOne}>
-        <div className='xl:p-20 grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:gap-6 xl:gap-y-8'>
+        <div className='px-4 md:px-8 py-10 xl:p-20 grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:gap-6 xl:gap-y-8'>
           {pageQuoteData.map((data, i) => (
             <div
               key={i}
