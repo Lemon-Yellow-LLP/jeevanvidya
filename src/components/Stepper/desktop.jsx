@@ -1,4 +1,5 @@
 const DesktopStepper = ({ steps, activeStep, progress }) => {
+  console.log(activeStep);
   return (
     <div className='flex gap-6 w-full justify-center border-b py-6 border-[#122135CC]'>
       {steps.map((step, index) => {
@@ -48,8 +49,8 @@ const DesktopStepper = ({ steps, activeStep, progress }) => {
                 <div className='bg-slate-300 w-full md:w-[140px] xl:w-[340px] h-1.5 ml-6 rounded-md'>
                   <div
                     style={{
-                      width: `${progress}%`,
-                      display: index !== activeStep ? 'none' : 'block',
+                      width: `${index < activeStep ? 100 : progress}%`,
+                      display: index > activeStep ? 'none' : 'block',
                     }}
                     className='bg-[#0084CB] w-1/2 h-1.5 rounded-md'
                   ></div>

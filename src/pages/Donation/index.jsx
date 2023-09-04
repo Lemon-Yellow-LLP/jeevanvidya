@@ -23,10 +23,10 @@ import Tooltip from '@/components/Tooltip';
 
 export default function Donation() {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(45);
   const goToNextStep = useCallback(() => {
     setActiveStepIndex((prev) => prev + 1);
-    setProgress((prev) => prev + 0.25);
+    setProgress(0);
   });
 
   const goToPrevStep = useCallback(() => {
@@ -53,19 +53,35 @@ export default function Donation() {
         {/* <Loader show={true} /> */}
         <div className='mx-auto flex p-4 lg:p-8 mt-10 lg:mt-20  flex-col items-end rounded-3xl bg-white'>
           <div className='container flex flex-col gap-6 lg:gap-14'>
-            <Stepper steps={data.steps} activeStep={activeStepIndex} progress={progress} />
+            <Stepper
+              steps={data.steps}
+              activeStepIndex={activeStepIndex}
+              goToNextStep={goToNextStep}
+              progress={progress}
+            />
             <div className={`${activeStepIndex == 0 ? 'block' : 'hidden'}`}>
-              <DonationStep data={data} goToNextStep={goToNextStep} goToPrevStep={goToPrevStep} />
+              <DonationStep
+                data={data}
+                goToNextStep={goToNextStep}
+                goToPrevStep={goToPrevStep}
+                setProgress={setProgress}
+              />
             </div>
             <div className={`${activeStepIndex == 1 ? 'block' : 'hidden'}`}>
               <PersonalDetailsStep
                 data={data}
                 goToNextStep={goToNextStep}
                 goToPrevStep={goToPrevStep}
+                setProgress={setProgress}
               />
             </div>
             <div className={`${activeStepIndex == 2 ? 'block' : 'hidden'}`}>
-              <SuccessStep data={data} goToNextStep={goToNextStep} goToPrevStep={goToPrevStep} />
+              <SuccessStep
+                data={data}
+                goToNextStep={goToNextStep}
+                goToPrevStep={goToPrevStep}
+                setProgress={setProgress}
+              />
             </div>
           </div>
         </div>
@@ -74,7 +90,7 @@ export default function Donation() {
   );
 }
 
-function DonationStep({ data, goToNextStep, goToPrevStep }) {
+function DonationStep({ data, goToNextStep, goToPrevStep, setProgress }) {
   const [amountInWords, setAmountInWords] = useState('-');
   const { handleSubmit, values, handleBlur, setFieldValue, handleChange, errors, touched } =
     useFormik({
@@ -93,6 +109,17 @@ function DonationStep({ data, goToNextStep, goToPrevStep }) {
   useEffect(() => {
     setAmountInWords(numWords(values.amount));
   }, [values.amount]);
+
+  useEffect(() => {
+    console.log(errors);
+    setProgress((progress) => {
+      console.log('progress', progress);
+      return (
+        ((Object.keys(values).length - Object.keys(errors).length) / Object.keys(values).length) *
+        100
+      );
+    });
+  }, [errors]);
 
   return (
     <form onSubmit={handleSubmit} className='flex flex-col gap-6 lg:gap-14'>
