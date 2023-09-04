@@ -1,9 +1,10 @@
 import React from 'react';
 
 const Loading = () => {
+  console.log("loading...")
   return (
-    <div className='relative w-full h-screen text-center bg-accent-white'>
-      <div className='absolute top-1/2 lg:top-2/3  left-[50%] translate-x-[-50%] translate-y-[-50%] w-[328px] md:w-[629px] flex flex-col gap-[140px] lg:gap-[119px]'>
+    <div className='absolute z-[9999] flex justify-center items-center w-full h-screen text-center bg-accent-white'>
+      <div className='w-[328px] md:w-[629px] flex flex-col gap-[140px] lg:gap-[119px]'>
         <div className='flex flex-col items-center gap-6 p-4 md:p-6'>
           <svg
             width='79'
