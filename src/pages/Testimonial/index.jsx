@@ -313,7 +313,12 @@ const Testimonial = () => {
         bannerDesc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore '
       />
 
-      <div className='relative p-4 md:p-8 lg:p-14 xl:p-20'>
+      <div className='relative p-4 md:p-8 lg:p-14 xl:p-20 bg-accent-white'>
+        <img
+          src={vectorImg}
+          alt='vector page'
+          className='absolute right-0 top-[0%] opacity-5 w-[332px] h-[318px] xl:w-[587px] xl:h-[732px]'
+        />
         <div className='flex justify-between items-center max-md:flex-col'>
           <SectionTitleDescription
             className='mx-0'
@@ -367,7 +372,7 @@ const Testimonial = () => {
         </div>
       </div>
 
-      <div className='flex flex-col gap-[30px] items-center justify-center w-[100%] mt-[30px] bg-[#E2EAF4] px-4 py-10 md:p-14 xl:p-20 max-md:p-[15px]'>
+      <div className='flex flex-col gap-[30px] items-center justify-center w-[100%] bg-[#E2EAF4] px-4 py-10 md:p-14 xl:p-20 max-md:p-[15px]'>
         <span className='text-[#122135] font-semibold text-[32px] tracking-[-0.32px] text-center max-md:text-[22px] max-md:mt-[40px]'>
           Want to Submit Testimonial?
         </span>
