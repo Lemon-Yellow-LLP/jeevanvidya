@@ -130,7 +130,7 @@ body {
   background: linear-gradient(180deg, #e2eaf4 0%, rgba(226, 234, 244, 0) 100%);
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 320px) {
   .otpInput {
     height: 54px !important;
     width: 36px !important;

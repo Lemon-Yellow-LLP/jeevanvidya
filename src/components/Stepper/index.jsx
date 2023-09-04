@@ -24,7 +24,9 @@ const MobileStepper = ({ steps, activeStep, progress }) => {
         {steps.map((step, index) => (
           <div key={index}>{activeStep === index && <span className=''>{step}</span>}</div>
         ))}
-        <span>In-Progress</span>
+        <span className='text-foreground-2 text-center text-base not-italic font-medium leading-7'>
+          In-Progress
+        </span>
       </div>
     </div>
   );

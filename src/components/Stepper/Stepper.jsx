@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import MobileStepper from '.';
+import MobileStepper from './index';
 import DesktopStepper from '../DesktopStepper';
 
 const Stepper = ({ className, buttonTitle, steps }) => {
@@ -26,14 +26,16 @@ const Stepper = ({ className, buttonTitle, steps }) => {
       ) : (
         <DesktopStepper steps={steps} activeStep={activeStepIndex} />
       )}
-      <div className='ml-auto'>
-        <button
-          className='rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibold text-white bg-[#F09444] cursor-pointer'
-          onClick={goToNextStep}
-        >
-          {buttonTitle}
-        </button>
-      </div>
+      {buttonTitle ? (
+        <div className='ml-auto'>
+          <button
+            className='rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibold text-white bg-[#F09444] cursor-pointer'
+            onClick={goToNextStep}
+          >
+            {buttonTitle}
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 };

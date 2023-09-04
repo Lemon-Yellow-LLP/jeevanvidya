@@ -33,8 +33,8 @@ const Dropdown = ({
     (option) => {
       setSelectedOption(option);
       setShowDropDown(false);
-      let vlaue = option.value;
-      onChange && onChange({ vlaue, name });
+      let value = option.value;
+      onChange && onChange({ value, name });
     },
     [onChange],
   );

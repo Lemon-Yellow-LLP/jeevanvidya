@@ -23,8 +23,8 @@ export const data = {
     { name: 'Other', value: 'other' },
   ],
   JVFollower: [
-    { name: 'Yes', value: 'yes' },
-    { name: 'No', value: 'no' },
+    { name: 'Yes', value: 'true' },
+    { name: 'No', value: 'false' },
   ],
   indianCitizen: [
     { name: 'Yes', value: 'yes' },

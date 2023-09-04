@@ -26,7 +26,7 @@ function RadioGroup({
   return (
     <div className='flex flex-col flex-1 gap-1 lg:gap-4'>
       <label
-        htmlFor={label}
+        htmlFor={name}
         className='flex gap-0.5 items-center text-[#122135CC] text-[14px] font-normal'
       >
         {label}
@@ -36,7 +36,8 @@ function RadioGroup({
         {options.map((option, i) => (
           <RadioButton
             key={i}
-            name={option.name}
+            name={`${name}_${option.name}`}
+            label={option.name}
             value={option.value}
             checked={selectedOption === option.value}
             onChange={handleSelect}

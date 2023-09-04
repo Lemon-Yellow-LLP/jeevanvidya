@@ -4,10 +4,7 @@ const DesktopStepper = ({ steps, activeStep }) => {
       {steps.map((step, index) => {
         return (
           <div className='group flex flex-col w-full'>
-            <div
-              key={index}
-              className='flex justify-center max-w-fit group-first:mr-auto group-last:ml-auto'
-            >
+            <div key={index} className='flex justify-center max-w-fit o'>
               <div className='flex flex-col items-center'>
                 {index <= activeStep ? (
                   index < activeStep ? (
