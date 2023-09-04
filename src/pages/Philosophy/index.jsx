@@ -10,7 +10,7 @@ import TabImage from '@/assets/tab-img.png';
 import PhilosophyImg1 from '@/assets/philosophy-img1.png';
 import BenefitsCardLogo from '@/assets/benefits-card-logo.svg';
 import TestImage from '@/assets/Dnyanpeeth-banner.png';
-import { BenefitsData, FeaturesData, QuoteData } from '@/data/Philosophy';
+import { BenefitsData, FeaturesData, SliderQuoteData } from '@/data/Philosophy';
 import { TabLabelData } from '@/data/Philosophy';
 import { TabData } from '@/data/Philosophy';
 import { SwiperSlide } from 'swiper/react';
@@ -67,17 +67,19 @@ const Philosophy = () => {
       <ImageDetailContainer
         sectionImage={FlowerImage}
         image={PhilosophyImg1}
+        className='gap-6 xl:gap-[110px] items-center'
+        contentClassName=' gap-2'
         title='Jeevanvidya Philosophy'
         description='Satguru Shri Wamanrao Pai evolved the Jeevanvidya Philosophy which is the ‘Science of Life and The Art of Living’based on the teaching of Saints and Sages, his own experiences in life, his deep contemplation and the blessingsof his own Satguru. Jeevanvidya Philosophy is an excellent combination of psychology, parapsychology and metaphysics and has thepotential to help man to achieve both materail prosperity as well as psycho-spiritual progress by making concerted effortsunder the circumstances as they exist.'
         imagePosition='left'
       />
-      <div className='flex flex-col p-4 lg:p-20 gap-8'>
+      <div className='flex flex-col p-4 md:px-10 py-10 gap-6 xl:p-20 xl:gap-10'>
         <SectionTitleDescription
           image={FlowerImage2}
           title='Problems have solutions, always'
           description='Those people who accept the philosophy of Jeevanvidya and sincerely make efforts to put it into practice definitely.'
           align='center'
-          className='!p-0 mb-4 lg:mb-8 '
+          className='!p-0 lg:mb-8 '
         />
         <div className=''>
           <div
@@ -91,7 +93,7 @@ const Philosophy = () => {
             ))}
           </div>
           <button
-            className='text-base font-semibold p-4 text-secondary-1 flex gap-2'
+            className='text-sm lg:text-base font-semibold p-4 text-secondary-1 flex gap-2'
             onClick={() => setShowMoreTabs(!showMoreTabs)}
           >
             {showMoreTabs ? 'Show more' : 'Show less'}
@@ -121,7 +123,7 @@ const Philosophy = () => {
             title={activeData?.title}
             description={activeData?.description}
             imagePosition='left'
-            className='!px-0 py-8 gap-8'
+            className='!px-0 py-8 gap-6 xl:gap-8'
           />
         </div>
       </div>
@@ -154,7 +156,7 @@ const Philosophy = () => {
           align='left'
           className='!p-0 mb-4 lg:mb-8 '
         />
-        <div className='grid grid-cols-1  lg:gap-6 md:grid-cols-3 -z-[1]'>
+        <div className='grid grid-cols-1 gap-4  lg:gap-6 md:grid-cols-3 -z-[1]'>
           {BenefitsData.map((data, i) => (
             <div
               key={i}
@@ -199,6 +201,7 @@ export function PhilosophyQuotes() {
     <Slider
       spaceBetween={12}
       slidesPerView={1}
+      className='pb-10 xl:pb-20'
       breakPoints={{
         640: {
           slidesPerView: 2,
@@ -214,13 +217,13 @@ export function PhilosophyQuotes() {
         },
       }}
     >
-      {QuoteData.map((v, i) => (
-        <SwiperSlide key={i} className='px-4 lg:px-20'>
+      {SliderQuoteData.map((v, i) => (
+        <SwiperSlide key={i} className='px-4 md:px-10 xl:px-20'>
           <div
             key={i}
-            className='min-w-[328px] min-h-[328px] md:min-w-[411px] md:min-h-[411px] p-10 bg-quotes-bg bg-contain bg-no-repeat bg-center text-foreground-1 text-xs lg:text-base font-semibold  flex items-center justify-center text-center leading-[187%]'
+            className='min-w-[328px] min-h-[328px] 2xl:min-w-[411px] xl:min-h-[411px] p-10 bg-quotes-bg bg-contain bg-no-repeat bg-center text-foreground-1 text-xs 2xl:text-base font-semibold  flex items-center justify-center text-center leading-[187%]'
           >
-            {v.quote}
+            <span className='max-w-[296px] lg:max-w-[411px]'>{v.quote}</span>
           </div>
         </SwiperSlide>
       ))}
@@ -237,7 +240,7 @@ export function PhilosophyFeatures() {
             title={v.title}
             description={v.description}
             imagePosition='right'
-            className='!p-0'
+            className='!p-0 flex-col-reverse mb-6 lg:mb-8'
             titleClassName='lg:text-[22px] '
           />
         </SwiperSlide>
