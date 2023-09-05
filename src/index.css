@@ -7,10 +7,32 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
+
 /* gloabal css */
 .hide-scrollbar::-webkit-scrollbar {
-  width: 0 !important;
+  width: 0px !important;
+  height: 0px !important;
 }
+
+@layer base {
+  *::-webkit-scrollbar {
+    display: none !important;
+    width: 0;
+    height: 0;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .res-height_navbar {
+    height: calc(100vh - 72px);
+  }
+  .menu-items {
+    overflow: auto;
+  }
+}
+
 /* end */
 
 /* gradient walker css and animation */
@@ -33,15 +55,18 @@ body {
     linear-gradient(to top right, rgba(255, 255, 255, 0.4) 6%, rgba(255, 255, 255, 0) 47%) top right /
       50% 50% no-repeat;
 }
+
 @keyframes move {
   from {
     left: -30%;
   }
+
   to {
     left: 100%;
   }
 }
 
+/* navbar */
 /* hero-strip color */
 .hero-gradient {
   background: var(
@@ -57,10 +82,12 @@ body {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+
 @keyframes rotate {
   from {
     transform: rotate(-360deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -83,6 +110,7 @@ body {
     rgba(0, 132, 203, 0) 56.33%
   );
 }
+
 @media only screen and (max-width: 767px) {
   .banner::before {
     background: linear-gradient(
@@ -94,6 +122,7 @@ body {
     );
   }
 }
+
 .active-tab {
   border-radius: 64px;
   border: 1.5px solid rgba(0, 132, 203, 0.48);
@@ -107,6 +136,7 @@ body {
   -moz-user-drag: none;
   -ms-user-drag: none;
 }
+
 .otpInput {
   height: 48px !important;
   width: 48px !important;
@@ -128,7 +158,15 @@ body {
 }
 
 .blue-gradient {
-  background: linear-gradient(180deg, #e2eaf4 70.46%, rgba(226, 234, 244, 0) 100%);
+  background: linear-gradient(180deg, #e2eaf4 0%, rgba(226, 234, 244, 0) 100%);
+}
+
+@media only screen and (max-width: 320px) {
+  .otpInput {
+    height: 54px !important;
+    width: 36px !important;
+    border-radius: 8px !important;
+  }
 }
 
 .dark_white_gradient {
@@ -137,4 +175,28 @@ body {
 
 .contact-us-form-gradient {
   background: linear-gradient(0deg, #e2eaf4 0%, rgba(226, 234, 244, 0) 64.79%);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+#tooltipContent::after {
+  content: '';
+  position: absolute;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 12px solid #122135;
+  bottom: -10px;
+  right: 10px;
+  border-radius: 8px;
+  transform: rotate(-90deg);
 }

@@ -26,8 +26,9 @@ const ContactUs = () => {
       console.log(values);
     },
   });
+  
   return (
-    <div>
+    <div className='pt-[140px]'>
       <HeroBanner
         bannerImg={contactusBanner}
         bannerTitle='Contact us'

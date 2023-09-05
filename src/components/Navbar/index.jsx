@@ -3,79 +3,110 @@ import hamburger from '@/assets/hamburger.svg';
 import profile from '@/assets/profile.svg';
 import arrow from '@/assets/arrow.svg';
 import herosectionLogo from '@/assets/100yrlogo.png';
+import DownArrow from '@/assets/down-arrow.svg';
+import crossBtn from '@/assets/cross-btn.png';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 export default function Navbar() {
-  let navLinks = [
-    { name: 'About', link: '/about' },
-    { name: 'Philosophy' },
-    { name: 'Courses' },
-    { name: 'Dnyanpeeth' },
-    { name: 'Welfare' },
-    { name: 'Publications' },
-    { name: 'Donation' },
-    { name: 'More' },
-  ];
-
   const [isOpen, setIsOpened] = useState(false);
 
+  const [isOpenDropDown, setIsOpenDrowDown] = useState(false);
+
   return (
-    <header className='sticky top-0 z-[999] w-full'>
-      <nav className='bg-accent-white shadow-secondary px-4 py-3 md:px-8 lg:px-20 lg:py-[11px]'>
+    <header className='fixed top-0 z-[80] w-full'>
+      <nav className='bg-accent-white shadow-secondary'>
         <div className='flex flex-col lg:flex-row items-center justify-between'>
-          <div className='flex w-full justify-between'>
-            <img src={Logo} alt='JVMLogo' />
-            <div
-              onClick={() => setIsOpened((prev) => !prev)}
-              className='lg:hidden flex justify-center items-center px-3 py-2 gap-4 rounded-[112px] border-2 border-[#1221353d]'
-            >
-              <img src={hamburger} className='cursor-pointer' id='menu-btn' alt='Hamburger Menu' />
-              <img src={profile} alt='profile icon' />
+          <div className='xl:pl-20 flex w-full justify-between px-4 py-3 border-b border-solid border-[#8d8d8d] lg:border-none'>
+            <img src={Logo} alt='JVMLogo' className='w-24 h-11 lg:w-[130px]' />
+            <div className='' onClick={() => setIsOpened((prev) => !prev)}>
+              {isOpen ? (
+                <img src={crossBtn} alt='' className='lg:hidden' />
+              ) : (
+                <div className='lg:hidden flex justify-center items-center px-3 py-2 gap-4 rounded-[112px] border-2 border-[#1221353d]'>
+                  <img src={hamburger} alt='' />
+                  <img src={profile} alt='' />
+                </div>
+              )}
             </div>
           </div>
           {/* Mobile Navbar */}
-          {isOpen && (
-            <div
-              className='mt-3 w-full lg:flex lg:items-center transition-all duration-[2000ms] z-auto'
-              id='menu'
-            >
-              <ul className='flex flex-col gap-2'>
-                {navLinks.map((item) => {
-                  return (
-                    <li key={item.name}>
-                      <Link to={item.link} className='block p-3 text-sm font-normal'>
-                        {item.name}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-              <div className='flex justify-center items-center w-full rounded-lg text-[#F5F5F5] md:w-[92px] h-[47px] bg-[#F09444]'>
-                <Link href='' className='text-base py-6 px-[14px]'>
-                  Login
-                </Link>
-              </div>
-            </div>
-          )}
-          {/* Desktop Navbar */}
           <div
-            className='hidden mt-3 lg:flex lg:items-center transition-all duration-[2000ms] z-auto'
+            className={`w-full p-3 lg:flex lg:flex-row lg:items-center lg:p-0 xl:pr-20 lg:gap-5 transition-all duration-[2000ms] z-auto ${
+              isOpen ? 'flex flex-col justify-between res-height_navbar' : 'hidden'
+            }`}
             id='menu'
           >
-            <ul className='flex flex-col md:flex-row md:justify-between gap-2'>
-              {navLinks.map((item) => {
-                return (
-                  <li key={item.name}>
-                    <Link to={item.link} className='block p-3 text-sm font-normal'>
-                      {item.name}
-                    </Link>
-                  </li>
-                );
-              })}
+            <ul className='w-full flex flex-col lg:flex-row gap-2 hide-scrollbar menu-items'>
+              <li>
+                <Link to='' className='block p-3 text-sm font-normal'>
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to='/philosophy' className='block p-3 text-sm font-normal'>
+                  Philosophy
+                </Link>
+              </li>
+              <li>
+                <Link to='' className='block p-3 text-sm font-normal'>
+                  Courses
+                </Link>
+              </li>
+              <li>
+                <Link to='' className='block p-3 text-sm font-normal'>
+                  Dnyanpeeth
+                </Link>
+              </li>
+              <li>
+                <Link to='' className='block p-3 text-sm font-normal'>
+                  Welfare
+                </Link>
+              </li>
+              <li>
+                <Link to='' className='block p-3 text-sm font-normal'>
+                  Publications
+                </Link>
+              </li>
+              <li>
+                <Link to='' className='block p-3 text-sm font-normal'>
+                  Donation
+                </Link>
+              </li>
+              <li className='relative'>
+                <div
+                  className='flex justify-between'
+                  onClick={() => setIsOpenDrowDown((prev) => !prev)}
+                >
+                  <Link to='' className='block p-3 text-sm font-normal'>
+                    More
+                  </Link>
+                  <img
+                    src={DownArrow}
+                    alt='down arrow'
+                    className={`${isOpenDropDown ? 'rotate-180' : ''}`}
+                  />
+                </div>
+                <ul
+                  className={`pl-3 lg:w-[197px] lg:absolute lg:rounded-2xl lg:py-4 z-[90] bg-accent-white ${
+                    isOpenDropDown ? 'xl:flex xl:flex-col' : 'hidden'
+                  }`}
+                >
+                  <li className='py-3 text-sm'>Anugrah</li>
+                  <li className='py-3 text-sm'>Volunteering</li>
+                  <li className='py-3 text-sm'>Media</li>
+                  <li className='py-3 text-sm'>Gallery</li>
+                  <li className='py-3 text-sm'>Downloads</li>
+                  <li className='py-3 text-sm'>Testimonial</li>
+                  <li className='py-3 text-sm'>Contact </li>
+                </ul>
+              </li>
             </ul>
-            <div className='flex justify-center items-center w-full rounded-lg text-[#F5F5F5] md:w-[92px] h-[47px] bg-[#F09444]'>
-              <Link href='' className='text-base py-6 px-[14px]'>
+            <div className='p-4 flex text-center border-t border-[#1221353d] lg:border-none'>
+              <Link
+                href=''
+                className='text-sm px-6 py-[9px] w-full lg:text-base text-accent-white bg-accent-orange rounded-lg'
+              >
                 Login
               </Link>
             </div>
@@ -83,27 +114,27 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <section id='herosection' className='hidden lg:block w-full'>
+      <section id='herosection' className={`w-full lg:block ${isOpen ? 'hidden' : 'block'}`}>
         <div className='relative overflow-hidden'>
           <div className='gradient-walker'></div>
-          <div className='hero-gradient flex justify-between items-center w-full py-[6px] px-4 md:px-20'>
-            <div className='flex items-center gap-6'>
+          <div className='hero-gradient flex justify-between items-center w-full py-[6px] px-4 md:px-6 xl:px-20'>
+            <div className='flex items-center gap-1 md:gap-6'>
               <img src={herosectionLogo} alt='' />
               <div className='flex flex-col'>
-                <span className='text-accent-gold text-lg font-semibold'>
+                <span className='text-accent-gold text-xs md:text-base lg:text-lg font-semibold'>
                   100 years of eminence
                 </span>
-                <span className='text-white text-sm font-normal'>
+                <p className='text-white text-[10px] md:text-xs lg:text-sm font-normal truncate ... w-[210px] md:w-[410px] lg:w-[510px] xl:w-full'>
                   Remembering, honouring, and celebrating Satguru Shri Wamanrao Pai on his 100th
                   birth anniversary this year.
-                </span>
+                </p>
               </div>
             </div>
             <div className='relative ml-auto'>
-              <div className='w-10 h-10 border-dashed border-[3px] rounded-full flex justify-center items-center rotateanimate'></div>
+              <div className='w-8 h-8 md:w-10 md:h-10 border-dashed border-[3px] rounded-full flex justify-center items-center rotateanimate'></div>
               <img
                 src={arrow}
-                className='w-3 h-3 absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4'
+                className='w-3 h-3 lg:w-[16px] lg:h-[16px] absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4'
                 alt=''
               />
             </div>
