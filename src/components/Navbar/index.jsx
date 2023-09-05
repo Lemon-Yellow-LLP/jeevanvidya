@@ -2,6 +2,7 @@ import Logo from '@/assets/logo.svg';
 import hamburger from '@/assets/hamburger.svg';
 import profile from '@/assets/profile.svg';
 import arrow from '@/assets/arrow.svg';
+import borderCircle from '@/assets/border-ellipse.svg';
 import herosectionLogo from '@/assets/100yrlogo.png';
 import DownArrow from '@/assets/down-arrow.svg';
 import crossBtn from '@/assets/cross-btn.png';
@@ -17,7 +18,7 @@ export default function Navbar() {
     <header className='fixed top-0 z-[80] w-full'>
       <nav className='bg-accent-white shadow-secondary'>
         <div className='flex flex-col lg:flex-row items-center justify-between'>
-          <div className='xl:pl-20 flex w-full justify-between px-4 py-3 border-b border-solid border-[#8d8d8d] lg:border-none'>
+          <div className='flex w-full justify-between px-4 py-3 md:px-6 xl:px-20 border-b border-solid border-[#8d8d8d] lg:border-none'>
             <img src={Logo} alt='JVMLogo' className='w-24 h-11 lg:w-[130px]' />
             <div className='' onClick={() => setIsOpened((prev) => !prev)}>
               {isOpen ? (
@@ -102,10 +103,10 @@ export default function Navbar() {
                 </ul>
               </li>
             </ul>
-            <div className='p-4 flex text-center border-t border-[#1221353d] lg:border-none'>
+            <div className='pl-3 flex text-center border-t border-[#1221353d] lg:border-none'>
               <Link
                 href=''
-                className='text-sm px-6 py-[9px] w-full lg:text-base text-accent-white bg-accent-orange rounded-lg'
+                className='text-sm px-6 py-[9px] xl:px-8 xl:py-[14px] w-full lg:text-base text-accent-white bg-accent-orange rounded-lg'
               >
                 Login
               </Link>
@@ -124,17 +125,17 @@ export default function Navbar() {
                 <span className='text-accent-gold text-xs md:text-base lg:text-lg font-semibold'>
                   100 years of eminence
                 </span>
-                <p className='text-white text-[10px] md:text-xs lg:text-sm font-normal truncate ... w-[210px] md:w-[410px] lg:w-[510px] xl:w-full'>
+                <p className='text-white text-[10px] md:text-xs lg:text-sm font-normal truncate ... w-[190px] md:w-[310px] xl:w-full'>
                   Remembering, honouring, and celebrating Satguru Shri Wamanrao Pai on his 100th
                   birth anniversary this year.
                 </p>
               </div>
             </div>
             <div className='relative ml-auto'>
-              <div className='w-8 h-8 md:w-10 md:h-10 border-dashed border-[3px] rounded-full flex justify-center items-center rotateanimate'></div>
+              <img src={borderCircle} alt="circle borde" className='rotateanimate' />
               <img
                 src={arrow}
-                className='w-3 h-3 lg:w-[16px] lg:h-[16px] absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4'
+                className='w-3.5 h-3.5 lg:w-[16px] lg:h-[16px] absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4'
                 alt=''
               />
             </div>
