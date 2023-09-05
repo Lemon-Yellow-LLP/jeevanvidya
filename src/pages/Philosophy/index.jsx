@@ -205,7 +205,7 @@ const Philosophy = () => {
             align='left'
             className='!p-0 mb-4 lg:mb-8 '
           />
-          <Button variant='outline' className='w-fit'>
+          <Button to='/philosophy-quotes' variant='outline' className='w-fit'>
             View All
           </Button>
         </div>
