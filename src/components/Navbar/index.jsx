@@ -44,7 +44,7 @@ export default function Navbar() {
                 </Link>
               </li>
               <li>
-                <Link to='' className='block p-3 text-sm font-normal'>
+                <Link to='/philosophy' className='block p-3 text-sm font-normal'>
                   Philosophy
                 </Link>
               </li>
