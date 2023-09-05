@@ -13,6 +13,7 @@ const Dropdown = ({
   disabled,
   showIcon = true,
   showError = true,
+  touched,
   error,
   name,
   className,
@@ -50,7 +51,7 @@ const Dropdown = ({
   }, []);
 
   return (
-    <div ref={containerRef} className='dropdown relative'>
+    <div ref={containerRef} className={`dropdown relative ${className}`}>
       <span className='flex gap-0.5 items-center text-[#122135CC] text-[14px] font-normal'>
         {label}
         {required && <span className='text-primary-red text-sm'>*</span>}
@@ -65,7 +66,7 @@ const Dropdown = ({
         className={`${
           selectedOption ? 'text-primary-black' : 'text-[#a19f9f]'
         } w-full flex justify-between gap-1 py-3 px-4 rounded-lg mt-1 border-[2px]
-        ${error ? 'border-[#DE3400]' : 'border-[#0084CB29]'}
+        ${error && touched ? 'border-[#DE3400]' : 'border-[#0084CB29]'}
         ${disabled ? 'bg-[#EEEEEE] pointer-events-none cursor-not-allowed' : ''}
         ${className}
         `}
@@ -98,7 +99,11 @@ const Dropdown = ({
           ))}
         </div>
       )}
-      {showError && error ? <span className='text-sm text-[#DE3400] mt-1'>{error}</span> : ''}
+      {showError && error && touched ? (
+        <span className='text-sm text-[#DE3400] mt-1'>{error}</span>
+      ) : (
+        ''
+      )}
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils';
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
-const Button = ({ type, variant, className, children, ...props }) => {
+const Button = ({ type, variant, className, children, to, ...props }) => {
   return (
     <Link
       className={cn(
@@ -14,6 +14,7 @@ const Button = ({ type, variant, className, children, ...props }) => {
         'whitespace-nowrap cursor-pointer outline-none overflow-hidden transition-all duration-500',
         className,
       )}
+      to={to}
     >
       {children}
     </Link>
