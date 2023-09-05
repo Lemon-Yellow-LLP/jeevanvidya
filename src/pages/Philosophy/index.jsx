@@ -57,7 +57,7 @@ const Philosophy = () => {
   }, [active]);
 
   return (
-    <div className='pt-[144px]'>
+    <div className='pt-[140px] md:pt-[144px]'>
       <HeroBanner
         bannerImg={PhilosophyBanner}
         bannerTitle='Philosophy'
