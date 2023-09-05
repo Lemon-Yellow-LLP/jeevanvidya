@@ -7,7 +7,7 @@ function TabButton({ activeTab, label, onChange }) {
         activeTab === label
           ? 'bg-secondary-2 border-primary-3 backdrop-filter'
           : 'border-secondary-2 bg-accent-white'
-      } w-fit text-base font-medium px-6 py-[14px] border-[1.5px] rounded-[64px] transition-all duration-300 cursor-pointer text-center`}
+      } w-fit text-sm xl:text-base font-medium  px-4 py-2 xl:px-6 xl:py-[14px] border-[1.5px] rounded-[64px] transition-all duration-300 cursor-pointer text-center`}
       onClick={() => onChange(label)}
     >
       {label}

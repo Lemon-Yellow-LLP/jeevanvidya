@@ -16,7 +16,7 @@ export default function ImageDetailContainer({
   return (
     <div
       className={cn(
-        'flex flex-col py-[40px] px-[16px] md:px-8 xl:p-[80px] lg:flex-row gap-4 md:gap-[48px]',
+        'flex flex-col py-[40px] px-[16px] md:px-8 xl:p-[80px] md:flex-row gap-4 md:gap-4 xl:gap-[48px]',
         { 'lg:flex-row-reverse': imagePosition === 'right' },
         className,
       )}
@@ -24,7 +24,9 @@ export default function ImageDetailContainer({
       <div className={cn('sm:h-fit overflow-hidden rounded-2xl', imageClassName)}>
         <img className='w-full object-cover' src={image} alt='aboutImage' />
       </div>
-      <div className={cn('flex-1 flex flex-col items-start gap-4', contentClassName)}>
+      <div
+        className={cn('flex-1 flex flex-col items-start gap-4 md:min-w-[50%]', contentClassName)}
+      >
         {sectionImage ? (
           <img src={sectionImage} alt='flowerImage' className='h-[40px] lg:h-fit w-fit' />
         ) : null}
