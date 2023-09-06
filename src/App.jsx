@@ -6,6 +6,16 @@ import Welfare from './pages/Welfare';
 import PhilosophyQuotes from './pages/PhilosophyQuotes';
 import Donation from './pages/Donation';
 import ContactUs from './pages/ContactUs';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import About from './pages/About';
+import UniversalPrayer from './pages/UniversalPrayer';
+import MediaPress from './pages/MediaPress';
+import Dnyanpeeth from './pages/Dnyanpeeth';
+import Philosophy from './pages/Philosophy';
+import Download from './pages/Download';
+import DownloadFile from './components/DownloadFile';
+import ErrorPage from './pages/Error';
 
 const fileData = [
   {
@@ -54,16 +64,14 @@ function App() {
           }
         ></Route>
         <Route path='/testimonial' element={<Testimonial />} />
-        <Route path='/about' element={<About />} />
         <Route path='/dnyanpeeth' element={<Dnyanpeeth />} />
-        <Route path='/media-press' element={<MediaPress />} />
         <Route path='/contact-us' element={<ContactUs />} />
         <Route path='/philosophy' element={<Philosophy />} />
         <Route path='/welfare' element={<Welfare />} />
         <Route path='/philosophy-quotes' element={<PhilosophyQuotes />} />
         <Route path='/donation' element={<Donation />} />
         <Route path='/download' element={<Download />} />
-        <Route path='*' element={<div>Page not found</div>} />
+        <Route path='*' element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   );
