@@ -18,8 +18,9 @@ const ErrorPage = () => {
           Back to Home
           <img
             src={LearnMoreImage}
+
             alt='learn More'
-            className='hidden text-center md:block md:opacity-0 md:group-hover:opacity-100'
+            className='hidden text-center lg:block md:opacity-0 md:group-hover:opacity-100'
           />
         </Button>
       </div>
