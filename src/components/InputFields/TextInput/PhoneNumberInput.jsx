@@ -8,11 +8,13 @@ const PhoneNumberInput = ({
   touched,
   displayError = true,
   onChange,
+  onBlur,
   placeholder,
   required,
   value,
   disabled,
   max,
+  children,
 }) => {
   return (
     <div className='flex flex-col gap-1 w-[100%]'>
@@ -26,7 +28,7 @@ const PhoneNumberInput = ({
 
       <div
         className={`input-container px-4 py-3 border-[2px] rounded-lg flex gap-1
-          transition-all ease-out duration-150 focus:outline-none outline-none
+          transition-all ease-out duration-150 focus:outline-none outline-none h-[54px]
           ${error && touched ? 'border-[#DE3400]' : 'border-[#0084CB29]'}
           ${disabled ? 'bg-[#EEEEEE] pointer-events-none cursor-not-allowed' : ''}
         `}
@@ -34,6 +36,7 @@ const PhoneNumberInput = ({
         <span className='font-normal text-[#a19f9f]'>+91</span>
         <hr className='h-[100%] w-[1.5px] bg-[#0084CB3D] ml-[15px] mr-[15px]' />
         <input
+          type='tel'
           className={`w-full focus:outline-none`}
           placeholder={placeholder}
           id={name}
@@ -42,8 +45,10 @@ const PhoneNumberInput = ({
           max={max}
           value={value}
           disabled={disabled}
+          onBlur={onBlur}
         />
         {error && touched && <WarningIcon />}
+        {children}
       </div>
 
       {displayError ? (

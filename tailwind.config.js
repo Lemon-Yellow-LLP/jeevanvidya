@@ -12,10 +12,10 @@ export default {
         },
         secondary: {
           1: '#0084CB75',
-          2: '#0074fc1f'
+          2: '#0074fc1f',
         },
         accent: {
-          orange: '#F09444',
+          blue: '#0074FC',
           gold: '#FFD63E',
           white: '#F5F5F5',
         },
@@ -43,6 +43,9 @@ export default {
         secondary: '0px 4px 44px 0px #3267e314',
       },
     },
+    // screens: {
+    //   sm: '576px',
+    // },
   },
   plugins: [],
 };
