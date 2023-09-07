@@ -8,8 +8,8 @@ const Button = ({ type, variant, className, children, to, ...props }) => {
       className={cn(
         'flex items-center rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibold',
         {
-          'text-white bg-[#F09444]': variant == 'filled',
-          'bg-white text-[#F09444] border-2 border-[#F09444]': variant == 'outline',
+          'text-white bg-accent-blue': variant == 'filled',
+          'bg-white text-accent-blue border-2 border-accent-blue': variant == 'outline',
         },
         'whitespace-nowrap cursor-pointer outline-none overflow-hidden transition-all duration-500',
         className,

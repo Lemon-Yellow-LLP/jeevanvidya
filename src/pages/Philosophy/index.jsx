@@ -57,7 +57,7 @@ const Philosophy = () => {
   }, [active]);
 
   return (
-    <div>
+    <div className='pt-[140px] md:pt-[144px]'>
       <HeroBanner
         bannerImg={PhilosophyBanner}
         bannerTitle='Philosophy'
@@ -158,18 +158,6 @@ const Philosophy = () => {
           />
         </div>
       </div>
-      {/* <Slider data={SliderData}>
-        {SliderData?.map((item, index) => (
-          <SwiperSlide key={index}>
-            <ImageDetailContainer
-              image={item.image}
-              title={item.title}
-              description={item.description}
-              imagePosition='right'
-            />
-          </SwiperSlide>
-        ))}
-      </Slider> */}
       <div className='p-4 md:p-8 xl:p-20'>
         <SectionTitleDescription
           image={FlowerImage2}
@@ -217,7 +205,7 @@ const Philosophy = () => {
             align='left'
             className='!p-0 mb-4 lg:mb-8 '
           />
-          <Button variant='outline' className='w-fit'>
+          <Button to='/philosophy-quotes' variant='outline' className='w-fit'>
             View All
           </Button>
         </div>

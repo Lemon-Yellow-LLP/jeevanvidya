@@ -2,22 +2,24 @@ import Logo from '@/assets/logo.svg';
 import hamburger from '@/assets/hamburger.svg';
 import profile from '@/assets/profile.svg';
 import arrow from '@/assets/arrow.svg';
-import herosectionLogo from '@/assets/100yrlogo.png';
+import borderCircle from '@/assets/border-ellipse.svg';
+import herosectionLogo from '@/assets/hundreadyear.svg';
 import DownArrow from '@/assets/down-arrow.svg';
 import crossBtn from '@/assets/cross-btn.png';
-import { Link } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
 export default function Navbar() {
-  const [isOpen, setIsOpened] = useState(false);
+  const location = useLocation();
 
+  const [isOpen, setIsOpened] = useState(false);
   const [isOpenDropDown, setIsOpenDrowDown] = useState(false);
 
   return (
     <header className='fixed top-0 z-[80] w-full'>
       <nav className='bg-accent-white shadow-secondary'>
         <div className='flex flex-col lg:flex-row items-center justify-between'>
-          <div className='xl:pl-20 flex w-full justify-between px-4 py-3 border-b border-solid border-[#8d8d8d] lg:border-none'>
+          <div className='flex w-full justify-between px-4 py-3 md:px-6 xl:px-20 border-b border-solid border-[#8d8d8d] lg:border-none'>
             <img src={Logo} alt='JVMLogo' className='w-24 h-11 lg:w-[130px]' />
             <div className='' onClick={() => setIsOpened((prev) => !prev)}>
               {isOpen ? (
@@ -39,76 +41,183 @@ export default function Navbar() {
           >
             <ul className='w-full flex flex-col lg:flex-row gap-2 hide-scrollbar menu-items'>
               <li>
-                <Link to='' className='block p-3 text-sm font-normal'>
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='block p-3 text-sm font-normal'>
-                  Philosophy
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='block p-3 text-sm font-normal'>
-                  Courses
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='block p-3 text-sm font-normal'>
-                  Dnyanpeeth
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='block p-3 text-sm font-normal'>
-                  Welfare
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='block p-3 text-sm font-normal'>
-                  Publications
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='block p-3 text-sm font-normal'>
-                  Donation
-                </Link>
-              </li>
-              <li className='relative'>
-                <div
-                  className='flex justify-between'
-                  onClick={() => setIsOpenDrowDown((prev) => !prev)}
+                <NavLink
+                  to='/about'
+                  className={`block p-3 text-sm font-normal ${
+                    location.pathname === '/about' ? 'active-link' : ''
+                  }`}
+                  onClick={() => setIsOpened((prev) => !prev)}
                 >
-                  <Link to='' className='block p-3 text-sm font-normal'>
-                    More
-                  </Link>
+                  About
+                </NavLink>
+              </li>
+              <li className=''>
+                <NavLink
+                  to='/philosophy'
+                  className={`block p-3 text-sm font-normal ${
+                    location.pathname === '/philosophy' ? 'active-link' : ''
+                  }`}
+                  onClick={() => setIsOpened((prev) => !prev)}
+                >
+                  Philosophy
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to='/courses'
+                  className={`block p-3 text-sm font-normal ${
+                    location.pathname === '/courses' ? 'active-link' : ''
+                  }`}
+                  onClick={() => setIsOpened((prev) => !prev)}
+                >
+                  Courses
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to='/dnyanpeeth'
+                  className={`block p-3 text-sm font-normal ${
+                    location.pathname === '/dnyanpeeth' ? 'active-link' : ''
+                  }`}
+                  onClick={() => setIsOpened((prev) => !prev)}
+                >
+                  Dnyanpeeth
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to='/welfare'
+                  className={`block p-3 text-sm font-normal ${
+                    location.pathname === '/welfare' ? 'active-link' : ''
+                  }`}
+                  onClick={() => setIsOpened((prev) => !prev)}
+                >
+                  Welfare
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to='/publications'
+                  className={`block p-3 text-sm font-normal ${
+                    location.pathname === '/publications' ? 'active-link' : ''
+                  }`}
+                  onClick={() => setIsOpened((prev) => !prev)}
+                >
+                  Publications
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to='/donation'
+                  className={`block p-3 text-sm font-normal ${
+                    location.pathname === '/donation' ? 'active-link' : ''
+                  }`}
+                  onClick={() => setIsOpened((prev) => !prev)}
+                >
+                  Donation
+                </NavLink>
+              </li>
+              <li className='relative' onClick={() => setIsOpenDrowDown((prev) => !prev)}>
+                <NavLink
+                  className={`flex p-3 text-sm font-normal ${
+                    location.pathname === '/anugrah' ||
+                    location.pathname === '/volunteering' ||
+                    location.pathname === '/media-press' ||
+                    location.pathname === '/download' ||
+                    location.pathname === '/testimonial' ||
+                    location.pathname === '/contact'
+                      ? 'active-link'
+                      : ''
+                  }`}
+                >
+                  More
                   <img
                     src={DownArrow}
                     alt='down arrow'
                     className={`${isOpenDropDown ? 'rotate-180' : ''}`}
                   />
-                </div>
+                </NavLink>
                 <ul
                   className={`pl-3 lg:w-[197px] lg:absolute lg:rounded-2xl lg:py-4 z-[90] bg-accent-white ${
                     isOpenDropDown ? 'xl:flex xl:flex-col' : 'hidden'
                   }`}
                 >
-                  <li className='py-3 text-sm'>Anugrah</li>
-                  <li className='py-3 text-sm'>Volunteering</li>
-                  <li className='py-3 text-sm'>Media</li>
-                  <li className='py-3 text-sm'>Gallery</li>
-                  <li className='py-3 text-sm'>Downloads</li>
-                  <li className='py-3 text-sm'>Testimonial</li>
-                  <li className='py-3 text-sm'>Contact </li>
+                  <li className=''>
+                    <NavLink
+                      to='/anugrah'
+                      className={`block p-3 text-sm font-normal ${
+                        location.pathname === '/anugrah' ? 'active-link' : ''
+                      }`}
+                      onClick={() => setIsOpened((prev) => !prev)}
+                    >
+                      Anugrah
+                    </NavLink>
+                  </li>
+                  <li className=''>
+                    <NavLink
+                      to='/volunteering'
+                      className={`block p-3 text-sm font-normal ${
+                        location.pathname === '/volunteering' ? 'active-link' : ''
+                      }`}
+                      onClick={() => setIsOpened((prev) => !prev)}
+                    >
+                      Volunteering
+                    </NavLink>
+                  </li>
+                  <li className=''>
+                    <NavLink
+                      to='/media-press'
+                      className={`block p-3 text-sm font-normal ${
+                        location.pathname === '/media-press' ? 'active-link' : ''
+                      }`}
+                      onClick={() => setIsOpened((prev) => !prev)}
+                    >
+                      Media & Press release
+                    </NavLink>
+                  </li>
+                  <li className=''>
+                    <NavLink
+                      to='/download'
+                      className={`block p-3 text-sm font-normal ${
+                        location.pathname === '/download' ? 'active-link' : ''
+                      }`}
+                      onClick={() => setIsOpened((prev) => !prev)}
+                    >
+                      Downloads
+                    </NavLink>
+                  </li>
+                  <li className=''>
+                    <NavLink
+                      to='/testimonial'
+                      className={`block p-3 text-sm font-normal ${
+                        location.pathname === '/testimonial' ? 'active-link' : ''
+                      }`}
+                      onClick={() => setIsOpened((prev) => !prev)}
+                    >
+                      Testimonial
+                    </NavLink>
+                  </li>
+                  <li className=''>
+                    <NavLink
+                      to='/contact'
+                      className={`block p-3 text-sm font-normal ${
+                        location.pathname === '/contact' ? 'active-link' : ''
+                      }`}
+                      onClick={() => setIsOpened((prev) => !prev)}
+                    >
+                      Contact
+                    </NavLink>
+                  </li>
                 </ul>
               </li>
             </ul>
-            <div className='p-4 flex text-center border-t border-[#1221353d] lg:border-none'>
-              <Link
+            <div className='pl-3 flex text-center border-t border-[#1221353d] lg:border-none'>
+              <NavLink
                 href=''
-                className='text-sm px-6 py-[9px] w-full lg:text-base text-accent-white bg-accent-orange rounded-lg'
+                className='text-sm px-6 py-[9px] xl:px-8 xl:py-[14px] w-full lg:text-base text-accent-white bg-accent-blue rounded-lg'
               >
                 Login
-              </Link>
+              </NavLink>
             </div>
           </div>
         </div>
@@ -119,22 +228,22 @@ export default function Navbar() {
           <div className='gradient-walker'></div>
           <div className='hero-gradient flex justify-between items-center w-full py-[6px] px-4 md:px-6 xl:px-20'>
             <div className='flex items-center gap-1 md:gap-6'>
-              <img src={herosectionLogo} alt='' />
+              <img src={herosectionLogo} alt='' className='w-full xl:w-[100px]' />
               <div className='flex flex-col'>
                 <span className='text-accent-gold text-xs md:text-base lg:text-lg font-semibold'>
                   100 years of eminence
                 </span>
-                <p className='text-white text-[10px] md:text-xs lg:text-sm font-normal truncate ... w-[210px] md:w-[410px] lg:w-[510px] xl:w-full'>
+                <p className='text-white text-[10px] md:text-xs lg:text-sm font-normal truncate ... w-[190px] md:w-[310px] xl:w-full'>
                   Remembering, honouring, and celebrating Satguru Shri Wamanrao Pai on his 100th
                   birth anniversary this year.
                 </p>
               </div>
             </div>
-            <div className='relative ml-auto'>
-              <div className='w-8 h-8 md:w-10 md:h-10 border-dashed border-[3px] rounded-full flex justify-center items-center rotateanimate'></div>
+            <div className='relative ml-auto cursor-pointer'>
+              <img src={borderCircle} alt='circle borde' className='rotateanimate' />
               <img
                 src={arrow}
-                className='w-3 h-3 lg:w-[16px] lg:h-[16px] absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4'
+                className='w-[45%] absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4'
                 alt=''
               />
             </div>

@@ -13,12 +13,16 @@ body {
   width: 0px !important;
   height: 0px !important;
 }
+.active-link {
+  background: #e2eaf4;
+  border-radius: 50px;
+}
 
 @media only screen and (max-width: 767px) {
   .res-height_navbar {
     height: calc(100vh - 72px);
-  } 
-  .menu-items{
+  }
+  .menu-items {
     overflow: auto;
   }
 }
@@ -36,10 +40,14 @@ body {
   animation: move 1.8s linear 0s infinite;
   animation-fill-mode: forwards;
   background:
-    linear-gradient(to bottom right, rgba(254, 254, 254, 0.4) 0%, rgba(255, 255, 255, 0) 47%) bottom right / 50% 50% no-repeat,
-    linear-gradient(to bottom left, rgba(255, 255, 255, 0.4) 2%, rgba(255, 255, 255, 0) 47%) bottom left / 50% 50% no-repeat,
-    linear-gradient(to top left, rgba(255, 255, 255, 0.4) 2%, rgba(255, 255, 255, 0) 47%) top left / 50% 50% no-repeat,
-    linear-gradient(to top right, rgba(255, 255, 255, 0.4) 6%, rgba(255, 255, 255, 0) 47%) top right / 50% 50% no-repeat;
+    linear-gradient(to bottom right, rgba(254, 254, 254, 0.4) 0%, rgba(255, 255, 255, 0) 47%) bottom
+      right / 50% 50% no-repeat,
+    linear-gradient(to bottom left, rgba(255, 255, 255, 0.4) 2%, rgba(255, 255, 255, 0) 47%) bottom
+      left / 50% 50% no-repeat,
+    linear-gradient(to top left, rgba(255, 255, 255, 0.4) 2%, rgba(255, 255, 255, 0) 47%) top left /
+      50% 50% no-repeat,
+    linear-gradient(to top right, rgba(255, 255, 255, 0.4) 6%, rgba(255, 255, 255, 0) 47%) top right /
+      50% 50% no-repeat;
 }
 
 @keyframes move {
@@ -55,8 +63,10 @@ body {
 /* navbar */
 /* hero-strip color */
 .hero-gradient {
-  background: var(--gradient-gradient-1,
-      linear-gradient(135deg, #0352a3 0%, #0084cb 100%, #0084cb 100%));
+  background: var(
+    --gradient-gradient-1,
+    linear-gradient(135deg, #0352a3 0%, #0084cb 100%, #0084cb 100%)
+  );
 }
 
 /* arrow animation with rotating circle */
@@ -86,20 +96,24 @@ body {
   height: 100%;
   top: 0;
   z-index: 2;
-  background: linear-gradient(90deg,
-      #0352a3 0%,
-      #0084cb 23.71%,
-      rgba(0, 132, 203, 0.87) 38.37%,
-      rgba(0, 132, 203, 0) 56.33%);
+  background: linear-gradient(
+    90deg,
+    #0352a3 0%,
+    #0084cb 23.71%,
+    rgba(0, 132, 203, 0.87) 38.37%,
+    rgba(0, 132, 203, 0) 56.33%
+  );
 }
 
 @media only screen and (max-width: 767px) {
   .banner::before {
-    background: linear-gradient(360deg,
-        #0352a3 0%,
-        #0084cb 44.36%,
-        rgba(0, 132, 203, 0.8659) 50.34%,
-        rgba(0, 132, 203, 0) 64.74%);
+    background: linear-gradient(
+      360deg,
+      #0352a3 0%,
+      #0084cb 44.36%,
+      rgba(0, 132, 203, 0.8659) 50.34%,
+      rgba(0, 132, 203, 0) 64.74%
+    );
   }
 }
 
@@ -161,12 +175,12 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
 
 #tooltipContent::after {
-  content: "";
+  content: '';
   position: absolute;
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;
