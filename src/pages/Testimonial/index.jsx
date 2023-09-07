@@ -45,6 +45,18 @@ const tabOne = [
       desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
       img: testImage,
     },
+    {
+      title: 'Mandar Sukhatankar',
+      postion: 'Senior Vice President,Bank of America',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+    {
+      title: 'Vaibhav Nimbalkar',
+      postion: 'IPS (ASSAM CADRE)',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
   ],
   [
     {
@@ -128,6 +140,16 @@ const tabOne = [
 
 const tabTwo = [
   [
+    {
+      title: 'Dr. Jean M. Seely',
+      desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
+      img: videoImage,
+    },
+    {
+      title: 'Dr. Jean M. Seely',
+      desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
+      img: videoImage,
+    },
     {
       title: 'Dr. Jean M. Seely',
       desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
@@ -363,6 +385,7 @@ const Testimonial = () => {
                       cardTitle={data.title}
                       cardDesc={data.desc}
                       cardImage={data.img}
+                      className="lg:hover:shadow-4"
                     />
                   );
                 })}
@@ -377,7 +400,7 @@ const Testimonial = () => {
           Want to Submit Testimonial?
         </span>
 
-        <div className='bg-[white] rounded-[64px] flex p-[4px] border-[1.5px] border-[#0084CB29] gap-[5px] w-full'>
+        <div className='bg-[white] rounded-[64px] flex p-[4px] border-[1.5px] border-[#0084CB29] gap-[5px]'>
           {tabOptions?.map((e, index) => {
             return activeTab === e.label ? (
               <TabButton
