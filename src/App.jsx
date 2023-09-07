@@ -41,7 +41,6 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/universal-prayer' element={<UniversalPrayer />} />
-        <Route path='/media-press' element={<MediaPress />} />
         <Route path='/test' element={<TestPage />} />
         <Route
           path='/test-two'
