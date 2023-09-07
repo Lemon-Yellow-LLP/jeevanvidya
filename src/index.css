@@ -18,6 +18,16 @@ body {
   border-radius: 50px;
 }
 
+@layer base {
+  *::-webkit-scrollbar {
+    display: none !important;
+    width: 0;
+    height: 0;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .res-height_navbar {
     height: calc(100vh - 72px);
@@ -153,6 +163,10 @@ body {
 
 .blue-gradient {
   background: linear-gradient(180deg, #e2eaf4 0%, rgba(226, 234, 244, 0) 100%);
+}
+
+.contact-us-form-gradient {
+  background: linear-gradient(0deg, #e2eaf4 0%, rgba(226, 234, 244, 0) 64.79%);
 }
 
 @media only screen and (max-width: 320px) {
