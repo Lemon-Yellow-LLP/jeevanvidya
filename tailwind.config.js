@@ -15,7 +15,7 @@ export default {
           2: '#0074fc1f',
         },
         accent: {
-          orange: '#F09444',
+          blue: '#0074FC',
           gold: '#FFD63E',
           white: '#F5F5F5',
         },

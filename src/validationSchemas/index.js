@@ -43,11 +43,3 @@ export const personalDetailsValidation = Yup.object({
   confirmInfo: Yup.string().required(),
   agreeToPromotional: Yup.string().optional(),
 });
-
-export const contactUsValidations = Yup.object({
-  name: Yup.string()
-    .required('Please enter correct name.')
-    .matches(/^[a-zA-Z]+$/, 'Name should not contain numbers.'),
-  email: Yup.string().email('Invalid email Address').required('Please enter valid email address'),
-  message: Yup.string().required('Message is required').max(200),
-});
