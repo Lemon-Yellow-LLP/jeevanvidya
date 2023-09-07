@@ -33,30 +33,6 @@ export default function Navbar() {
             </div>
           </div>
           {/* Mobile Navbar */}
-          {isOpen && (
-            <div
-              className='mt-3 w-full lg:flex lg:items-center transition-all duration-[2000ms] z-auto'
-              id='menu'
-            >
-              <ul className='flex flex-col gap-2'>
-                {navLinks.map((item) => {
-                  return (
-                    <li key={item.name}>
-                      <Link to={item.link} className='block p-3 text-sm font-normal'>
-                        {item.name}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-              <div className='flex justify-center items-center w-full rounded-lg text-[#F5F5F5] md:w-[92px] h-[47px] bg-[#F09444]'>
-                <Link href='' className='text-base py-6 px-[14px]'>
-                  Login
-                </Link>
-              </div>
-            </div>
-          )}
-          {/* Desktop Navbar */}
           <div
             className='hidden mt-3 lg:flex lg:items-center transition-all duration-[2000ms] z-auto'
             id='menu'
