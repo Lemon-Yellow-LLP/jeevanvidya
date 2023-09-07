@@ -43,3 +43,35 @@ export const personalDetailsValidation = Yup.object({
   confirmInfo: Yup.string().required(),
   agreeToPromotional: Yup.string().optional(),
 });
+
+export const volunteerPersonalDetails = Yup.object({
+  Name: Yup.string().required('Name is required').max(256, 'Name cannot be blank'),
+  email: Yup.string().email().required(),
+  gender: Yup.string().optional(),
+  dob: Yup.date().required(),
+  phone: Yup.string()
+    .min(10, 'Must be exactly 10 digits')
+    .max(10, 'Must be exactly 10 digits')
+    .required('Please enter your valid 10 digit mobile number'),
+  whatsapp_number: Yup.string()
+    .min(10, 'Must be exactly 10 digits')
+    .max(10, 'Must be exactly 10 digits')
+    .optional('Please enter your valid 10 digit mobile number'),
+  confirmphone: Yup.string().required(),
+});
+
+export const volunteerAddressDetails = Yup.object({
+  state: Yup.string().required(),
+  district: Yup.string().required(),
+  taluka: Yup.string().required(),
+  address: Yup.string().optional(),
+  pinCode: Yup.string().required(),
+});
+
+export const volunteerOtherDetails = Yup.object({
+  occupation: Yup.string().required(),
+  jvkendra: Yup.string().required(),
+  areaOfExpertise: Yup.string().required(),
+  sevaType: Yup.string().required(),
+  sevaDate: Yup.date().required(''),
+});

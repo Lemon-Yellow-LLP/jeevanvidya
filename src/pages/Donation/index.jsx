@@ -110,7 +110,7 @@ function DonationStep({ data, goToNextStep, goToPrevStep, setProgress }) {
   }, [values.amount]);
 
   useEffect(() => {
-    setProgress((progress) => {
+    setProgress(() => {
       return (
         ((Object.keys(values).length - Object.keys(errors).length) / Object.keys(values).length) *
         100
