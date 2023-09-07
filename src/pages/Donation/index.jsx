@@ -2,7 +2,6 @@ import HeroBanner from '@/components/HeroBanner';
 import SectionTitleDescription from '@/components/SectionTitleDescription';
 import { data } from '@/data/Donation';
 import React, { useCallback, useEffect, useState } from 'react';
-import Courses from '../Courses';
 import Stepper from '@/components/Stepper';
 import { cn } from '@/lib/utils';
 import TextInputWithIcon from '@/components/InputFields/TextInputWithIcon';
@@ -23,10 +22,10 @@ import Tooltip from '@/components/Tooltip';
 
 export default function Donation() {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(45);
   const goToNextStep = useCallback(() => {
     setActiveStepIndex((prev) => prev + 1);
-    setProgress((prev) => prev + 0.25);
+    setProgress(0);
   });
 
   const goToPrevStep = useCallback(() => {
@@ -53,19 +52,35 @@ export default function Donation() {
         {/* <Loader show={true} /> */}
         <div className='mx-auto flex p-4 lg:p-8 mt-10 lg:mt-20  flex-col items-end rounded-3xl bg-white'>
           <div className='container flex flex-col gap-6 lg:gap-14'>
-            <Stepper steps={data.steps} activeStep={activeStepIndex} progress={progress} />
+            <Stepper
+              steps={data.steps}
+              activeStepIndex={activeStepIndex}
+              goToNextStep={goToNextStep}
+              progress={progress}
+            />
             <div className={`${activeStepIndex == 0 ? 'block' : 'hidden'}`}>
-              <DonationStep data={data} goToNextStep={goToNextStep} goToPrevStep={goToPrevStep} />
+              <DonationStep
+                data={data}
+                goToNextStep={goToNextStep}
+                goToPrevStep={goToPrevStep}
+                setProgress={setProgress}
+              />
             </div>
             <div className={`${activeStepIndex == 1 ? 'block' : 'hidden'}`}>
               <PersonalDetailsStep
                 data={data}
                 goToNextStep={goToNextStep}
                 goToPrevStep={goToPrevStep}
+                setProgress={setProgress}
               />
             </div>
             <div className={`${activeStepIndex == 2 ? 'block' : 'hidden'}`}>
-              <SuccessStep data={data} goToNextStep={goToNextStep} goToPrevStep={goToPrevStep} />
+              <SuccessStep
+                data={data}
+                goToNextStep={goToNextStep}
+                goToPrevStep={goToPrevStep}
+                setProgress={setProgress}
+              />
             </div>
           </div>
         </div>
@@ -74,7 +89,7 @@ export default function Donation() {
   );
 }
 
-function DonationStep({ data, goToNextStep, goToPrevStep }) {
+function DonationStep({ data, goToNextStep, goToPrevStep, setProgress }) {
   const [amountInWords, setAmountInWords] = useState('-');
   const { handleSubmit, values, handleBlur, setFieldValue, handleChange, errors, touched } =
     useFormik({
@@ -93,6 +108,15 @@ function DonationStep({ data, goToNextStep, goToPrevStep }) {
   useEffect(() => {
     setAmountInWords(numWords(values.amount));
   }, [values.amount]);
+
+  useEffect(() => {
+    setProgress((progress) => {
+      return (
+        ((Object.keys(values).length - Object.keys(errors).length) / Object.keys(values).length) *
+        100
+      );
+    });
+  }, [errors]);
 
   return (
     <form onSubmit={handleSubmit} className='flex flex-col gap-6 lg:gap-14'>
@@ -448,6 +472,7 @@ function PersonalDetailsStep({ data, goToNextStep, goToPrevStep }) {
         </button>
         <button
           disabled={errors && Object.keys(errors).length}
+          onClick={goToNextStep}
           className='shrink-0 rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibold text-white bg-[#0074FC] cursor-pointer flex items-center justify-center disabled:opacity-50 disabled:pointer-events-none'
           type='submit'
         >
@@ -473,7 +498,7 @@ function PersonalDetailsStep({ data, goToNextStep, goToPrevStep }) {
   );
 }
 
-function SuccessStep({ data, goToNextStep, goToPrevStep }) {
+function SuccessStep({  goToNextStep, goToPrevStep }) {
   return (
     <div className='mt-6 mx-auto max-w-3xl'>
       <div className='flex justify-center items-center mb-6 md:mb-8'>
@@ -506,7 +531,7 @@ function SuccessStep({ data, goToNextStep, goToPrevStep }) {
         If you have any questions, please contact{' '}
         <a
           className='text-xs lg:text-lg not-italic font-normal text-primary-2'
-          href={`mailto:${data.email}`}
+          href={`mailto:${data.email }`}
         >
           {data.email}
         </a>{' '}

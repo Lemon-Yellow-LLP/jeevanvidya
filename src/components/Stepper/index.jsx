@@ -2,15 +2,8 @@ import React, { useCallback, useEffect, useState } from 'react';
 import MobileStepper from './mobile';
 import DesktopStepper from './desktop';
 
-const Stepper = ({ className, buttonTitle, steps }) => {
-  const [activeStepIndex, setActiveStepIndex] = useState(0);
+const Stepper = ({ className, buttonTitle, steps, activeStepIndex, goToNextStep, progress }) => {
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
-  const [progress, setProgress] = useState(1 / steps.length);
-
-  const goToNextStep = useCallback(() => {
-    setActiveStepIndex((prev) => prev + 1);
-    setProgress((prev) => prev + 0.25);
-  });
 
   useEffect(() => {
     function handleWindowResize() {
@@ -19,12 +12,13 @@ const Stepper = ({ className, buttonTitle, steps }) => {
     window.addEventListener('resize', handleWindowResize);
     return () => window.removeEventListener('resize', handleWindowResize);
   }, []);
+
   return (
     <div className={`w-full mx-auto mt-4 flex flex-col  ${className}`}>
       {innerWidth < 768 ? (
         <MobileStepper steps={steps} activeStep={activeStepIndex} progress={progress} />
       ) : (
-        <DesktopStepper steps={steps} activeStep={activeStepIndex} />
+        <DesktopStepper steps={steps} activeStep={activeStepIndex} progress={progress} />
       )}
       {buttonTitle ? (
         <div className='ml-auto'>
@@ -40,4 +34,4 @@ const Stepper = ({ className, buttonTitle, steps }) => {
   );
 };
 
-export default MobileStepper;
+export default Stepper;

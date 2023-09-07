@@ -16,8 +16,8 @@ export default function Navbar() {
   const [isOpenDropDown, setIsOpenDrowDown] = useState(false);
 
   return (
-    <header className='fixed top-0 z-[80] w-full'>
-      <nav className='bg-accent-white shadow-secondary'>
+    <header className='sticky top-0 z-[999] w-full'>
+      <nav className='bg-accent-white shadow-secondary px-4 py-3 md:px-8 lg:px-20 lg:py-[11px]'>
         <div className='flex flex-col lg:flex-row items-center justify-between'>
           <div className='flex w-full justify-between px-4 py-3 md:px-6 xl:px-20 border-b border-solid border-[#8d8d8d] lg:border-none'>
             <img src={Logo} alt='JVMLogo' className='w-24 h-11 lg:w-[130px]' />
@@ -34,9 +34,7 @@ export default function Navbar() {
           </div>
           {/* Mobile Navbar */}
           <div
-            className={`w-full p-3 lg:flex lg:flex-row lg:items-center lg:p-0 xl:pr-20 lg:gap-5 transition-all duration-[2000ms] z-auto ${
-              isOpen ? 'flex flex-col justify-between res-height_navbar' : 'hidden'
-            }`}
+            className='hidden mt-3 lg:flex lg:items-center transition-all duration-[2000ms] z-auto'
             id='menu'
           >
             <ul className='w-full flex flex-col lg:flex-row gap-2 hide-scrollbar menu-items'>
@@ -223,14 +221,14 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <section id='herosection' className={`w-full lg:block ${isOpen ? 'hidden' : 'block'}`}>
+      <section id='herosection' className='hidden lg:block w-full'>
         <div className='relative overflow-hidden'>
           <div className='gradient-walker'></div>
           <div className='hero-gradient flex justify-between items-center w-full py-[6px] px-4 md:px-6 xl:px-20'>
             <div className='flex items-center gap-1 md:gap-6'>
               <img src={herosectionLogo} alt='' className='w-full xl:w-[100px]' />
               <div className='flex flex-col'>
-                <span className='text-accent-gold text-xs md:text-base lg:text-lg font-semibold'>
+                <span className='text-accent-gold text-lg font-semibold'>
                   100 years of eminence
                 </span>
                 <p className='text-white text-[10px] md:text-xs lg:text-sm font-normal truncate ... w-[190px] md:w-[310px] xl:w-full'>
