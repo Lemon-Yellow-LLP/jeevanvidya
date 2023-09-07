@@ -1,11 +1,13 @@
 import { useState } from 'react';
+import Leftarrow from '@/assets/Left-arrow.svg';
+import Rightarrow from '@/assets/Right-arrow.svg';
 
 const Pagination = ({ pages, callback, children }) => {
   const [activeStep, setActiveStep] = useState(0);
   return (
     <>
       {children}
-      <div className='flex justify-center gap-4 mt-8'>
+      <div className='hidden md:flex justify-center gap-4 mt-8'>
         {
           <div
             className={`bg-white border-[1px] border-[#E2EAF4] text-primary-black h-10 w-10 rounded-full flex justify-center items-center cursor-pointer ${
@@ -85,6 +87,45 @@ const Pagination = ({ pages, callback, children }) => {
                 />
               </g>
             </svg>
+          </div>
+        }
+      </div>
+      <div className='flex md:hidden justify-center gap-4 mt-8'>
+        {
+          <div
+            className={`${
+              activeStep === 0 ? 'pointer-events-none opacity-50' : 'pointer-events-auto'
+            }`}
+            onClick={() => {
+              setActiveStep((prev) => prev - 1);
+              callback(activeStep - 1);
+            }}
+          >
+            <img src={Leftarrow} alt='Previous' />
+          </div>
+        }
+        {
+          <div className='flex py-2 px-4 bg-primary-2 rounded-3xl'>
+            <span className='text-lg text-accent-white font-medium'>
+              {activeStep + 1} of {pages.length}
+            </span>
+          </div>
+        }
+        {
+          <div>
+            <img
+              src={Rightarrow}
+              alt='Next'
+              className={`${
+                activeStep === pages.length - 1
+                  ? 'pointer-events-none opacity-50'
+                  : 'pointer-events-auto'
+              }`}
+              onClick={() => {
+                setActiveStep((prev) => prev + 1);
+                callback(activeStep + 1);
+              }}
+            />
           </div>
         }
       </div>
