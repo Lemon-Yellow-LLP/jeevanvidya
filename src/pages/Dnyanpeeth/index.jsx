@@ -3,6 +3,7 @@ import DnyanpeethBanner from '@/assets/Dnyanpeeth-banner.png';
 import MediaCard from '@/components/MediaCard';
 import TestImage from '@/assets/Dnyanpeeth-banner.png';
 import Flower from '@/assets/section-flower.png';
+import FlowerImage from '@/assets/flower.png';
 import Pagination from '@/components/Pagination';
 import PageOne from './pagination-pages/PageOne';
 import PageTwo from './pagination-pages/PageTwo';
@@ -86,33 +87,41 @@ const Dnyanpeeth = () => {
         bannerDesc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore '
       />
 
-      <div className='flex flex-col gap-8 blue-gradient'>
-        <div className='flex flex-col py-[40px] px-[16px] lg:p-[80px] lg:flex-row gap-6 lg:gap-[72px]'>
-          <div className='sm:h-fit overflow-hidden flex gap-4 md:gap-6 lg:w-2/4'>
+      <div className='flex flex-col  gap-8 blue-gradient'>
+        <div className='flex flex-col md:flex-row py-[40px] px-[16px] lg:p-[80px] lg:flex-row gap-6 md:gap-4 lg:gap-[72px]'>
+          <div className='md:flex-1 sm:h-fit overflow-hidden flex gap-4 xl:gap-6 lg:w-2/4'>
             <div>
               <img
-                className='object-cover h-[278px] md:h-[536px] w-full mb-20 rounded-2xl'
+                className='object-cover h-[278px] md:h-[291px] xl:h-[536px] w-full mb-20 rounded-2xl'
                 src={AboutImage2}
                 alt='aboutImage'
               />
             </div>
             <div>
               <img
-                className='object-cover h-[278px] md:h-[536px] w-full mt-20 rounded-2xl'
+                className='object-cover h-[278px] md:h-[291px] xl:h-[536px] w-full mt-20 rounded-2xl'
                 src={AboutImage2}
                 alt='aboutImage'
               />
             </div>
           </div>
-          <div className='flex-1 flex flex-col items-start justify-center gap-4'>
-            <img src={Flower} alt='flowerImage' />
+          <div className='md:flex-1 flex flex-col items-start md:justify-start gap-2 xl:gap-4'>
+            <img src={FlowerImage} className='h-10 md:h-auto' alt='flowerImage' />
 
-            <h2 className='text-lg md:text-[32px] not-italic font-semibold'>
+            <h2 className='text-lg md:text-[22px] leading-normal xl:text-[32px] not-italic font-semibold'>
               Divine Knowledge Center
             </h2>
-            <p className='text-sm leading-[22px] md:leading-7 md:text-base not-italic font-normal'>
-              Satguru Shri Wamanrao Pai introduced the Jeevanvidya Philosophy which is "the science
-              of life and the art of living".
+            <p className='text-sm leading-normal xl:text-base not-italic font-normal'>
+              Jeevanvidya World Dnyanpeeth is a unique project of Jeevanvidya Mission with the sole
+              aim of imparting knowledge of Jeevanvidya Philosophy to the entire mankind. The
+              Jeevanvidya Philosophy is innovative, result oriented philosophy of life and art of
+              harmonious living. Understanding and implementing the concepts of this philosophy will
+              help mankind to lead a prosperous, successful and happy life. Jeevanvidya World
+              Dnyanpeeth which is located at a short distance from Mumbai/Pune – in Karjat – a
+              campus which is 10+ acres of land surrounded by hillocks, accompanied by a river, with
+              landscaped gardens and natural beauty. This location has chirping of birds, sound of
+              flowing river water, rustle of leaves and soothing Divine Universal Prayer in
+              background music.
             </p>
           </div>
         </div>
@@ -121,6 +130,7 @@ const Dnyanpeeth = () => {
       {/* <div className='p-20'>
         <Pagination pages={pages} />
       </div> */}
+      <div className='flex'></div>
 
       <ImageDetailContainer {...awardsData} className='bg-background-3' />
 

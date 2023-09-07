@@ -1,11 +1,15 @@
 import React, { memo } from 'react';
 
-function TabButton({ activeTab, label, onChange }) {
+function TabButton({ activeTab, label, onChange, className }) {
   return (
     <div
       className={` ${
-        activeTab === label ? 'bg-[#0084cb28]' : null
-      } w-fit px-6 py-[14px] border-[#0084cb7a] border-[1.5px] rounded-[64px] transition-all duration-300 cursor-pointer text-center`}
+        activeTab === label
+          ? 'bg-secondary-2 border-primary-3'
+          : 'border-secondary-2 bg-accent-white'
+      } w-fit xl:text-base font-medium  px-4 py-2 xl:px-6 xl:py-[14px] border-[1.5px] rounded-[64px] transition-all duration-300 cursor-pointer text-center backdrop-blur-md ${
+        className ? className : 'text-sm'
+      }`}
       onClick={() => onChange(label)}
     >
       {label}

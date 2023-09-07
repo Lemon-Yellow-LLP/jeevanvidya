@@ -7,13 +7,15 @@ export default {
         primary: {
           1: '#0084CB29',
           2: '#0084CB',
+          3: '#0074FC',
           red: '#DE3400',
         },
         secondary: {
           1: '#0084CB75',
+          2: '#0074fc1f',
         },
         accent: {
-          orange: '#F09444',
+          blue: '#0074FC',
           gold: '#FFD63E',
           white: '#F5F5F5',
         },
@@ -39,8 +41,13 @@ export default {
       boxShadow: {
         primary: '0px 3px 48px 0px #0353a33d',
         secondary: '0px 4px 44px 0px #3267e314',
+        3: '0px 3px 48px 0px rgba(3, 83, 163, 0.24)',
+        4: '0px 15px 86px 0px rgba(3, 82, 163, 0.16)',
       },
     },
+    // screens: {
+    //   sm: '576px',
+    // },
   },
   plugins: [],
 };
