@@ -3,7 +3,7 @@ import TabButton from '@/components/TabButton';
 import SectionTitleDescription from '@/components/SectionTitleDescription';
 import TestimonialCard from '@/components/TestimonialCard';
 import HeroBanner from '@/components/HeroBanner';
-import Flower from '@/assets/section-flower.png';
+import Flower from '@/assets/testimonial-flower.svg';
 import testImage from '@/assets/Testimonialimg.png';
 import videoImage from '@/assets/video.png';
 import vectorImg from '@/assets/testimonial_pattern.png';
@@ -30,6 +30,18 @@ const tabOne = [
     {
       title: 'Nitin Gadkari​',
       postion: 'Minister of Road Transport & Highways, Government of India',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+    {
+      title: 'Mandar Sukhatankar',
+      postion: 'Senior Vice President,Bank of America',
+      desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
+      img: testImage,
+    },
+    {
+      title: 'Vaibhav Nimbalkar',
+      postion: 'IPS (ASSAM CADRE)',
       desc: 'Shri Pralhad Wamanrao Pai has introduced simple, effective techniques of Jeevanvidya philosophy through seminars and courses. He is constantly working to transform and make everyones life happier',
       img: testImage,
     },
@@ -128,6 +140,16 @@ const tabOne = [
 
 const tabTwo = [
   [
+    {
+      title: 'Dr. Jean M. Seely',
+      desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
+      img: videoImage,
+    },
+    {
+      title: 'Dr. Jean M. Seely',
+      desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
+      img: videoImage,
+    },
     {
       title: 'Dr. Jean M. Seely',
       desc: 'FRCPC, Section chief of breast imaging,The Ottawa hospital',
@@ -317,9 +339,9 @@ const Testimonial = () => {
         <img
           src={vectorImg}
           alt='vector page'
-          className='absolute right-0 top-[0%] opacity-5 w-[332px] h-[318px] xl:w-[587px] xl:h-[732px]'
+          className='absolute right-0 top-[0%] opacity-10 w-[204px] h-[251px] xl:w-[587px] xl:h-[732px]'
         />
-        <div className='flex justify-between items-center max-md:flex-col'>
+        <div className='flex justify-between items-center max-md:flex-col z-10'>
           <SectionTitleDescription
             className='mx-0'
             align='start'
@@ -363,6 +385,7 @@ const Testimonial = () => {
                       cardTitle={data.title}
                       cardDesc={data.desc}
                       cardImage={data.img}
+                      className="lg:hover:shadow-4"
                     />
                   );
                 })}
@@ -385,12 +408,13 @@ const Testimonial = () => {
                 label={e.label}
                 activeTab={activeTab}
                 onChange={handleTabChange}
+                className="py-[14px] px-3 text-base"
               />
             ) : (
               <span
                 key={index}
                 onClick={() => handleTabChange(e.label)}
-                className='w-fit px-6 py-[14px] transition-all duration-300 cursor-pointer max-md:text-center'
+                className='w-fit text-center text-base py-[14px] px-3'
               >
                 {e.label}
               </span>
