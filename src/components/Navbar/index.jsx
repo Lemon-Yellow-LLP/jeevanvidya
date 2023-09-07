@@ -258,7 +258,7 @@ export default function Navbar() {
                 <p className='text-white text-[10px] md:text-xs lg:text-sm font-normal truncate ... w-[190px] md:w-[310px] xl:w-full'>
                   Remembering, honouring, and celebrating Satguru Shri Wamanrao Pai on his 100th
                   birth anniversary this year.
-                </span>
+                </p>
               </div>
             </div>
             <div className='relative ml-auto cursor-pointer'>

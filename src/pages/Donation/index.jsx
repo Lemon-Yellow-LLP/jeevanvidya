@@ -2,7 +2,6 @@ import HeroBanner from '@/components/HeroBanner';
 import SectionTitleDescription from '@/components/SectionTitleDescription';
 import { data } from '@/data/Donation';
 import React, { useCallback, useEffect, useState } from 'react';
-import Courses from '../Courses';
 import Stepper from '@/components/Stepper';
 import { cn } from '@/lib/utils';
 import TextInputWithIcon from '@/components/InputFields/TextInputWithIcon';
@@ -111,9 +110,7 @@ function DonationStep({ data, goToNextStep, goToPrevStep, setProgress }) {
   }, [values.amount]);
 
   useEffect(() => {
-    console.log(errors);
     setProgress((progress) => {
-      console.log('progress', progress);
       return (
         ((Object.keys(values).length - Object.keys(errors).length) / Object.keys(values).length) *
         100
@@ -475,6 +472,7 @@ function PersonalDetailsStep({ data, goToNextStep, goToPrevStep }) {
         </button>
         <button
           disabled={errors && Object.keys(errors).length}
+          onClick={goToNextStep}
           className='shrink-0 rounded-lg px-6 py-[9px] md:py-4 text-sm font-normal md:text-base md:font-semibold text-white bg-[#0074FC] cursor-pointer flex items-center justify-center disabled:opacity-50 disabled:pointer-events-none'
           type='submit'
         >
@@ -500,7 +498,7 @@ function PersonalDetailsStep({ data, goToNextStep, goToPrevStep }) {
   );
 }
 
-function SuccessStep({ data, goToNextStep, goToPrevStep }) {
+function SuccessStep({  goToNextStep, goToPrevStep }) {
   return (
     <div className='mt-6 mx-auto max-w-3xl'>
       <div className='flex justify-center items-center mb-6 md:mb-8'>
@@ -533,7 +531,7 @@ function SuccessStep({ data, goToNextStep, goToPrevStep }) {
         If you have any questions, please contact{' '}
         <a
           className='text-xs lg:text-lg not-italic font-normal text-primary-2'
-          href={`mailto:${data.email}`}
+          href={`mailto:${data.email }`}
         >
           {data.email}
         </a>{' '}
