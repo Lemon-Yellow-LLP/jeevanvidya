@@ -13,12 +13,16 @@ body {
   width: 0px !important;
   height: 0px !important;
 }
+.active-link {
+  background: #e2eaf4;
+  border-radius: 50px;
+}
 
 @media only screen and (max-width: 767px) {
   .res-height_navbar {
     height: calc(100vh - 72px);
-  } 
-  .menu-items{
+  }
+  .menu-items {
     overflow: auto;
   }
 }
@@ -161,12 +165,12 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
 
 #tooltipContent::after {
-  content: "";
+  content: '';
   position: absolute;
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;

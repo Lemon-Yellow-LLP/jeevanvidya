@@ -57,7 +57,7 @@ const Philosophy = () => {
   }, [active]);
 
   return (
-    <div>
+    <div className='pt-[140px] md:pt-[144px]'>
       <HeroBanner
         bannerImg={PhilosophyBanner}
         bannerTitle='Philosophy'
@@ -73,7 +73,7 @@ const Philosophy = () => {
         description='Satguru Shri Wamanrao Pai evolved the Jeevanvidya Philosophy which is the ‘Science of Life and The Art of Living’based on the teaching of Saints and Sages, his own experiences in life, his deep contemplation and the blessingsof his own Satguru. Jeevanvidya Philosophy is an excellent combination of psychology, parapsychology and metaphysics and has thepotential to help man to achieve both materail prosperity as well as psycho-spiritual progress by making concerted effortsunder the circumstances as they exist.'
         imagePosition='left'
       />
-      <div className='flex flex-col p-4 md:px-10 py-10 gap-6 xl:p-20 xl:gap-10'>
+      <div className='flex flex-col p-4 md:px-8 py-10 gap-6 xl:p-20 xl:gap-10'>
         <SectionTitleDescription
           image={FlowerImage2}
           title='Problems have solutions, always'
@@ -82,18 +82,49 @@ const Philosophy = () => {
           className='!p-0 lg:mb-8 '
         />
         <div className=''>
+          <div className='flex flex-col mb-4 md:hidden'>
+            <div className=' text-xs text-foreground-2 mb-1'>Filter by</div>
+            <button
+              className='flex justify-between border-[1.5px] p-4 border-secondary-2 rounded-lg'
+              onClick={() => setShowMoreTabs(!showMoreTabs)}
+            >
+              <span> {active} </span>
+              <svg
+                width='24'
+                height='24'
+                viewBox='0 0 24 24'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+                className={cn({ 'rotate-180 ': !showMoreTabs })}
+              >
+                <g clipPath='url(#clip0_1609_63369)'>
+                  <path
+                    d='M11.9997 13.172L16.9497 8.22198L18.3637 9.63598L11.9997 16L5.63574 9.63598L7.04974 8.22198L11.9997 13.172Z'
+                    fill='#122135'
+                  />
+                </g>
+                <defs>
+                  <clipPath id='clip0_1609_63369'>
+                    <rect width='24' height='24' fill='white' />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+          </div>
           <div
             className={cn('flex gap-4 flex-wrap', {
-              'h-[60px] overflow-hidden  ': showMoreTabs,
-              'h-auto ': !showMoreTabs,
+              'h-0 md:h-[40px] xl:h-[60px] overflow-hidden justify-center md:justify-start ':
+                showMoreTabs,
+              'h-auto justify-center md:justify-start ': !showMoreTabs,
             })}
           >
             {TabLabelData?.map((item, index) => (
               <TabButton label={item} activeTab={active} onChange={handleClick} key={index} />
             ))}
           </div>
+
           <button
-            className='text-sm lg:text-base font-semibold p-4 text-secondary-1 flex gap-2'
+            className='hidden text-sm lg:text-base font-semibold p-4 text-secondary-1 md:flex gap-2'
             onClick={() => setShowMoreTabs(!showMoreTabs)}
           >
             {showMoreTabs ? 'Show more' : 'Show less'}
@@ -127,19 +158,7 @@ const Philosophy = () => {
           />
         </div>
       </div>
-      {/* <Slider data={SliderData}>
-        {SliderData?.map((item, index) => (
-          <SwiperSlide key={index}>
-            <ImageDetailContainer
-              image={item.image}
-              title={item.title}
-              description={item.description}
-              imagePosition='right'
-            />
-          </SwiperSlide>
-        ))}
-      </Slider> */}
-      <div className='p-4 lg:p-20'>
+      <div className='p-4 md:p-8 xl:p-20'>
         <SectionTitleDescription
           image={FlowerImage2}
           title='Salient Features of Jeevanvidya philosophy'
@@ -186,7 +205,7 @@ const Philosophy = () => {
             align='left'
             className='!p-0 mb-4 lg:mb-8 '
           />
-          <Button variant='outline' className='w-fit'>
+          <Button to='/philosophy-quotes' variant='outline' className='w-fit'>
             View All
           </Button>
         </div>
@@ -240,8 +259,9 @@ export function PhilosophyFeatures() {
             title={v.title}
             description={v.description}
             imagePosition='right'
-            className='!p-0 flex-col-reverse mb-6 lg:mb-8'
+            className='!p-0 xl:!gap-[110px] flex-col-reverse mb-6 lg:mb-8'
             titleClassName='lg:text-[22px] '
+            contentClassName='xl:min-w-[40%]'
           />
         </SwiperSlide>
       ))}
