@@ -6,9 +6,11 @@ const Pagination = ({ pages, callback, children }) => {
     <>
       {children}
       <div className='flex justify-center gap-4 mt-8'>
-        {activeStep !== 0 && (
+        {
           <div
-            className='bg-white border-[1px] border-[#E2EAF4] text-primary-black h-10 w-10 rounded-full flex justify-center items-center cursor-pointer'
+            className={`bg-white border-[1px] border-[#E2EAF4] text-primary-black h-10 w-10 rounded-full flex justify-center items-center cursor-pointer ${
+              activeStep === 0 ? 'pointer-events-none opacity-80' : 'pointer-events-auto'
+            }`}
             onClick={() => {
               setActiveStep((prev) => prev - 1);
               callback(activeStep - 1);
@@ -35,7 +37,7 @@ const Pagination = ({ pages, callback, children }) => {
               </g>
             </svg>
           </div>
-        )}
+        }
         {pages.map((_, index) => (
           <div
             className={`${
@@ -52,9 +54,13 @@ const Pagination = ({ pages, callback, children }) => {
             {index + 1}
           </div>
         ))}
-        {activeStep !== pages.length - 1 && (
+        {
           <div
-            className='bg-white border-[1px] border-[#E2EAF4] text-primary-black h-10 w-10 rounded-full flex justify-center items-center cursor-pointer'
+            className={`bg-white border-[1px] border-[#E2EAF4] text-primary-black h-10 w-10 rounded-full flex justify-center items-center cursor-pointer ${
+              activeStep === pages.length - 1
+                ? 'pointer-events-none opacity-80'
+                : 'pointer-events-auto'
+            }`}
             onClick={() => {
               setActiveStep((prev) => prev + 1);
               callback(activeStep + 1);
@@ -80,7 +86,7 @@ const Pagination = ({ pages, callback, children }) => {
               </g>
             </svg>
           </div>
-        )}
+        }
       </div>
     </>
   );
